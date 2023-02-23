@@ -111,5 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 3
-  cubeplayer: {fileID: 2527333440233947434}
-  acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}
+  _acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}

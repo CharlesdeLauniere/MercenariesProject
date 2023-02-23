@@ -5,16 +5,23 @@ using UnityEngine.UIElements;
 
 public class MouseCollider : MonoBehaviour
 {
-    
-    [SerializeField] private GameObject tile;
-    [SerializeField] private GameObject cubeplayer;
+   
+   
+   
     void OnMouseDown()
     {
+ 
+        float zTile = this.transform.position.z;
+        float xTile = this.transform.position.x;
+        GameObject cubeplayer = GameObject.Find("CubePlayer");
+        if (GameObject.Find($"IndicG { xTile } { zTile }").GetComponent<Renderer>().isVisible==true&& 
+            GameObject.Find($"IndicR {xTile} {zTile}").GetComponent<Renderer>().isVisible == false)
+        {
+            float x = cubeplayer.transform.position.x;
+            float z = cubeplayer.transform.position.z;
+            cubeplayer.transform.position = new Vector3(xTile, 0.2f, zTile);
+            cubeplayer.GetComponent<PlayerMouvement>().onMove(x, z);
+        }
         
-         GameObject cube = GameObject.Find("CubePlayer");
-        float zTile = tile.transform.position.z;
-        float xTile = tile.transform.position.x;
-        cube.transform.position = new Vector3(xTile, 0.2f, zTile);
-        cubeplayer.GetComponent<PlayerMouvement>().onMove();
     }
 }
