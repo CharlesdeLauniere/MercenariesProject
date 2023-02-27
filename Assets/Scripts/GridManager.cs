@@ -2,32 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapGenerator : MonoBehaviour
+public class GridManager : MonoBehaviour
 {
     [SerializeField] GameObject _tileCubeBasic;
-    [SerializeField] GameObject _CubePlayer;
     [SerializeField] GameObject _CubeObstacle;
+    [SerializeField] GameObject _TurnSystem;
     [SerializeField] private int _grandeurGrid;
     [SerializeField] private GameObject _acessibleTileIndicator;
     [SerializeField] private GameObject _inacessibleTileIndicator;
 
+    public static GridManager Instance;
 
-    private void Start()
+    void Awake()
     {
-        GenerateGrid();
-        GameObject player = Instantiate(_CubePlayer, new Vector3(4, 0.2f, 5), Quaternion.identity);
-        player.name = "CubePlayer";
+        Instance= this;
+    }
+   
+        //float x =_CubeObstacle.transform.position.x;
+        //float z = _CubeObstacle.transform.position.z;
+        //GameObject Indic = GameObject.Find($"IndicR {x} {z}");
+        //Indic.GetComponent<MeshRenderer>().enabled = true;
 
-        float x =_CubeObstacle.transform.position.x;
-        float z = _CubeObstacle.transform.position.z;
-        GameObject Indic = GameObject.Find($"IndicR {x} {z}");
-        Indic.GetComponent<MeshRenderer>().enabled = true;
+
        
 
-        player.GetComponent<PlayerMouvement>().OnAwake();
-    }
+        //player.GetComponent<PlayerMouvement>().OnAwake();
+   
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
         GameObject IndicContainer = new GameObject("Indicators");
         GameObject CubeContainer = new GameObject("CubesTileContainer");
@@ -64,20 +66,20 @@ public class MapGenerator : MonoBehaviour
     {
 
     }
-     GameObject [,] getMapMatrix(int _grandeurGrid,GameObject cube)
-    {
-        GameObject[,] cubeGridMap = new GameObject[_grandeurGrid,_grandeurGrid];
-        for (int i = 0; i < _grandeurGrid; i++)
-        {
-            for (int j = 0; j < _grandeurGrid; j++)
-            {  
-              cubeGridMap[i, j] = GameObject.Find($"Cube {i} {j}");
+    // GameObject [,] getMapMatrix(int _grandeurGrid,GameObject cube)
+    //{
+    //    GameObject[,] cubeGridMap = new GameObject[_grandeurGrid,_grandeurGrid];
+    //    for (int i = 0; i < _grandeurGrid; i++)
+    //    {
+    //        for (int j = 0; j < _grandeurGrid; j++)
+    //        {  
+    //          cubeGridMap[i, j] = GameObject.Find($"Cube {i} {j}");
                
 
-            }
-        }
+    //        }
+    //    }
 
-        return cubeGridMap;
-    }
+    //    return cubeGridMap;
+    //}
 
 }

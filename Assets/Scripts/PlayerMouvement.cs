@@ -8,7 +8,7 @@ public class PlayerMouvement : MonoBehaviour
 {
     [SerializeField] private int _deplacements = 3;
 
-    public object Gameobject { get; private set; }
+
 
     public void onMove(float _x, float _z)
     {
@@ -49,7 +49,12 @@ public class PlayerMouvement : MonoBehaviour
 
         }
         _deplacements--;
+        if (_deplacements == 0)
+        {
+           
 
+
+        }
     }
 
    
@@ -63,6 +68,10 @@ public class PlayerMouvement : MonoBehaviour
             {
                 for (int j = 0; j < 3; j++)
                 {
+                if (i + x - 1 < 0 || i + x - 1 > 10 || j + z - 1 < 0 || j + z - 1 > 10)
+                {
+                    continue;
+                }
                    GameObject Indic = GameObject.Find($"IndicG {i+x-1} {j+z-1}");
                    Indic.GetComponent<MeshRenderer>().enabled = true;
                 }

@@ -123,63 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &381101698
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2527333440233947434, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_Name
-      value: CubePlayer (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115218996985486320, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,29 +229,13 @@ GameObject:
   - component: {fileID: 792878326}
   - component: {fileID: 792878325}
   - component: {fileID: 792878324}
-  - component: {fileID: 792878323}
   m_Layer: 0
-  m_Name: CubePlayer
+  m_Name: CubePlayerc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &792878323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792878322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e90e4b1f903c0744598e7eaa10c1af35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _range: 3
-  cubeplayer: {fileID: 792878322}
-  acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}
+  m_IsActive: 0
 --- !u!65 &792878324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -696,8 +623,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileCubeBasic: {fileID: 3123026275325838348, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
-  _CubePlayer: {fileID: 0}
+  _CubePlayer: {fileID: 2527333440233947434, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
+  _CubeObstacle: {fileID: 1431197373}
   _grandeurGrid: 10
+  _acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}
+  _inacessibleTileIndicator: {fileID: 5238278959086377809, guid: adafceb90d16760458991c5b7a5509f6, type: 3}
 --- !u!4 &1620426016
 Transform:
   m_ObjectHideFlags: 0
@@ -706,7 +636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620426014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9683561, y: -0.23543, z: 2.6720173}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
