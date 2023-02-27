@@ -1,67 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Chevalier;
+
+public enum BattleState { Start, Player1Turn, Player2Turn, FinManche, WinPlayer1, WinPlayer2 }
 
 public class RoundSystem : MonoBehaviour
 {
 
-    public Chevalier _chevalier;
+    [SerializeField] GameObject _chevalier;
+    public BattleState state;
 
-    public enum TurnState
-    {
-        processing, 
-        waiting,
-        selecting,
-        action,
-        dead,
-        next
-    }
-    public TurnState currentState;
+    [SerializeField] Transform _spawn1;
+    [SerializeField] Transform _spawn2;
+
     private float cur_cooldown = 0f;
     private float max_cooldown = 5f;
     public Image Timer;
+    [SerializeField] Text dialogueText;
+
+    public BattleHud playerHud;
+
+    Unit playerUnit1;
+
     void Start()
     {
-        currentState = TurnState.processing;
+        state= BattleState.Start;
+        SetupBattle();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetupBattle()
     {
-        switch (currentState)
-        {
-            case (TurnState.processing):
-                UpdateProgressBar();
+        GameObject player1 = Instantiate(_chevalier, _spawn1);
+        playerUnit1 = player1.GetComponent<Unit>();  
+        
+        dialogueText.text = player1.name;
 
-                break;
-
-            case (TurnState.action):
-
-
-                break;
-
-            case (TurnState.selecting):
-
-
-                break;
-
-            case (TurnState.waiting):
-
-
-                break;
-
-            case (TurnState.dead):
-
-
-                break;
-
-            case (TurnState.next):
-
-
-                break;
-        }
+        
+        Instantiate(_chevalier, _spawn2);
     }
 
     void UpdateProgressBar()
@@ -71,12 +50,7 @@ public class RoundSystem : MonoBehaviour
         Timer.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), Timer.transform.localScale.y, Timer.transform.localScale.z);
         if (cur_cooldown >= max_cooldown)
         {
-            currentState = TurnState.next;
+            state = BattleState.Player1Turn;
         }
-    }
-    
-    void finTour()
-    {
-
     }
 }
