@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject _CubePlayer;
 
-    public static GameManager instance;
+    public static GameManager Instance;
     public GameState GameState;
 
     private void Awake()
     {
         {
-            instance = this;
+            Instance = this;
         }
     }
     private void Start()
@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
         {
             case GameState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
+                break;
+            case GameState.SpawnHeroes:
+                UnitManager.Instance.SpawnHeroes();
                 break;
             case GameState.Player1Move:
                 break;
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
 public enum GameState
 {
     GenerateGrid = 0,
-    Player1Move = 1,
-    Player2Move = 2
+    SpawnHeroes = 1,
+    Player1Move = 2,
+    Player2Move = 3
 }

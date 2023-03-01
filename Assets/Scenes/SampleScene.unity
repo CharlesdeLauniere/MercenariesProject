@@ -603,6 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620426016}
   - component: {fileID: 1620426015}
+  - component: {fileID: 1620426017}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -623,8 +624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileCubeBasic: {fileID: 3123026275325838348, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
-  _CubePlayer: {fileID: 2527333440233947434, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
   _CubeObstacle: {fileID: 1431197373}
+  _TurnSystem: {fileID: 1620426014}
   _grandeurGrid: 10
   _acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}
   _inacessibleTileIndicator: {fileID: 5238278959086377809, guid: adafceb90d16760458991c5b7a5509f6, type: 3}
@@ -643,3 +644,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620426017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620426014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1f024ca8efaea41bdb0f7c525c5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CubePlayer: {fileID: 2527333440233947434, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
+  GameState: 0
