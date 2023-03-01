@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e9424235752f31499fd0ad2f1150dd0
+guid: b0032bb8b34b65747b0d245737527b9b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -31,7 +31,50 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mixamo.com
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: AppearRope
+        data: 
+        objectReferenceParameter: {fileID: 919132149155446097, guid: 607a8c2a615a0ce42af399cd8aa89658, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: disappearArrow
+        data: 
+        objectReferenceParameter: {fileID: 919132149155446097, guid: 4cc3b3cfa7c66f84caea26dac6f4b6f4, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -75,8 +118,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 79084b8d9e635c4449155a722d42f0fc
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
