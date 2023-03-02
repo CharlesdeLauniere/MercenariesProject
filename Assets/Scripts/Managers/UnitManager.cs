@@ -8,6 +8,7 @@ public class UnitManager : MonoBehaviour {
 
     private List<ScriptableUnit> _heroes;
     public BaseHero SelectedHero;
+    public BaseHero TargetedHero;
 
 
     private void Awake() {
@@ -47,5 +48,11 @@ public class UnitManager : MonoBehaviour {
     {
         SelectedHero = hero;
         MenuManager.instance.ShowSelectedHero(hero);
+    }
+
+    public void SetTargetedHero(BaseHero TargetHero)
+    {
+        TargetedHero = TargetHero;
+        MenuManager.instance.ShowSelectedHero(TargetHero);
     }
 }

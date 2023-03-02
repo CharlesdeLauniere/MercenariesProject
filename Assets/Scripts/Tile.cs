@@ -39,22 +39,25 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.BluePlayerTurn && 
+        if (GameManager.Instance.GameState != GameState.BluePlayerTurn &&
             GameManager.Instance.GameState != GameState.RedPlayerTurn) return;
 
-        if (OccupiedUnit != null && GameManager.Instance.GameState == GameState.RedPlayerTurn) {
-            if (OccupiedUnit.Faction == Faction.Red) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-            else {
-                if(UnitManager.Instance.SelectedHero != null) {
+        if (OccupiedUnit != null && GameManager.Instance.GameState == GameState.BluePlayerTurn)
+        {
+            if (OccupiedUnit.Faction == Faction.Blue) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            else
+            {
+                if (UnitManager.Instance.SelectedHero != null)
+                {
                     var enemyHero = (BaseHero)OccupiedUnit;
-                    Destroy(enemyHero.gameObject);
+                    UnitManager.Instance.SetTargetedHero(enemyHero);
                     UnitManager.Instance.SetSelectedHero(null);
                 }
             }
         }
         else
         {
-            if(UnitManager.Instance.SelectedHero != null)
+            if (UnitManager.Instance.SelectedHero != null)
             {
                 SetUnit(UnitManager.Instance.SelectedHero);
                 UnitManager.Instance.SetSelectedHero(null);
