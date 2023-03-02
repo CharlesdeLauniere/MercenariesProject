@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.RedPlayerTurn:
                 break;
+            case GameState.GameEnd:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
 
@@ -50,5 +52,7 @@ public enum GameState
     GenerateGrid = 0,
     SpawnHeroes = 1,
     BluePlayerTurn = 2,
-    RedPlayerTurn = 3
+    RedPlayerTurn = 3,
+    GameEnd = 4
+
 }

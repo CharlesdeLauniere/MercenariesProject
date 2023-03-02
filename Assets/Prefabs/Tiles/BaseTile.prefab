@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 7039685337032337114}
   - component: {fileID: 1670887405952466367}
   - component: {fileID: 6720481738330664844}
-  - component: {fileID: 6551999664760581020}
-  - component: {fileID: 8965245025075875980}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BaseTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,29 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &6551999664760581020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3123026275325838348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4dd72130090324f88bbe026413be84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8965245025075875980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3123026275325838348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aaf1d3c1adee0a4aab313860ca24047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isWalkable: 1
-  OccupiedUnit: {fileID: 0}

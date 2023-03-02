@@ -6,13 +6,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField] Tile _tileCubeBasic;
-    //[SerializeField] Tile _CubeObstacle;
+    [SerializeField] Tile _grassTile, _mountainTile;
     [SerializeField] GameObject _TurnSystem;
-    [SerializeField] private int _longueurGrid;
-    [SerializeField] private int _largeurGrid;
-    [SerializeField] private GameObject _acessibleTileIndicator;
-    [SerializeField] private GameObject _inacessibleTileIndicator;
+    [SerializeField] private int _longueurGrid, _largeurGrid;
+    [SerializeField] private GameObject _acessibleTileIndicator, _inacessibleTileIndicator;
 
     public static GridManager Instance;
 
@@ -35,10 +32,13 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < _largeurGrid; j++)
             {
-                var spawnedTile = Instantiate(_tileCubeBasic, new Vector3(i, -0.38f, j), Quaternion.identity);
+                //better biome gen a mettre
+                var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
+                var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i} {j}";
-                //spawnedTile.transform.SetParent(CubeContainer.transform);
-                /*var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
+
+                /*
+                spawnedTile.transform.SetParent(CubeContainer.transform);var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
                 indicatorG.name = $"IndicG {i} {j}";
                 indicatorG.transform.SetParent(IndicContainer.transform);
                 var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
@@ -47,7 +47,8 @@ public class GridManager : MonoBehaviour
 
                 spawnedTile.Init(i, j);
 
-                if ( (i + j)%2 != 0) spawnedTile.GetComponent<Renderer>().material.color = Color.black;
+                var isOffset = ((i + j) % 2 != 0);
+                spawnedTile.Init(isOffset);
                 
                 _tiles[new Vector2(i, j)] = spawnedTile;
             }
@@ -74,6 +75,7 @@ public class GridManager : MonoBehaviour
         }
         return null;
     }
+    
   
 
 }
