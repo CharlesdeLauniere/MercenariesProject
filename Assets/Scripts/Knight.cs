@@ -23,8 +23,9 @@ public class Knight : BaseHero
     public override void attaque1(BaseHero baseHero)
     {
 
-       
+       OnMouseDown();
         
+       
 
         /*if (OccupiedTile != null && GameManager.Instance.GameState == GameState.BluePlayerTurn)
         {
