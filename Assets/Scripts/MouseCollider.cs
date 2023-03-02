@@ -13,15 +13,18 @@ public class MouseCollider : MonoBehaviour
  
         float zTile = this.transform.position.z;
         float xTile = this.transform.position.x;
-        GameObject cubeplayer = GameObject.Find("CubePlayer");
+        
         if (GameObject.Find($"IndicG { xTile } { zTile }").GetComponent<Renderer>().isVisible==true&& 
             GameObject.Find($"IndicR {xTile} {zTile}").GetComponent<Renderer>().isVisible == false)
         {
-            float x = cubeplayer.transform.position.x;
-            float z = cubeplayer.transform.position.z;
-            cubeplayer.transform.position = new Vector3(xTile, 0.2f, zTile);
-            cubeplayer.GetComponent<PlayerMouvement>().onMove(x, z);
+            
         }
-        
+
+        //float x = player.transform.position.x;
+        //float z = player.transform.position.z;
+        //player.transform.position = new Vector3(xTile, 0.2f, zTile);
+        //player.GetComponent<PlayerMouvement>().onMove(x, z);
+
+        //GameObject player = GameObject.Find("CubePlayer1");
     }
 }
