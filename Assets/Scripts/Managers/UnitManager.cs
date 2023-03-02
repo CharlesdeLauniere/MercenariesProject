@@ -7,6 +7,8 @@ public class UnitManager : MonoBehaviour {
     public static UnitManager Instance;
 
     private List<ScriptableUnit> _heroes;
+    public BaseHero SelectedHero;
+
 
     private void Awake() {
         Instance = this;
@@ -18,20 +20,32 @@ public class UnitManager : MonoBehaviour {
     
     public void SpawnHeroes()
     {
-        var heroCount = 6;
+        var heroCount = 3;
         for (int i = 0; i < heroCount; i++)
         {
-            var heroPrefab = GetSpecificHero<BaseHero>(Faction.Blue);
-            var spawnedHero = Instantiate(heroPrefab);
-            var randomSpawnTile = GridManager.Instance.GetHeroSpawnTile();
+            var redHeroPrefab = GetSpecificHero<BaseHero>(Faction.Red);
+            var redSpawnedHero = Instantiate(redHeroPrefab);
+            var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
 
-            randomSpawnTile.SetUnit(spawnedHero);
+            var blueHeroPrefab = GetSpecificHero<BaseHero>(Faction.Blue);
+            var blueSpawnedHero = Instantiate(blueHeroPrefab);
+            var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
+
+            redRandomSpawnTile.SetUnit(redSpawnedHero);
+            blueRandomSpawnTile.SetUnit(blueSpawnedHero);
         }
+        GameManager.Instance.ChangeState(GameState.RedPlayerTurn);
     }
+
 
     private T GetSpecificHero<T>(Faction faction) where T : BaseHero
     {
         return (T)_heroes.Where(u => u.Faction == faction).OrderBy(o=> Random.value).FirstOrDefault().HeroPrefab;
 
+    }
+    public void SetSelectedHero(BaseHero hero)
+    {
+        SelectedHero = hero;
+        MenuManager.instance.ShowSelectedHero(hero);
     }
 }

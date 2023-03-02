@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour
     public GameState GameState;
 
     private void Awake()
-    {
-        {
+    { 
             Instance = this;
-        }
     }
     private void Start()
     {
@@ -34,9 +32,10 @@ public class GameManager : MonoBehaviour
             case GameState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeroes();
                 break;
-            case GameState.Player1Move:
+            case GameState.BluePlayerTurn:
+
                 break;
-            case GameState.Player2Move:
+            case GameState.RedPlayerTurn:
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -44,25 +43,12 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    //public void Begin()
-    //{
-    //    GameObject player1 = Instantiate(_CubePlayer, new Vector3(4, 0.2f, 5), Quaternion.identity);
-    //    player1.name = "CubePlayer1";
-    //    //GameObject player2 = Instantiate(_CubePlayer, new Vector3(7, 0.2f, 2), Quaternion.identity);
-    //    //player2.name = "CubePlayer2";
-
-
-
-    //    Round(player1);
-    //    //Round(player2);
-
-    //}
 
 }
 public enum GameState
 {
     GenerateGrid = 0,
     SpawnHeroes = 1,
-    Player1Move = 2,
-    Player2Move = 3
+    BluePlayerTurn = 2,
+    RedPlayerTurn = 3
 }
