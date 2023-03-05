@@ -113,3 +113,5 @@ MonoBehaviour:
   UnitName: Knight
   OccupiedTile: {fileID: 0}
   Faction: 0
+  _maxHealth: 0
+  _currentHealth: 0

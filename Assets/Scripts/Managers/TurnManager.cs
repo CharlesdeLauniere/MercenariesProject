@@ -2,9 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Chevalier : MonoBehaviour
+public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance;
+    public TurnState currentState;
+    private float cur_cooldown = 0f;
+    private float max_cooldown = 5f;
+    public Image Timer;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public enum TurnState
     {
         processing,
@@ -14,49 +24,32 @@ public class Chevalier : MonoBehaviour
         dead,
         next
     }
-    public TurnState currentState;
-    private float cur_cooldown = 0f;
-    private float max_cooldown = 5f;
-    public Image Timer;
+    
+    
     void Start()
     {
         currentState = TurnState.processing;
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (currentState)
         {
             case (TurnState.processing):
                 UpdateProgressBar();
-
                 break;
-
             case (TurnState.action):
-
-
                 break;
-
             case (TurnState.selecting):
-
-
                 break;
-
             case (TurnState.waiting):
-
-
                 break;
-
             case (TurnState.dead):
-
-
                 break;
-
             case (TurnState.next):
-
-
+                
                 break;
+            default:break;
         }
     }
 

@@ -17,31 +17,29 @@ public class UnitManager : MonoBehaviour {
         _heroes = Resources.LoadAll<ScriptableUnit>("Heroes").ToList();
         
     }
-
-    
-    public void SpawnHeroes()
+    public void SpawnHeroes(List<string> spawnName)
     {
         var heroCount = 3;
         for (int i = 0; i < heroCount; i++)
         {
-            var redHeroPrefab = GetSpecificHero<BaseHero>(Faction.Red);
+            var redHeroPrefab = GetSpecificHeroToSpawn<BaseHero>(Faction.Red, spawnName[i]);
             var redSpawnedHero = Instantiate(redHeroPrefab);
             var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
 
-            var blueHeroPrefab = GetSpecificHero<BaseHero>(Faction.Blue);
+            var blueHeroPrefab = GetSpecificHeroToSpawn<BaseHero>(Faction.Blue, spawnName[i]);
             var blueSpawnedHero = Instantiate(blueHeroPrefab);
             var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
 
             redRandomSpawnTile.SetUnit(redSpawnedHero);
             blueRandomSpawnTile.SetUnit(blueSpawnedHero);
         }
-        GameManager.Instance.ChangeState(GameState.RedPlayerTurn);
+        GameManager.Instance.ChangeState(GameState.TurnBasedCombat);
     }
 
 
-    private T GetSpecificHero<T>(Faction faction) where T : BaseHero
+    private T GetSpecificHeroToSpawn<T>(Faction faction, string _heroName) where T : BaseHero
     {
-        return (T)_heroes.Where(u => u.Faction == faction).OrderBy(o=> Random.value).FirstOrDefault().HeroPrefab;
+        return (T)_heroes.Find(x => x.HeroPrefab.UnitName == _heroName && x.Faction == faction).HeroPrefab;
 
     }
     public void SetSelectedHero(BaseHero hero)
@@ -50,9 +48,9 @@ public class UnitManager : MonoBehaviour {
         MenuManager.instance.ShowSelectedHero(hero);
     }
 
-    public void SetTargetedHero(BaseHero TargetHero)
+    public void SetTargetedHero(BaseHero hero)
     {
-        TargetedHero = TargetHero;
-        MenuManager.instance.ShowSelectedHero(TargetHero);
+        TargetedHero = hero;
+        MenuManager.instance.ShowSelectedHero(hero);
     }
 }

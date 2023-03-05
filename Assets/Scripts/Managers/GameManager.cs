@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public GameState GameState;
-
+    public List<string> _spawnName = new List<string> {"Knight", "Archer", "Mage" };
     private void Awake()
     { 
             Instance = this;
@@ -26,17 +26,16 @@ public class GameManager : MonoBehaviour
         GameState = newState;
         switch (newState)
         {
+            case GameState.SelectHero:
+                break;
             case GameState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.SpawnHeroes:
-                UnitManager.Instance.SpawnHeroes();
+                UnitManager.Instance.SpawnHeroes(_spawnName);
                 break;
-            case GameState.BluePlayerTurn:
-
-                break;
-            case GameState.RedPlayerTurn:
-                break;
+            case GameState.TurnBasedCombat:
+            break;
             case GameState.GameEnd:
                 break;
             default:
@@ -49,10 +48,10 @@ public class GameManager : MonoBehaviour
 }
 public enum GameState
 {
-    GenerateGrid = 0,
-    SpawnHeroes = 1,
-    BluePlayerTurn = 2,
-    RedPlayerTurn = 3,
+    SelectHero = 0,
+    GenerateGrid = 1,
+    SpawnHeroes = 2,
+    TurnBasedCombat = 3,
     GameEnd = 4
 
 }

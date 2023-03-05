@@ -39,10 +39,9 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.BluePlayerTurn &&
-            GameManager.Instance.GameState != GameState.RedPlayerTurn) return;
+        if (GameManager.Instance.GameState != GameState.TurnBasedCombat) return;
 
-        if (OccupiedUnit != null && GameManager.Instance.GameState == GameState.BluePlayerTurn)
+        if (OccupiedUnit != null ) //&& TurnManager.Instance.TurnState == TurnState.Movement
         {
             if (OccupiedUnit.Faction == Faction.Blue) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
             else

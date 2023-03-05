@@ -26,7 +26,7 @@ public class GridManager : MonoBehaviour
     public void GenerateGrid()
     {
         _tiles = new Dictionary<Vector2, Tile>();
-       // GameObject IndicContainer = new GameObject("Indicators");
+        //GameObject IndicContainer = new GameObject("Indicators");
         //GameObject CubeContainer = new GameObject("CubesTileContainer");
         for (int i = 0; i < _longueurGrid; i++)
         {
@@ -46,10 +46,8 @@ public class GridManager : MonoBehaviour
                 indicatorR.transform.SetParent(IndicContainer.transform);*/
 
                 spawnedTile.Init(i, j);
-
                 var isOffset = ((i + j) % 2 != 0);
                 spawnedTile.Init(isOffset);
-                
                 _tiles[new Vector2(i, j)] = spawnedTile;
             }
             
@@ -75,7 +73,4 @@ public class GridManager : MonoBehaviour
         }
         return null;
     }
-    
-  
-
 }

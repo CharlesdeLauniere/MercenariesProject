@@ -5,22 +5,16 @@ using UnityEngine;
 
 public class Knight : BaseHero
 {
-
+    public new string UnitName = "Knight";
     public BaseHero OccupiedUnit;
     public Knight _knight;
-    
-    void Start()
+
+    private void Awake()
     {
-        
+        UnitName = "Knight";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public override void attaque1(BaseHero baseHero)
+    public override void baseAttack(BaseHero baseHero)
     {
 
        OnMouseDown();
@@ -41,12 +35,12 @@ public class Knight : BaseHero
         }*/
     }
 
-    public override void habileté1(BaseHero baseHero)
+    public override void ability1(BaseHero baseHero)
     {
 
     }
 
-    public override void habileté2(BaseHero baseHero)
+    public override void ability2(BaseHero baseHero)
     {
 
     }
