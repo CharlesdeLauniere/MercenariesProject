@@ -5,18 +5,32 @@ using UnityEngine.XR;
 
 public class bowEvent : MonoBehaviour
 {
+
+
+    private Animator anim;
+    [SerializeField] GameObject ArrowProjectile;
+    [SerializeField] Transform ArrowPosition;
+
     // Start is called before the first frame update
     void Start()
     {
 
-
+        anim = GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (anim != null)
+            {
+                // play Bounce but start at a quarter of the way though
+                anim.Play("Base Layer.drawArrow", 0, 0.05f);
 
+            }
+        }
     }
 
     public void disappearArrow()
@@ -25,6 +39,7 @@ public class bowEvent : MonoBehaviour
         GameObject Arrow = GameObject.Find("Arrow");
         visible = Arrow.GetComponent<Renderer>();
         visible.enabled = false;
+        Instantiate(ArrowProjectile, ArrowPosition.transform.position, ArrowProjectile.transform.rotation, GameObject.FindWithTag("Enemy").transform);
     }
 
     public void AppearArrow()
