@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mixamo_com
+  m_Name: Impact
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -192,7 +192,7 @@ AnimatorStateMachine:
     m_Position: {x: 390, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5058436835523887736}
-    m_Position: {x: 690, y: -90, z: 0}
+    m_Position: {x: 670, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2817313388362451381}
     m_Position: {x: 350, y: -190, z: 0}
