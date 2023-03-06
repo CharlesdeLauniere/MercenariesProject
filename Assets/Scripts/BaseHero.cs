@@ -30,4 +30,12 @@ public class BaseHero : MonoBehaviour
     {
 
     }
+
+    public void Dead(BaseHero baseHero)
+    {
+        if(baseHero._currentHealth <= 0)
+        {
+            Destroy(baseHero);
+        }
+    }
 }
