@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ArcherBlue
   m_EditorClassIdentifier: 
   Faction: 0
-  HeroPrefab: {fileID: -434107535822110743, guid: 1cd0d9ba5fd4b3349bcf9379779de051, type: 3}
+  HeroPrefab: {fileID: -2176353396473353607, guid: 1cd0d9ba5fd4b3349bcf9379779de051, type: 3}

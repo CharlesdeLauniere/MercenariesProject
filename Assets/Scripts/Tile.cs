@@ -41,16 +41,20 @@ public class Tile : MonoBehaviour
     {
         if (GameManager.Instance.GameState != GameState.TurnBasedCombat) return;
 
-        if (OccupiedUnit != null ) //&& TurnManager.Instance.TurnState == TurnState.Movement
+        if (OccupiedUnit != null) //&&(TurnManager.Instance.currentState == TurnManager.TurnState.next)
         {
-            if (OccupiedUnit.Faction == Faction.Blue) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            if (OccupiedUnit.Faction == Faction.Red) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
             else
             {
                 if (UnitManager.Instance.SelectedHero != null)
                 {
                     var enemyHero = (BaseHero)OccupiedUnit;
                     UnitManager.Instance.SetTargetedHero(enemyHero);
-                    UnitManager.Instance.SetSelectedHero(null);
+                    MenuManager.instance.ShowAbilities(UnitManager.Instance.SelectedHero);
+                    UnitManager.Instance.SelectedHero.BaseAttack(enemyHero);
+                   // UnitManager.Instance.SetSelectedHero(null);
+                   // UnitManager.Instance.SetTargetedHero(null);
+
                 }
             }
         }

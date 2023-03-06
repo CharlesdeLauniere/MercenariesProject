@@ -17,6 +17,7 @@ public class TurnManager : MonoBehaviour
 
     public enum TurnState
     {
+        startCombat,
         processing,
         waiting,
         selecting,
@@ -26,17 +27,21 @@ public class TurnManager : MonoBehaviour
     }
     
     
-    void Start()
-    {
-        currentState = TurnState.processing;
-    }
+    //void Start()
+    //{
+    //    currentState = TurnState.processing;
+    //}
 
-    void Update()
+    public void switchBetweenTurnStates(TurnState turnState)
     {
+        currentState = turnState;
         switch (currentState)
         {
+            case (TurnState.startCombat):
+                BaseHero hero = UnitManager.Instance.baseHeroes[0];
+                UnitManager.Instance.SetSelectedHero(hero);
+                break;
             case (TurnState.processing):
-                UpdateProgressBar();
                 break;
             case (TurnState.action):
                 break;
@@ -53,14 +58,14 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    void UpdateProgressBar()
-    {
-        cur_cooldown = cur_cooldown + Time.deltaTime;
-        float calc_cooldown = cur_cooldown / max_cooldown;
-        Timer.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), Timer.transform.localScale.y, Timer.transform.localScale.z);
-        if (cur_cooldown >= max_cooldown)
-        {
-            currentState = TurnState.next;
-        }
-    }
+    //void Update()
+    //{
+    //    cur_cooldown = cur_cooldown + Time.deltaTime;
+    //    float calc_cooldown = cur_cooldown / max_cooldown;
+    //    Timer.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), Timer.transform.localScale.y, Timer.transform.localScale.z);
+    //    if (cur_cooldown >= max_cooldown)
+    //    {
+    //        currentState = TurnState.next;
+    //    }
+    //}
 }

@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class Knight : BaseHero
 {
-    public new string UnitName = "Knight";
-    public BaseHero OccupiedUnit;
-    public Knight _knight;
 
     private void Awake()
     {
         UnitName = "Knight";
+        _maxHealth = 200;
+        _currentHealth = _maxHealth;
+        _baseAttackDmg = 15;
+        
     }
 
-    public override void baseAttack(BaseHero baseHero)
+    public override void BaseAttack(BaseHero baseHero)
     {
+        baseHero.TakeDamage(_baseAttackDmg);
 
-       OnMouseDown();
-        
-       
+        //OnMouseDown();
+
+
 
         /*if (OccupiedTile != null && GameManager.Instance.GameState == GameState.BluePlayerTurn)
         {
@@ -35,31 +37,31 @@ public class Knight : BaseHero
         }*/
     }
 
-    public override void ability1(BaseHero baseHero)
+    public override void Ability1(BaseHero baseHero)
     {
 
     }
 
-    public override void ability2(BaseHero baseHero)
+    public override void Ability2(BaseHero baseHero)
     {
 
     }
 
-    private void OnMouseDown()
-    {
-        if (OccupiedUnit != null)
-        {
-            if (OccupiedUnit.Faction != _knight.Faction) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-            else
-            {
-                if (UnitManager.Instance.SelectedHero != null)
-                {
-                    BaseHero baseHero = (BaseHero)OccupiedUnit;
-                    UnitManager.Instance.SetTargetedHero(baseHero);
-                    UnitManager.Instance.SetSelectedHero(null);
-                }
-            }
-        }
+    //private void OnMouseDown()
+    //{
+    //    if (OccupiedUnit != null)
+    //    {
+    //        if (OccupiedUnit.Faction != _knight.Faction) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+    //        else
+    //        {
+    //            if (UnitManager.Instance.SelectedHero != null)
+    //            {
+    //                BaseHero baseHero = (BaseHero)OccupiedUnit;
+    //                UnitManager.Instance.SetTargetedHero(baseHero);
+    //                UnitManager.Instance.SetSelectedHero(null);
+    //            }
+    //        }
+    //    }
        
-    }
+    //}
 }

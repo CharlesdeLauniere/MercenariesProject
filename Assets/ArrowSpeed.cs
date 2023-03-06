@@ -6,7 +6,8 @@ using UnityEngine;
 public class ArrowSpeed : MonoBehaviour
 {
 
-    [SerializeField] private float _speed = 20f;
+    private float _speed = 200f;
+    float realSpeed = 0f;
     [SerializeField] Vector3 targetPosition;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,14 @@ public class ArrowSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition - new Vector3(0, 0, 2.98f), _speed);
+        realSpeed = _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, realSpeed);
+        if(transform.position == targetPosition)
+        {
+
+            Destroy(gameObject);
+
+        }
+
     }
 }

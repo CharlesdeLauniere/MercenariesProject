@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5092096207382755768}
   - component: {fileID: 5092096207382755783}
   - component: {fileID: 5092096207382755782}
-  - component: {fileID: -6443530122240811387}
+  - component: {fileID: 3219405440933528504}
   m_Layer: 0
   m_Name: KnightRed
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6443530122240811387
+--- !u!114 &3219405440933528504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,11 +107,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5092096207382755781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ebabd54d7de26408d73d0619250262, type: 3}
+  m_Script: {fileID: 11500000, guid: c8f97905a108a4a4daff264b848d97a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UnitName: Knight
   OccupiedTile: {fileID: 0}
-  Faction: 1
+  Faction: 0
   _maxHealth: 0
   _currentHealth: 0
+  _baseAttackDmg: 0
+  UnitName: Knight
+  OccupiedUnit: {fileID: 0}
+  _knight: {fileID: 0}

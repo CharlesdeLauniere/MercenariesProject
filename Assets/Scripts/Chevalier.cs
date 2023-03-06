@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Chevalier : MonoBehaviour
 {
-    public enum TurnState
+    public enum TurnStatex
     {
         processing,
         waiting,
@@ -14,46 +14,46 @@ public class Chevalier : MonoBehaviour
         dead,
         next
     }
-    public TurnState currentState;
+    public TurnStatex currentStatex;
     private float cur_cooldown = 0f;
     private float max_cooldown = 5f;
     public Image Timer;
     void Start()
     {
-        currentState = TurnState.processing;
+        currentStatex = TurnStatex.processing;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        switch (currentStatex)
         {
-            case (TurnState.processing):
+            case (TurnStatex.processing):
                 UpdateProgressBar();
 
                 break;
 
-            case (TurnState.action):
+            case (TurnStatex.action):
 
 
                 break;
 
-            case (TurnState.selecting):
+            case (TurnStatex.selecting):
 
 
                 break;
 
-            case (TurnState.waiting):
+            case (TurnStatex.waiting):
 
 
                 break;
 
-            case (TurnState.dead):
+            case (TurnStatex.dead):
 
 
                 break;
 
-            case (TurnState.next):
+            case (TurnStatex.next):
 
 
                 break;
@@ -67,7 +67,7 @@ public class Chevalier : MonoBehaviour
         Timer.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), Timer.transform.localScale.y, Timer.transform.localScale.z);
         if (cur_cooldown >= max_cooldown)
         {
-            currentState = TurnState.next;
+            currentStatex = TurnStatex.next;
         }
     }
 }

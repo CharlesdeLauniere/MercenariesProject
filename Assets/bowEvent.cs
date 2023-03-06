@@ -39,7 +39,7 @@ public class bowEvent : MonoBehaviour
         GameObject Arrow = GameObject.Find("Arrow");
         visible = Arrow.GetComponent<Renderer>();
         visible.enabled = false;
-        Instantiate(ArrowProjectile, ArrowPosition.transform.position, ArrowProjectile.transform.rotation, GameObject.FindWithTag("Enemy").transform);
+        Instantiate(ArrowProjectile, ArrowPosition.transform.position, ArrowProjectile.transform.rotation);
     }
 
     public void AppearArrow()

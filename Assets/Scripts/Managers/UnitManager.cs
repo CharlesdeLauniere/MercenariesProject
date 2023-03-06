@@ -7,6 +7,7 @@ public class UnitManager : MonoBehaviour {
     public static UnitManager Instance;
 
     private List<ScriptableUnit> _heroes;
+    public List <BaseHero> baseHeroes= new List<BaseHero>();
     public BaseHero SelectedHero;
     public BaseHero TargetedHero;
 
@@ -32,6 +33,9 @@ public class UnitManager : MonoBehaviour {
 
             redRandomSpawnTile.SetUnit(redSpawnedHero);
             blueRandomSpawnTile.SetUnit(blueSpawnedHero);
+            baseHeroes.Add(redHeroPrefab);
+            baseHeroes.Add(blueHeroPrefab);
+
         }
         GameManager.Instance.ChangeState(GameState.TurnBasedCombat);
     }
@@ -50,7 +54,8 @@ public class UnitManager : MonoBehaviour {
 
     public void SetTargetedHero(BaseHero hero)
     {
+        MenuManager.instance.ShowTargetedHero(hero);
         TargetedHero = hero;
-        MenuManager.instance.ShowSelectedHero(hero);
+        
     }
 }

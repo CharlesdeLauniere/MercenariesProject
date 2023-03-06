@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
 {
    public static MenuManager instance;
 
-    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject;
+    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject, _attackButton, _targetHeroObject;
     private void Awake()
     {
         instance= this; 
@@ -41,6 +41,29 @@ public class MenuManager : MonoBehaviour
         }
         _selectedHeroObject.GetComponentInChildren<TextMeshProUGUI>().text = hero.UnitName;
         _selectedHeroObject.SetActive(true);
+       
 
+    }
+    public void ShowTargetedHero(BaseHero hero)
+    {
+        if (hero == null)
+        {
+            _targetHeroObject.SetActive(false);
+            return;
+        }
+        _targetHeroObject.GetComponentInChildren<TextMeshProUGUI>().text = hero.UnitName;
+        _targetHeroObject.SetActive(true);
+
+
+    }
+
+    public void ShowAbilities(BaseHero hero)
+    {
+        if (hero == null)
+        {
+            _attackButton.SetActive(false);
+            return;
+        }
+        _attackButton.SetActive(true);
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8475307351451078034}
   - component: {fileID: 8475307351451078033}
   - component: {fileID: 8475307351451078032}
-  - component: {fileID: -434107535822110743}
+  - component: {fileID: -8034861906036298127}
   m_Layer: 0
   m_Name: KnightBlue
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-434107535822110743
+--- !u!114 &-8034861906036298127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8475307351451078038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ebabd54d7de26408d73d0619250262, type: 3}
+  m_Script: {fileID: 11500000, guid: c8f97905a108a4a4daff264b848d97a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UnitName: Knight
@@ -115,3 +115,7 @@ MonoBehaviour:
   Faction: 0
   _maxHealth: 0
   _currentHealth: 0
+  _baseAttackDmg: 0
+  UnitName: Knight
+  OccupiedUnit: {fileID: 0}
+  _knight: {fileID: 0}

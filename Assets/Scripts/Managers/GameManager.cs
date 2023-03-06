@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR;
+using static TurnManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         GameState = newState;
         switch (newState)
         {
-            case GameState.SelectHero:
+            case GameState.SelectHeroes:
                 break;
             case GameState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SpawnHeroes(_spawnName);
                 break;
             case GameState.TurnBasedCombat:
+                TurnManager.Instance.switchBetweenTurnStates(TurnState.startCombat);
             break;
             case GameState.GameEnd:
                 break;
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
 }
 public enum GameState
 {
-    SelectHero = 0,
+    SelectHeroes = 0,
     GenerateGrid = 1,
     SpawnHeroes = 2,
     TurnBasedCombat = 3,
