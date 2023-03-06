@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8475307351451078034}
   - component: {fileID: 8475307351451078033}
   - component: {fileID: 8475307351451078032}
-  - component: {fileID: -434107535822110743}
   - component: {fileID: 9084692416387123389}
   m_Layer: 0
   m_Name: ArcherRed
@@ -99,23 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-434107535822110743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8475307351451078038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ebabd54d7de26408d73d0619250262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnitName: Archer
-  OccupiedTile: {fileID: 0}
-  Faction: 1
-  _maxHealth: 0
-  _currentHealth: 0
 --- !u!114 &9084692416387123389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72feb27fae2c5f44dad0bb447bb5c353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: 
+  UnitName: Archer
   OccupiedTile: {fileID: 0}
-  Faction: 0
+  Faction: 1
   _maxHealth: 0
   _currentHealth: 0
+  _baseAttackDmg: 0

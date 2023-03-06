@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,29 +6,36 @@ using UnityEngine;
 public class BaseHero : MonoBehaviour
 {
 
-    public string UnitName ="";
+    public string UnitName;
     public Tile OccupiedTile;
     public Faction Faction;
     public int _maxHealth;
     public int _currentHealth;
+    public int _baseAttackDmg;
 
 
-    public string getUnitName()
-        {
+    public string GetUnitName()
+    {
         return this.UnitName;
-        }
-    public virtual void baseAttack(BaseHero baseHero)
+    }
+    public virtual void BaseAttack(BaseHero baseHero)
     {
         
     }
 
-    public virtual void ability1(BaseHero baseHero)
+    public virtual void Ability1(BaseHero baseHero)
     {
 
     }
 
-    public virtual void ability2(BaseHero baseHero)
+    public virtual void Ability2(BaseHero baseHero)
     {
 
+    }
+
+    public void TakeDamage(int baseAttackDmg)
+    {
+        if (_currentHealth - baseAttackDmg > 0) _currentHealth -= baseAttackDmg;
+        
     }
 }
