@@ -6,12 +6,14 @@ using UnityEngine.UIElements;
 public class Tile : MonoBehaviour
 {
     public string TileName;
-    [SerializeField] private bool _isWalkable;
+    public Color TextColor, TextBoxColor;
+    [SerializeField] private bool _isWalkable, _unitInRange;
     [SerializeField] protected Renderer _renderer;
     [SerializeField] protected Color _baseColour, _offsetColour, _highlightColour;
 
     public BaseHero OccupiedUnit;
-    public bool Walkable => _isWalkable && OccupiedUnit == null;
+
+    public bool Walkable => _isWalkable && OccupiedUnit == null ;
 
     public void Init(bool isOffset)
     {
@@ -26,7 +28,7 @@ public class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         _renderer.material.color = _highlightColour;
-        MenuManager.instance.ShowTileInfo(this);
+        MenuManager.Instance.ShowTileInfo(this);
     }
     private void OnMouseExit()
     {
@@ -34,38 +36,25 @@ public class Tile : MonoBehaviour
         if (isOffset == false) _renderer.material.color = _baseColour;
         if (isOffset == true) _renderer.material.color = _offsetColour;
 
-        MenuManager.instance.ShowTileInfo(null);
+        MenuManager.Instance.ShowTileInfo(null);
     }
 
     private void OnMouseDown()
     {
         if (GameManager.Instance.GameState != GameState.TurnBasedCombat) return;
 
-        if (OccupiedUnit != null) //&&(TurnManager.Instance.currentState == TurnManager.TurnState.next)
+        if (OccupiedUnit != null && TurnManager.Instance.currentState == TurnManager.TurnState.chosingTarget)
         {
-            if (OccupiedUnit.Faction == Faction.Red) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-            else
-            {
-                if (UnitManager.Instance.SelectedHero != null)
-                {
-                    var enemyHero = (BaseHero)OccupiedUnit;
-                    UnitManager.Instance.SetTargetedHero(enemyHero);
-                    MenuManager.instance.ShowAbilities(UnitManager.Instance.SelectedHero);
-                    UnitManager.Instance.SelectedHero.BaseAttack(enemyHero);
-                   // UnitManager.Instance.SetSelectedHero(null);
-                   // UnitManager.Instance.SetTargetedHero(null);
-
-                }
+            if (OccupiedUnit.Faction != UnitManager.Instance.SelectedHero.Faction)
+            { 
+                var enemyHero = (BaseHero)OccupiedUnit;
+                UnitManager.Instance.SetTargetedHero(enemyHero);
+                MenuManager.Instance.ShowTargetedHero(enemyHero);
+                MenuManager.Instance.ShowAbilities(null);
+                TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.usingBaseAttack);
             }
         }
-        else
-        {
-            if (UnitManager.Instance.SelectedHero != null)
-            {
-                SetUnit(UnitManager.Instance.SelectedHero);
-                UnitManager.Instance.SetSelectedHero(null);
-            }
-        }
+       
     }
 
     public void SetUnit(BaseHero hero)

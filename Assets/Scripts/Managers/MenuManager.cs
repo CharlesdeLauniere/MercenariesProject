@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-   public static MenuManager instance;
+   public static MenuManager Instance;
 
-    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject, _attackButton, _targetHeroObject;
+    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject, _targetedHeroObject, _attackButton, _abilityButton;
     private void Awake()
     {
-        instance= this; 
+        Instance= this; 
     }
 
     public void ShowTileInfo(Tile tile)
@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
             return;
         }
         _tileObject.GetComponentInChildren<TextMeshProUGUI>().text = tile.TileName;
+        // _tileObject.GetComponentInChildren<Image>().color =  tile.TextBoxColor;
+        //_tileObject.GetComponentInChildren<TextMeshProUGUI>().color = tile.TextColor;
         _tileObject.SetActive(true);
 
         if(tile.OccupiedUnit)
@@ -40,6 +42,8 @@ public class MenuManager : MonoBehaviour
             return;
         }
         _selectedHeroObject.GetComponentInChildren<TextMeshProUGUI>().text = hero.UnitName;
+        if(hero.Faction == Faction.Red)_selectedHeroObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+        if (hero.Faction == Faction.Blue) _selectedHeroObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.blue;
         _selectedHeroObject.SetActive(true);
        
 
@@ -48,11 +52,13 @@ public class MenuManager : MonoBehaviour
     {
         if (hero == null)
         {
-            _targetHeroObject.SetActive(false);
+            _targetedHeroObject.SetActive(false);
             return;
         }
-        _targetHeroObject.GetComponentInChildren<TextMeshProUGUI>().text = hero.UnitName;
-        _targetHeroObject.SetActive(true);
+        _targetedHeroObject.GetComponentInChildren<TextMeshProUGUI>().text = hero.UnitName;
+        if (hero.Faction == Faction.Red) _targetedHeroObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+        if (hero.Faction == Faction.Blue) _targetedHeroObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.blue;
+        _targetedHeroObject.SetActive(true);
 
 
     }

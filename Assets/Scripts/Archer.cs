@@ -10,11 +10,9 @@ public class Archer : BaseHero
         _maxHealth = 120;
         _currentHealth = _maxHealth;
         UnitName = "Archer";
-        _baseAttackDmg = 30;
-        
+        _baseAttackDmg = 35;
+        this.SetupHealthBar();
+
     }
-    public override void BaseAttack(BaseHero baseHero)
-    {
-        baseHero.TakeDamage(_baseAttackDmg);
-    }
+    
 }

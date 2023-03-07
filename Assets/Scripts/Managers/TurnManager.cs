@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,56 +7,69 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
     public TurnState currentState;
-    private float cur_cooldown = 0f;
-    private float max_cooldown = 5f;
+    //private float cur_cooldown = 0f;
+    // private float max_cooldown = 5f;
     public Image Timer;
+    private int Actions;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public enum TurnState
-    {
-        startCombat,
-        processing,
-        waiting,
-        selecting,
-        action,
-        dead,
-        next
-    }
-    
-    
-    //void Start()
-    //{
-    //    currentState = TurnState.processing;
-    //}
 
-    public void switchBetweenTurnStates(TurnState turnState)
+    public void SwitchBetweenTurnStates(TurnState turnState)
     {
         currentState = turnState;
         switch (currentState)
         {
             case (TurnState.startCombat):
+                Actions = 2;
                 BaseHero hero = UnitManager.Instance.baseHeroes[0];
                 UnitManager.Instance.SetSelectedHero(hero);
+                this.SwitchBetweenTurnStates(TurnState.selectingAttack);
                 break;
-            case (TurnState.processing):
+            case (TurnState.chosingTarget):
+               
                 break;
-            case (TurnState.action):
+            case (TurnState.usingBaseAttack):
+                UnitManager.Instance.SelectedHero.BaseAttack(UnitManager.Instance.TargetedHero);
+                UnitManager.Instance.SetTargetedHero(null);
+                MenuManager.Instance.ShowTargetedHero(null);
+                Actions--;
+                this.SwitchBetweenTurnStates(TurnState.selectingAttack);
+
                 break;
-            case (TurnState.selecting):
-                break;
-            case (TurnState.waiting):
-                break;
-            case (TurnState.dead):
+            case (TurnState.selectingAttack):
+                UnitManager.Instance.IsWinner();
+                if (Actions > 0) MenuManager.Instance.ShowAbilities(UnitManager.Instance.SelectedHero);
+                else this.SwitchBetweenTurnStates(TurnState.next);
                 break;
             case (TurnState.next):
-                
+                UnitManager.Instance.IsWinner();
+                UnitManager.Instance.NextHeroTurn();
                 break;
-            default:break;
+            case (TurnState.end):
+                GameManager.Instance.ChangeState(GameState.GameEnd);
+                break;
+            default: break;
         }
+    }
+
+    public void BasicAttackButtonPress()
+    {
+        TurnManager.Instance.SwitchBetweenTurnStates(TurnState.chosingTarget);
+    }
+    public enum TurnState
+    {
+        startCombat,
+        chosingTarget,
+        selectingAttack,
+        usingBaseAttack,
+        usingAbility1,
+        usingAbility2,
+        next,
+        end
     }
 
     //void Update()

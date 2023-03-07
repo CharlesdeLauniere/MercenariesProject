@@ -6,17 +6,18 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour {
     public static UnitManager Instance;
 
+    //[SerializeField] private Canvas Canvas;
     private List<ScriptableUnit> _heroes;
-    public List <BaseHero> baseHeroes= new List<BaseHero>();
-    public BaseHero SelectedHero;
-    public BaseHero TargetedHero;
+    public List<BaseHero> baseHeroes = new();
+    [field: SerializeField] public BaseHero SelectedHero { get; set; }
+    [field: SerializeField] public BaseHero TargetedHero { get; set; }
 
 
     private void Awake() {
         Instance = this;
 
         _heroes = Resources.LoadAll<ScriptableUnit>("Heroes").ToList();
-        
+
     }
     public void SpawnHeroes(List<string> spawnName)
     {
@@ -33,28 +34,52 @@ public class UnitManager : MonoBehaviour {
 
             redRandomSpawnTile.SetUnit(redSpawnedHero);
             blueRandomSpawnTile.SetUnit(blueSpawnedHero);
-            baseHeroes.Add(redHeroPrefab);
-            baseHeroes.Add(blueHeroPrefab);
+
+            //blueHeroPrefab.SetupHealthBar();
+            //redHeroPrefab.SetupHealthBar();
+
+            baseHeroes.Add(redSpawnedHero);
+            baseHeroes.Add(blueSpawnedHero);
+
+
 
         }
         GameManager.Instance.ChangeState(GameState.TurnBasedCombat);
     }
 
 
+    public void IsWinner()
+    {
+        List<Faction> WinningFaction = new List<Faction>();
+        foreach(BaseHero hero in baseHeroes)
+        {
+            WinningFaction.Add(hero.Faction);
+        }
+        bool win = WinningFaction.Distinct().Count() == 1;
+        if(win) TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.end);
+    }
+    public void NextHeroTurn()
+    {
+        BaseHero hero = baseHeroes[0];
+        this.baseHeroes.Remove(hero);
+        this.baseHeroes.Insert(baseHeroes.Count, hero); //baseHeroes.Count
+        TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.startCombat);
+    }
     private T GetSpecificHeroToSpawn<T>(Faction faction, string _heroName) where T : BaseHero
     {
         return (T)_heroes.Find(x => x.HeroPrefab.UnitName == _heroName && x.Faction == faction).HeroPrefab;
 
     }
+
     public void SetSelectedHero(BaseHero hero)
     {
         SelectedHero = hero;
-        MenuManager.instance.ShowSelectedHero(hero);
+        MenuManager.Instance.ShowSelectedHero(hero);
     }
 
     public void SetTargetedHero(BaseHero hero)
     {
-        MenuManager.instance.ShowTargetedHero(hero);
+        MenuManager.Instance.ShowTargetedHero(hero);
         TargetedHero = hero;
         
     }

@@ -11,31 +11,11 @@ public class Knight : BaseHero
         UnitName = "Knight";
         _maxHealth = 200;
         _currentHealth = _maxHealth;
-        _baseAttackDmg = 15;
+        _baseAttackDmg = 30;
+        this.SetupHealthBar();
         
     }
 
-    public override void BaseAttack(BaseHero baseHero)
-    {
-        baseHero.TakeDamage(_baseAttackDmg);
-
-        //OnMouseDown();
-
-
-
-        /*if (OccupiedTile != null && GameManager.Instance.GameState == GameState.BluePlayerTurn)
-        {
-            if (OccupiedUnit.Faction == Faction.Blue) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-           
-             else if (UnitManager.Instance.SelectedHero != null)
-             {
-                var enemyHero = (BaseHero)OccupiedUnit;
-                baseHero._currentPv -= 15;
-                UnitManager.Instance.SetSelectedHero(null);
-             }
-            
-        }*/
-    }
 
     public override void Ability1(BaseHero baseHero)
     {

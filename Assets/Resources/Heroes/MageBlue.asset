@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MageBlue
   m_EditorClassIdentifier: 
   Faction: 0
-  HeroPrefab: {fileID: -434107535822110743, guid: 2357b047bc1ad0449b0923c2ffcd3c3d, type: 3}
+  HeroPrefab: {fileID: 1690063894250968504, guid: 2357b047bc1ad0449b0923c2ffcd3c3d, type: 3}

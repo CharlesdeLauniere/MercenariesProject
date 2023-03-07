@@ -36,9 +36,10 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SpawnHeroes(_spawnName);
                 break;
             case GameState.TurnBasedCombat:
-                TurnManager.Instance.switchBetweenTurnStates(TurnState.startCombat);
+                TurnManager.Instance.SwitchBetweenTurnStates(TurnState.startCombat);
             break;
             case GameState.GameEnd:
+                //MenuManager.Instance.ShowVictoryScreen(Faction winningTeam);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);

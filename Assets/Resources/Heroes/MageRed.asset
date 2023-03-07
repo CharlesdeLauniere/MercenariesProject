@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MageRed
   m_EditorClassIdentifier: 
   Faction: 1
-  HeroPrefab: {fileID: -434107535822110743, guid: 2846c22a6a21ec545bcd5a4b68d5fdf9, type: 3}
+  HeroPrefab: {fileID: 9062686151736249456, guid: 2846c22a6a21ec545bcd5a4b68d5fdf9, type: 3}

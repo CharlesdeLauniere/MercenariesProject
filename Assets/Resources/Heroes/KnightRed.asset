@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KnightRed
   m_EditorClassIdentifier: 
   Faction: 1
-  HeroPrefab: {fileID: -6443530122240811387, guid: 062becde4f360f54e89626ef0b2b7a8a, type: 3}
+  HeroPrefab: {fileID: 3219405440933528504, guid: 062becde4f360f54e89626ef0b2b7a8a, type: 3}
