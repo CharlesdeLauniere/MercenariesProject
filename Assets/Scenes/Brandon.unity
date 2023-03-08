@@ -501,6 +501,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &484063900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484063902}
+  - component: {fileID: 484063901}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &484063901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484063900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d987be3cecfd84d9ad239674fa1ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _personnage1: {fileID: 1190026762}
+  _personnage2: {fileID: 1121583092}
+  _personnage3: {fileID: 1021605767}
+  _personnage4: {fileID: 2128851781}
+  _personnage5: {fileID: 1697883780}
+  _personnage6: {fileID: 20502284}
+  _personnage7: {fileID: 0}
+  initiative1: 1
+  initiative2: 2
+  initiative3: 3
+  initiative4: 4
+  initiative5: 5
+  initiative6: 6
+  initiative7: 0
+  nbPersonnage: 0
+--- !u!4 &484063902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484063900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 509.5502, y: 430.5544, z: 1.4472005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558041346
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedHero: {fileID: 0}
+  TargetedHero: {fileID: 0}
 --- !u!4 &858174335
 Transform:
   m_ObjectHideFlags: 0
@@ -1517,6 +1577,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CubePlayer: {fileID: 2527333440233947434, guid: 46c10625db1f52b44a351582cc8bdb0c, type: 3}
   GameState: 0
+  _spawnName:
+  - Knight
+  - Archer
+  - Mage
 --- !u!4 &1312417496
 Transform:
   m_ObjectHideFlags: 0
@@ -1825,7 +1889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8960cf7101eb0ce4694d6992602c5d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tileCubeBasic: {fileID: 8965245025075875980, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
+  _grassTile: {fileID: 0}
+  _mountainTile: {fileID: 0}
   _TurnSystem: {fileID: 1620426014}
   _longueurGrid: 10
   _largeurGrid: 10
