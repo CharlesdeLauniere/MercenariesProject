@@ -55,6 +55,6 @@ public class BaseHero : MonoBehaviour
         HealthBar.SetMaxHealth(_maxHealth);
     }
     
-
+    
  
 }

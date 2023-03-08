@@ -17,7 +17,18 @@ public class TurnManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (GridManager.Instance.path.Count > 0)// && GridManager.Instance.path != null && GridManager.Instance.moveSpeed != 0)
+        {
+            GridManager.Instance.MoveAlongPath();
+        }
+        //if (GridManager.Instance.path.Count == 0 && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
+        //{
+        //    TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
+        //}
 
+    }
     public void SwitchBetweenTurnStates(TurnState turnState)
     {
         currentState = turnState;
@@ -30,19 +41,25 @@ public class TurnManager : MonoBehaviour
                 this.SwitchBetweenTurnStates(TurnState.selectingAttack);
                 break;
             case (TurnState.chosingTarget):
-               
+                if (Actions > 0) MenuManager.Instance.ShowAbilities(null);
+                break;
+            case (TurnState.movement) :
+                MenuManager.Instance.ShowAbilities(null);
+              
+                
                 break;
             case (TurnState.usingBaseAttack):
+                
                 UnitManager.Instance.SelectedHero.BaseAttack(UnitManager.Instance.TargetedHero);
                 UnitManager.Instance.SetTargetedHero(null);
                 MenuManager.Instance.ShowTargetedHero(null);
-                Actions--;
+  
                 this.SwitchBetweenTurnStates(TurnState.selectingAttack);
-
                 break;
             case (TurnState.selectingAttack):
+                Actions--;
                 UnitManager.Instance.IsWinner();
-                if (Actions > 0) MenuManager.Instance.ShowAbilities(UnitManager.Instance.SelectedHero);
+                if (Actions > -1) MenuManager.Instance.ShowAbilities(UnitManager.Instance.SelectedHero);
                 else this.SwitchBetweenTurnStates(TurnState.next);
                 break;
             case (TurnState.next):
@@ -60,11 +77,16 @@ public class TurnManager : MonoBehaviour
     {
         TurnManager.Instance.SwitchBetweenTurnStates(TurnState.chosingTarget);
     }
+    public void MovementButtonPress()
+    {
+        TurnManager.Instance.SwitchBetweenTurnStates(TurnState.movement);
+    }
     public enum TurnState
     {
         startCombat,
         chosingTarget,
         selectingAttack,
+        movement,
         usingBaseAttack,
         usingAbility1,
         usingAbility2,

@@ -7,9 +7,15 @@ public class Tile : MonoBehaviour
 {
     public string TileName;
     public Color TextColor, TextBoxColor;
-    [SerializeField] private bool _isWalkable, _unitInRange;
+    [SerializeField] public bool _isWalkable, _unitInRange;
     [SerializeField] protected Renderer _renderer;
     [SerializeField] protected Color _baseColour, _offsetColour, _highlightColour;
+    public int G, H;
+    public Tile previous;
+    public Vector2Int gridLocation;
+   
+
+    public int F {get { return G + H; } }
 
     public BaseHero OccupiedUnit;
 
@@ -41,7 +47,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.TurnBasedCombat) return;
+        if (GameManager.Instance.GameState != GameState.TurnBasedCombat ) return;
 
         if (OccupiedUnit != null && TurnManager.Instance.currentState == TurnManager.TurnState.chosingTarget)
         {
@@ -54,6 +60,16 @@ public class Tile : MonoBehaviour
                 TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.usingBaseAttack);
             }
         }
+        if (OccupiedUnit == null && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
+        {
+            GridManager.Instance.path = GridManager.Instance.pathFinder.FindPath(UnitManager.Instance.SelectedHero.OccupiedTile, this);
+            //if(UnitManager.Instance.SelectedHero.OccupiedTile == this) 
+            //{
+            //    TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
+            //} 
+            //SetUnit(UnitManager.Instance.SelectedHero);
+        }
+            
        
     }
 

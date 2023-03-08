@@ -10,19 +10,38 @@ public class GridManager : MonoBehaviour
     [SerializeField] GameObject _TurnSystem;
     [SerializeField] private int _longueurGrid, _largeurGrid;
     [SerializeField] private GameObject _acessibleTileIndicator, _inacessibleTileIndicator;
+    public PathFinder pathFinder;
+    public List<Tile> path; 
+    [SerializeField] public float moveSpeed;
 
     public static GridManager Instance;
 
-    private Dictionary<Vector2, Tile> _tiles;
+    public Dictionary<Vector2, Tile> _tiles;
     void Awake()
     {
-        Instance= this;
+        Instance = this;
     }
-        //float x =_CubeObstacle.transform.position.x;
-        //float z = _CubeObstacle.transform.position.z;
-        //GameObject Indic = GameObject.Find($"IndicR {x} {z}");
-        //Indic.GetComponent<MeshRenderer>().enabled = true;
-
+    //float x =_CubeObstacle.transform.position.x;
+    //float z = _CubeObstacle.transform.position.z;
+    //GameObject Indic = GameObject.Find($"IndicR {x} {z}");
+    //Indic.GetComponent<MeshRenderer>().enabled = true;
+    private void Start()
+    {
+        pathFinder = new PathFinder();
+        path = new();
+    }
+    //private void Update()
+    //{
+    //    if (GridManager.Instance.path.Count > 0)// && GridManager.Instance.path != null && GridManager.Instance.moveSpeed != 0)
+    //    {
+    //        GridManager.Instance.MoveAlongPath();
+    //    }
+    //    if (GridManager.Instance.path.Count == 0 && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
+    //    {
+    //        TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
+    //    }
+       
+    //}
     public void GenerateGrid()
     {
         _tiles = new Dictionary<Vector2, Tile>();
@@ -33,10 +52,10 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < _largeurGrid; j++)
             {
                 //better biome gen a mettre
-                var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
+               var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
+                var tileLocation = new Vector2Int(i, j);
                 var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i} {j}";
-
                 /*
                 spawnedTile.transform.SetParent(CubeContainer.transform);var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
                 indicatorG.name = $"IndicG {i} {j}";
@@ -44,10 +63,10 @@ public class GridManager : MonoBehaviour
                 var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
                 indicatorR.name = $"IndicR {i} {j}";
                 indicatorR.transform.SetParent(IndicContainer.transform);*/
-
                 spawnedTile.Init(i, j);
                 var isOffset = ((i + j) % 2 != 0);
                 spawnedTile.Init(isOffset);
+                spawnedTile.gridLocation = tileLocation;
                 _tiles[new Vector2(i, j)] = spawnedTile;
             }
             
@@ -72,5 +91,22 @@ public class GridManager : MonoBehaviour
             return tile;
         }
         return null;
+    }
+    public void MoveAlongPath()
+    {
+        Debug.Log("Moving Along Path");
+        //var step = 
+        UnitManager.Instance.SelectedHero.transform.position = Vector3.MoveTowards(UnitManager.Instance.SelectedHero.transform.position,
+            path[0].transform.position, moveSpeed * Time.deltaTime);
+        UnitManager.Instance.SelectedHero.transform.position = new Vector3(UnitManager.Instance.SelectedHero.transform.position.x,
+            0.2f, UnitManager.Instance.SelectedHero.transform.position.z);
+
+        if ((Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.x - path[0].transform.position.x) +
+            Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
+        {
+            path[0].SetUnit(UnitManager.Instance.SelectedHero);
+            path.RemoveAt(0);
+            if (path.Count == 0) TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
+        }
     }
 }

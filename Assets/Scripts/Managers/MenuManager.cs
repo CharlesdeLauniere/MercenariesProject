@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
 {
    public static MenuManager Instance;
 
-    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject, _targetedHeroObject, _attackButton, _abilityButton;
+    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject, _targetedHeroObject, _attackButton, _moveButton, _abilityButton;
     private void Awake()
     {
         Instance= this; 
@@ -23,13 +23,15 @@ public class MenuManager : MonoBehaviour
             return;
         }
         _tileObject.GetComponentInChildren<TextMeshProUGUI>().text = tile.TileName;
-        // _tileObject.GetComponentInChildren<Image>().color =  tile.TextBoxColor;
-        //_tileObject.GetComponentInChildren<TextMeshProUGUI>().color = tile.TextColor;
+        _tileObject.GetComponentInChildren<Image>().color =  tile.TextBoxColor;
+        _tileObject.GetComponentInChildren<TextMeshProUGUI>().color = tile.TextColor;
         _tileObject.SetActive(true);
 
         if(tile.OccupiedUnit)
         {
             _tileUnitObject.GetComponentInChildren<TextMeshProUGUI>().text = tile.OccupiedUnit.UnitName;
+            if (tile.OccupiedUnit.Faction == Faction.Red) _tileUnitObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+            if (tile.OccupiedUnit.Faction == Faction.Blue) _tileUnitObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.blue;
             _tileUnitObject.SetActive(true);
         }
     }
@@ -68,8 +70,10 @@ public class MenuManager : MonoBehaviour
         if (hero == null)
         {
             _attackButton.SetActive(false);
+            _moveButton.SetActive(false);
             return;
         }
         _attackButton.SetActive(true);
+        _moveButton.SetActive(true);
     }
 }

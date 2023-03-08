@@ -80,11 +80,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileName: Mountain
-  TextColor: {r: 0.16078432, g: 0.13725491, b: 0.13725491, a: 0}
-  TextBoxColor: {r: 0.30980393, g: 0.27450982, b: 0.27450982, a: 0}
+  TextColor: {r: 0.16078432, g: 0.13725491, b: 0.13725491, a: 1}
+  TextBoxColor: {r: 0.30980393, g: 0.27450982, b: 0.27450982, a: 1}
   _isWalkable: 0
+  _unitInRange: 0
   _renderer: {fileID: 4909451252625221694}
-  _baseColour: {r: 0.31132078, g: 0.27460843, b: 0.27460843, a: 0}
-  _offsetColour: {r: 0.24705884, g: 0.21568629, b: 0.21568629, a: 0}
-  _highlightColour: {r: 0.16037738, g: 0.13692597, b: 0.13692597, a: 0}
+  _baseColour: {r: 0.31132078, g: 0.27460843, b: 0.27460843, a: 1}
+  _offsetColour: {r: 0.24705884, g: 0.21568629, b: 0.21568629, a: 1}
+  _highlightColour: {r: 0.16037738, g: 0.13692597, b: 0.13692597, a: 1}
   OccupiedUnit: {fileID: 0}
