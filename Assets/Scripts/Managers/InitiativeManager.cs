@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PersonnageInitiative
 {
-    public int NumeroPersonnage { get; set; }
+    public BaseHero Hero { get; set; }
     public int Initiative { get; set; }
 
 }
@@ -14,31 +14,44 @@ public class PersonnageInitiative
 
 public class InitiativeManager : MonoBehaviour
 {
-    [SerializeField] GameObject _personnage1;
-    [SerializeField] GameObject _personnage2;
-    [SerializeField] GameObject _personnage3;
-    [SerializeField] GameObject _personnage4;
-    [SerializeField] GameObject _personnage5;
-    [SerializeField] GameObject _personnage6;
-    [SerializeField] GameObject _personnage7;
-
-    
-    
-
-    
     public List<PersonnageInitiative> _initiative;
-    
-    void Start()
+
+    public void ResetBarreInitiative()
     {
-      for (int i=0; i<6; i++)
+
+
+        List<Vector3> _positionList = new List<Vector3>();
+        _positionList.Add(new Vector3(150, 185f, 0));
+        _positionList.Add(new Vector3(100, 185f, 0));
+        _positionList.Add(new Vector3(50, 185f, 0));
+        _positionList.Add(new Vector3(0, 185f, 0));
+        _positionList.Add(new Vector3(-50, 185f, 0));
+        _positionList.Add(new Vector3(-100, 185f, 0));
+
+        for (int i = 0; i < 6; i++)
         {
-            _initiative.Add(new PersonnageInitiative { NumeroPersonnage = (i + 1),Initiative= UnitManager.Instance.baseHeroes[i].GetInitiative() });
-            
+
+
+            _initiative.Add(new PersonnageInitiative
+            {
+                Initiative = UnitManager.Instance.baseHeroes[i].GetInitiative()
+                ,
+                Hero = UnitManager.Instance.baseHeroes[i]
+            });
+
+            /*if (UnitManager.Instance.baseHeroes[i].Faction == Faction.Blue)
+            {
+
+            }*/
         }
-        List<PersonnageInitiative> SortedInitiative= _initiative.OrderBy(x=>x.Initiative).ToList();
+        List<PersonnageInitiative> SortedInitiative = _initiative.OrderBy(x => x.Initiative).ToList();
 
+        for (int i = 0; i < 6; i++)
+        {
 
+            Instantiate(SortedInitiative[i].Hero._imageIcon, _positionList[i], Quaternion.identity);
+
+        }
+        _initiative.Clear();
     }
-
-  
 }

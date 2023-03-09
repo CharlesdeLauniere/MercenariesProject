@@ -14,7 +14,7 @@ public class MouseController : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     public PathFinder pathFinder;
     public List<Tile> path;
-    [SerializeField] public float moveSpeed;
+    [SerializeField] public float moveSpeed=10;
 
     //public GameObject characterPrefab;
     //private CharacterInfo character;

@@ -12,6 +12,7 @@ public class BaseHero : MonoBehaviour
     public int _currentHealth;
     public int _baseAttackDmg;
     public HealthBar HealthBar;
+    public GameObject _imageIcon;
 
     public int _initiative;
 
