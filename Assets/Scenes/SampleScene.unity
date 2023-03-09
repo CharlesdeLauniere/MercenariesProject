@@ -1513,6 +1513,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  path: []
+  moveSpeed: 10
 --- !u!4 &806338228
 Transform:
   m_ObjectHideFlags: 0
@@ -2247,8 +2249,6 @@ MonoBehaviour:
   _largeurGrid: 12
   _acessibleTileIndicator: {fileID: 4694208473484509665, guid: 0f377b5bbf270ad4d88d0c0cdc8d9d8d, type: 3}
   _inacessibleTileIndicator: {fileID: 5238278959086377809, guid: adafceb90d16760458991c5b7a5509f6, type: 3}
-  path: []
-  moveSpeed: 10
 --- !u!4 &1620426016
 Transform:
   m_ObjectHideFlags: 0
