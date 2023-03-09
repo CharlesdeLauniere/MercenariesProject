@@ -17,18 +17,6 @@ public class TurnManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
-    {
-        if (GridManager.Instance.path.Count > 0)// && GridManager.Instance.path != null && GridManager.Instance.moveSpeed != 0)
-        {
-            GridManager.Instance.MoveAlongPath();
-        }
-        //if (GridManager.Instance.path.Count == 0 && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
-        //{
-        //    TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
-        //}
-
-    }
     public void SwitchBetweenTurnStates(TurnState turnState)
     {
         currentState = turnState;
@@ -41,7 +29,7 @@ public class TurnManager : MonoBehaviour
                 this.SwitchBetweenTurnStates(TurnState.selectingAttack);
                 break;
             case (TurnState.chosingTarget):
-                if (Actions > 0) MenuManager.Instance.ShowAbilities(null);
+                if (Actions > -1) MenuManager.Instance.ShowAbilities(null);
                 break;
             case (TurnState.movement) :
                 MenuManager.Instance.ShowAbilities(null);

@@ -13,7 +13,8 @@ public class Knight : BaseHero
         _currentHealth = _maxHealth;
         _baseAttackDmg = 30;
         this.SetupHealthBar();
-        
+        Initiative = 2;
+
     }
 
 

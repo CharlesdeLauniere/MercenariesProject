@@ -10,9 +10,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] GameObject _TurnSystem;
     [SerializeField] private int _longueurGrid, _largeurGrid;
     [SerializeField] private GameObject _acessibleTileIndicator, _inacessibleTileIndicator;
-    public PathFinder pathFinder;
-    public List<Tile> path; 
-    [SerializeField] public float moveSpeed;
+   
 
     public static GridManager Instance;
 
@@ -25,11 +23,6 @@ public class GridManager : MonoBehaviour
     //float z = _CubeObstacle.transform.position.z;
     //GameObject Indic = GameObject.Find($"IndicR {x} {z}");
     //Indic.GetComponent<MeshRenderer>().enabled = true;
-    private void Start()
-    {
-        pathFinder = new PathFinder();
-        path = new();
-    }
     //private void Update()
     //{
     //    if (GridManager.Instance.path.Count > 0)// && GridManager.Instance.path != null && GridManager.Instance.moveSpeed != 0)
@@ -92,21 +85,5 @@ public class GridManager : MonoBehaviour
         }
         return null;
     }
-    public void MoveAlongPath()
-    {
-        Debug.Log("Moving Along Path");
-        //var step = 
-        UnitManager.Instance.SelectedHero.transform.position = Vector3.MoveTowards(UnitManager.Instance.SelectedHero.transform.position,
-            path[0].transform.position, moveSpeed * Time.deltaTime);
-        UnitManager.Instance.SelectedHero.transform.position = new Vector3(UnitManager.Instance.SelectedHero.transform.position.x,
-            0.2f, UnitManager.Instance.SelectedHero.transform.position.z);
-
-        if ((Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.x - path[0].transform.position.x) +
-            Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
-        {
-            path[0].SetUnit(UnitManager.Instance.SelectedHero);
-            path.RemoveAt(0);
-            if (path.Count == 0) TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
-        }
-    }
+   
 }

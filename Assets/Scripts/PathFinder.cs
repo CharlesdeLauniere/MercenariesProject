@@ -8,7 +8,7 @@ public class PathFinder
 {
     public List<Tile> FindPath(Tile start, Tile end)
     {
-        Debug.Log("Find Pathing");
+        //Debug.Log("Find Pathing");
         List<Tile> openList = new();
         List<Tile> closedList = new();
 

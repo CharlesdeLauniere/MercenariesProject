@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,4 +85,21 @@ public class UnitManager : MonoBehaviour {
         TargetedHero = hero;
         
     }
+
+    //public T OrderByIntiative<T> (List­<BaseHero> _heroes)
+    //public void OrderByIntiative<T>(List­<BaseHero> _heroes)
+    //{
+    //    //foreach (BaseHero hero in _heroes)
+    //    //{
+    //    //    Debug.Log($"{hero.UnitName}");
+    //    //}
+    //    //var ok =  (T)_heroes.OrderBy(o => o.Initiative);
+
+    //    //foreach(BaseHero hero in ok)
+    //    //{
+    //    //    Debug.Log($"{(T)_heroes.OrderBy(o => o.Initiative)}");
+    //    //}
+    //    UnitManager.Instance.baseHeroes = (T)_heroes.OrderBy(o => o.Initiative); ;
+
+    //}
 }

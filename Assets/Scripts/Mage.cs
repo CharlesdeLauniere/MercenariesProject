@@ -11,6 +11,7 @@ public class Mage : BaseHero
         _maxHealth = 100;
         _currentHealth = _maxHealth;
         _baseAttackDmg = 20;
+        Initiative = 20;
         this.SetupHealthBar();
 
     }

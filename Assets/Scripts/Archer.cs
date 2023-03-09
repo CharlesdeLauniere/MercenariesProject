@@ -12,6 +12,7 @@ public class Archer : BaseHero
         UnitName = "Archer";
         _baseAttackDmg = 35;
         this.SetupHealthBar();
+        Initiative = 33;
 
     }
     

@@ -12,7 +12,11 @@ public class BaseHero : MonoBehaviour
     public int _currentHealth;
     public int _baseAttackDmg;
     public HealthBar HealthBar;
+<<<<<<< Updated upstream
     public int _initiative;
+=======
+    public int Initiative { get; set; }
+>>>>>>> Stashed changes
     public int BaseAttackRange { get; set; }
 
  

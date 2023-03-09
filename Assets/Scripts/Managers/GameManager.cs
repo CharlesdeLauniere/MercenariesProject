@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeroes(_spawnName);
+                //UnitManager.Instance.OrderByIntiative<UnitManager.Instance.baseHeroes>;
                 break;
             case GameState.TurnBasedCombat:
 

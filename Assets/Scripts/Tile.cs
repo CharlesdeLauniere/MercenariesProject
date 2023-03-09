@@ -45,33 +45,33 @@ public class Tile : MonoBehaviour
         MenuManager.Instance.ShowTileInfo(null);
     }
 
-    private void OnMouseDown()
-    {
-        if (GameManager.Instance.GameState != GameState.TurnBasedCombat ) return;
+    //private void OnMouseDown()
+    //{
+    //    if (GameManager.Instance.GameState != GameState.TurnBasedCombat ) return;
 
-        if (OccupiedUnit != null && TurnManager.Instance.currentState == TurnManager.TurnState.chosingTarget)
-        {
-            if (OccupiedUnit.Faction != UnitManager.Instance.SelectedHero.Faction)
-            { 
-                var enemyHero = (BaseHero)OccupiedUnit;
-                UnitManager.Instance.SetTargetedHero(enemyHero);
-                MenuManager.Instance.ShowTargetedHero(enemyHero);
-                MenuManager.Instance.ShowAbilities(null);
-                TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.usingBaseAttack);
-            }
-        }
-        if (OccupiedUnit == null && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
-        {
-            GridManager.Instance.path = GridManager.Instance.pathFinder.FindPath(UnitManager.Instance.SelectedHero.OccupiedTile, this);
-            //if(UnitManager.Instance.SelectedHero.OccupiedTile == this) 
-            //{
-            //    TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
-            //} 
-            //SetUnit(UnitManager.Instance.SelectedHero);
-        }
+    //    if (OccupiedUnit != null && TurnManager.Instance.currentState == TurnManager.TurnState.chosingTarget)
+    //    {
+    //        if (OccupiedUnit.Faction != UnitManager.Instance.SelectedHero.Faction)
+    //        { 
+    //            var enemyHero = (BaseHero)OccupiedUnit;
+    //            UnitManager.Instance.SetTargetedHero(enemyHero);
+    //            MenuManager.Instance.ShowTargetedHero(enemyHero);
+    //            MenuManager.Instance.ShowAbilities(null);
+    //            TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.usingBaseAttack);
+    //        }
+    //    }
+    //    if (OccupiedUnit == null && TurnManager.Instance.currentState == TurnManager.TurnState.movement)
+    //    {
+    //        //MouseController.Instance.path = GridManager.Instance.pathFinder.FindPath(UnitManager.Instance.SelectedHero.OccupiedTile, this);
+    //        //if(UnitManager.Instance.SelectedHero.OccupiedTile == this) 
+    //        //{
+    //        //    TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
+    //        //} 
+    //        //SetUnit(UnitManager.Instance.SelectedHero);
+    //    }
             
        
-    }
+    //}
 
     public void SetUnit(BaseHero hero)
     {
