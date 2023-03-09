@@ -12,6 +12,7 @@ public class BaseHero : MonoBehaviour
     public int _currentHealth;
     public int _baseAttackDmg;
     public HealthBar HealthBar;
+    public int _initiative;
     public int BaseAttackRange { get; set; }
 
  
@@ -55,6 +56,9 @@ public class BaseHero : MonoBehaviour
         HealthBar.SetMaxHealth(_maxHealth);
     }
     
-    
+    public int GetInitiative()
+    {
+        return _initiative;
+    }
  
 }

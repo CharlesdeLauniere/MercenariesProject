@@ -9,6 +9,7 @@ public class UnitManager : MonoBehaviour {
     //[SerializeField] private Canvas Canvas;
     private List<ScriptableUnit> _heroes;
     public List<BaseHero> baseHeroes = new();
+
     [field: SerializeField] public BaseHero SelectedHero { get; set; }
     [field: SerializeField] public BaseHero TargetedHero { get; set; }
 

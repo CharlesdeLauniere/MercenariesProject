@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SpawnHeroes(_spawnName);
                 break;
             case GameState.TurnBasedCombat:
+
                 TurnManager.Instance.SwitchBetweenTurnStates(TurnState.startCombat);
             break;
             case GameState.GameEnd:
