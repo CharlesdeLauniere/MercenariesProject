@@ -8,14 +8,13 @@ public class PersonnageInitiative
 {
     public BaseHero Hero { get; set; }
     public int Initiative { get; set; }
-
+ 
 }
 public class InitiativeManager : MonoBehaviour
 {
-    public List<PersonnageInitiative> _initiative;
-
     public void ResetBarreInitiative()
     {
+        List<PersonnageInitiative> _initiative= new List<PersonnageInitiative>();
         List<Vector3> _positionList = new List<Vector3>();
         _positionList.Add(new Vector3(150, 185f, 0));
         _positionList.Add(new Vector3(100, 185f, 0));
@@ -34,7 +33,7 @@ public class InitiativeManager : MonoBehaviour
             }*/
         }
         List<PersonnageInitiative> SortedInitiative = _initiative.OrderBy(x => x.Initiative).ToList();
-
+        
         for (int i = 0; i < 6; i++)
         {
 

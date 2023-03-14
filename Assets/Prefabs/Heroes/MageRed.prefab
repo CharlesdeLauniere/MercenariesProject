@@ -463,5 +463,5 @@ MonoBehaviour:
   _currentHealth: 0
   _baseAttackDmg: 0
   HealthBar: {fileID: 5721112909686876222}
-  _imageIcon: {fileID: 0}
+  _imageIcon: {fileID: 5376327388227699702, guid: 5623a486e92e61145ac479df67a3ea73, type: 3}
   _initiative: 0
