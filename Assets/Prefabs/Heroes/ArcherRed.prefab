@@ -334,6 +334,8 @@ MonoBehaviour:
   _currentHealth: 0
   _baseAttackDmg: 0
   HealthBar: {fileID: 1131446711691990754}
+  _imageIcon: {fileID: 0}
+  _initiative: 0
 --- !u!1 &8783242746462778970
 GameObject:
   m_ObjectHideFlags: 0

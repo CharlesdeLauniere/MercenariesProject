@@ -10,16 +10,12 @@ public class PersonnageInitiative
     public int Initiative { get; set; }
 
 }
-
-
 public class InitiativeManager : MonoBehaviour
 {
     public List<PersonnageInitiative> _initiative;
 
     public void ResetBarreInitiative()
     {
-
-
         List<Vector3> _positionList = new List<Vector3>();
         _positionList.Add(new Vector3(150, 185f, 0));
         _positionList.Add(new Vector3(100, 185f, 0));
@@ -30,14 +26,7 @@ public class InitiativeManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-
-
-            _initiative.Add(new PersonnageInitiative
-            {
-                Initiative = UnitManager.Instance.baseHeroes[i].GetInitiative()
-                ,
-                Hero = UnitManager.Instance.baseHeroes[i]
-            });
+            _initiative.Add(new PersonnageInitiative{Initiative = UnitManager.Instance.baseHeroes[i].GetInitiative(),Hero = UnitManager.Instance.baseHeroes[i]});
 
             /*if (UnitManager.Instance.baseHeroes[i].Faction == Faction.Blue)
             {
@@ -52,6 +41,5 @@ public class InitiativeManager : MonoBehaviour
             Instantiate(SortedInitiative[i].Hero._imageIcon, _positionList[i], Quaternion.identity);
 
         }
-        _initiative.Clear();
     }
 }
