@@ -47,7 +47,7 @@ public class UnitManager : MonoBehaviour {
 
         }
         GameManager.Instance.ChangeState(GameState.TurnBasedCombat);
-     
+        
     }
 
 
