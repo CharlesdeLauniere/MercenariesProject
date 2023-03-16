@@ -23,6 +23,7 @@ public class TurnManager : MonoBehaviour
         switch (currentState)
         {
             case (TurnState.startCombat):
+                //Here
                 Actions = 2;
                 BaseHero hero = UnitManager.Instance.baseHeroes[0];
                 UnitManager.Instance.SetSelectedHero(hero);
