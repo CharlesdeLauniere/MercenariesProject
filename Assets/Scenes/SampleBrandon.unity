@@ -1537,7 +1537,7 @@ GameObject:
   - component: {fileID: 806338227}
   m_Layer: 0
   m_Name: MouseController
-  m_TagString: Untagged
+  m_TagString: Cursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1557,7 +1557,6 @@ MonoBehaviour:
   cursor: {fileID: 2262286019886048059, guid: 41f5865cabdba984c8dc71b89b76bb8b, type: 3}
   speed: 0
   tile: {fileID: 0}
-  mousePosition: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 963194227}
   layerMask:
     serializedVersion: 2
@@ -2353,7 +2352,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grassTile: {fileID: -386983109553337513, guid: 2b8f93a1a517eeb488d3a3c0542069b0, type: 3}
-  _mountainTile: {fileID: 93862103432270439, guid: f32daa73b39ced34cb864ee1e2e3bfcc, type: 3}
+  _mountainTile: {fileID: 93862103432270439, guid: cafeadfb19adf8047be279f63d37fbb7, type: 3}
+  _grassTile1: {fileID: -386983109553337513, guid: 78d9cc799194ed046b25ecbf524553db, type: 3}
+  _grassTile2: {fileID: -386983109553337513, guid: a39e08d2884c5644db5f528fd8cccee7, type: 3}
+  nombreTiles: 2
   _TurnSystem: {fileID: 1620426014}
   _longueurGrid: 10
   _largeurGrid: 10

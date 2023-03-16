@@ -9,7 +9,7 @@ public class MouseController : MonoBehaviour
     public GameObject cursor;
     public float speed;
     public Tile tile;
-    public Vector3 mousePosition;
+    static public Vector3 mousePosition;
     [SerializeField] Camera mainCamera;
     [SerializeField] LayerMask layerMask;
     public PathFinder pathFinder;
@@ -24,6 +24,7 @@ public class MouseController : MonoBehaviour
         path = new List<Tile>();
     }
 
+    
 
     void LateUpdate()
     {

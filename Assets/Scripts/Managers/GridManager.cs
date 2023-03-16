@@ -7,14 +7,43 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] Tile _grassTile, _mountainTile;
+    [SerializeField] Tile _grassTile1,_grassTile2,_grassTile3,_grassTile4,_grassTile5,_grassTile6,_grassTile7;
+    [SerializeField] Tile _mountTile1;
+    [SerializeField] int nombreTiles;
+    [SerializeField] int _nombreMoutain;
     [SerializeField] GameObject _TurnSystem;
     [SerializeField] private int _longueurGrid, _largeurGrid;
     [SerializeField] private GameObject _acessibleTileIndicator, _inacessibleTileIndicator;
    
-
+    
     public static GridManager Instance;
 
     public Dictionary<Vector2, Tile> _tiles;
+
+  
+    public Tile RandomGrassTile()
+    {
+        List<Tile> ListTile = new List<Tile>();
+        ListTile.Add(_grassTile1);
+        ListTile.Add(_grassTile2);
+        ListTile.Add(_grassTile3);
+        ListTile.Add(_grassTile4);
+        ListTile.Add(_grassTile5);
+        ListTile.Add(_grassTile6);
+        ListTile.Add(_grassTile7);
+        int random = Random.Range(0,nombreTiles);
+        Debug.Log("Bob   "+random);
+        return ListTile[random];
+    }
+    public Tile RandomMoutainTile()
+    {
+        List<Tile> ListTile = new List<Tile>();
+        ListTile.Add(_mountTile1);
+       
+      
+        int random = Random.Range(0,_nombreMoutain);
+        return ListTile[random];
+    }
     void Awake()
     {
         Instance = this;
@@ -45,7 +74,7 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < _largeurGrid; j++)
             {
                 //better biome gen a mettre
-               var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
+                var randomTile = Random.Range(0, 6) == 3 ? RandomMoutainTile() : RandomGrassTile();
                 var tileLocation = new Vector2Int(i, j);
                 var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i} {j}";

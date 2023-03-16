@@ -53,10 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123026275325838348, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
       propertyPath: m_Name
-      value: GrassTile
+      value: GrassTile 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039685337032337114, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
+--- !u!4 &911306289693180476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1483065500019389643, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
+  m_PrefabInstance: {fileID: 1743302121596860151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1081245669786602312 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1670887405952466367, guid: f31e80e3047f13b43a017b3f336c03f7, type: 3}
@@ -93,6 +102,72 @@ MonoBehaviour:
   previous: {fileID: 0}
   gridLocation: {x: 0, y: 0}
   OccupiedUnit: {fileID: 0}
-  cursor: {fileID: 2262286019886048059, guid: 41f5865cabdba984c8dc71b89b76bb8b, type: 3}
-  cursorPixel: {fileID: 3367186078572720734, guid: e74d5d27fadce564d8e5423b79c0946c, type: 3}
-  alreadyInstantiate: 0
+--- !u!1001 &6133218620164068155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 911306289693180476}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.101
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.505
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
+      propertyPath: m_Name
+      value: Tile07
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cdcc000dc3d8d3245a5b5bc862c6a478, type: 3}
