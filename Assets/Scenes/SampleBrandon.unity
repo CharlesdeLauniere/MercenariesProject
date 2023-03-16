@@ -2353,9 +2353,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grassTile: {fileID: -386983109553337513, guid: 2b8f93a1a517eeb488d3a3c0542069b0, type: 3}
   _mountainTile: {fileID: 93862103432270439, guid: cafeadfb19adf8047be279f63d37fbb7, type: 3}
-  _grassTile1: {fileID: -386983109553337513, guid: 78d9cc799194ed046b25ecbf524553db, type: 3}
-  _grassTile2: {fileID: -386983109553337513, guid: a39e08d2884c5644db5f528fd8cccee7, type: 3}
-  nombreTiles: 2
+  _grassTile1: {fileID: -386983109553337513, guid: e622b5854523c3c40a3d28d83c3cad2b, type: 3}
+  _grassTile2: {fileID: -386983109553337513, guid: 0c426c79b96c70c44b309748d16aabc5, type: 3}
+  _grassTile3: {fileID: -386983109553337513, guid: 1e7f22e8581821b4599187176c7cad03, type: 3}
+  _grassTile4: {fileID: -386983109553337513, guid: db277ba082469e447b6255b919a2d15b, type: 3}
+  _grassTile5: {fileID: -386983109553337513, guid: 574dcc15d767cd84e90a31f5ec59d6ca, type: 3}
+  _grassTile6: {fileID: -386983109553337513, guid: 5766f617fe1cb324d9df731779b77116, type: 3}
+  _grassTile7: {fileID: -386983109553337513, guid: 7d0f701dc4f43db469af7ff48c69d742, type: 3}
+  _mountTile1: {fileID: 93862103432270439, guid: cafeadfb19adf8047be279f63d37fbb7, type: 3}
+  nombreTiles: 7
+  _nombreMoutain: 1
   _TurnSystem: {fileID: 1620426014}
   _longueurGrid: 10
   _largeurGrid: 10

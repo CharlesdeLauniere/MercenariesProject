@@ -44,6 +44,7 @@ public class GridManager : MonoBehaviour
         int random = Random.Range(0,_nombreMoutain);
         return ListTile[random];
     }
+    
     void Awake()
     {
         Instance = this;
@@ -73,23 +74,28 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < _largeurGrid; j++)
             {
-                //better biome gen a mettre
-                var randomTile = Random.Range(0, 6) == 3 ? RandomMoutainTile() : RandomGrassTile();
-                var tileLocation = new Vector2Int(i, j);
-                var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
-                spawnedTile.name = $"Tile {i} {j}";
-                /*
-                spawnedTile.transform.SetParent(CubeContainer.transform);var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-                indicatorG.name = $"IndicG {i} {j}";
-                indicatorG.transform.SetParent(IndicContainer.transform);
-                var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-                indicatorR.name = $"IndicR {i} {j}";
-                indicatorR.transform.SetParent(IndicContainer.transform);*/
-                spawnedTile.Init(i, j);
-                var isOffset = ((i + j) % 2 != 0);
-                spawnedTile.Init(isOffset);
-                spawnedTile.gridLocation = tileLocation;
-                _tiles[new Vector2(i, j)] = spawnedTile;
+                
+                
+     
+                
+                    //better biome gen a mettre
+                    var randomTile = Random.Range(0, 6) == 3 ? RandomMoutainTile() : RandomGrassTile();
+                    var tileLocation = new Vector2Int(i, j);
+                    var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
+                    spawnedTile.name = $"Tile {i} {j}";
+                    /*
+                    spawnedTile.transform.SetParent(CubeContainer.transform);var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
+                    indicatorG.name = $"IndicG {i} {j}";
+                    indicatorG.transform.SetParent(IndicContainer.transform);
+                    var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
+                    indicatorR.name = $"IndicR {i} {j}";
+                    indicatorR.transform.SetParent(IndicContainer.transform);*/
+                    spawnedTile.Init(i, j);
+                    var isOffset = ((i + j) % 2 != 0);
+                    spawnedTile.Init(isOffset);
+                    spawnedTile.gridLocation = tileLocation;
+                    _tiles[new Vector2(i, j)] = spawnedTile;
+                
             }
             
         }
