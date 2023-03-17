@@ -1,61 +1,61 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using System.Linq;
+//using UnityEngine;
 
-namespace MercenariesProject
-{
-   
-    public class PersonnageInitiative
-    {
-        public BaseHero Hero { get; set; }
-        public int Initiative { get; set; }
+//namespace MercenariesProject
+//{
 
-    }
+//    public class PersonnageInitiative
+//    {
+//        public BaseHero Hero { get; set; }
+//        public int Initiative { get; set; }
 
-
-    public class InitiativeManager : MonoBehaviour
-    {
-        public List<PersonnageInitiative> _initiative;
-
-        public void ResetBarreInitiative()
-        {
+//    }
 
 
-            List<Vector3> _positionList = new List<Vector3>();
-            _positionList.Add(new Vector3(150, 185f, 0));
-            _positionList.Add(new Vector3(100, 185f, 0));
-            _positionList.Add(new Vector3(50, 185f, 0));
-            _positionList.Add(new Vector3(0, 185f, 0));
-            _positionList.Add(new Vector3(-50, 185f, 0));
-            _positionList.Add(new Vector3(-100, 185f, 0));
+//    public class InitiativeManager : MonoBehaviour
+//    {
+//        public List<PersonnageInitiative> _initiative;
 
-            for (int i = 0; i < 6; i++)
-            {
+//        public void ResetBarreInitiative()
+//        {
 
 
-                _initiative.Add(new PersonnageInitiative
-                {
-                    Initiative = UnitManager.Instance.baseHeroes[i].GetInitiative()
-                    ,
-                    Hero = UnitManager.Instance.baseHeroes[i]
-                });
+//            List<Vector3> _positionList = new List<Vector3>();
+//            _positionList.Add(new Vector3(150, 185f, 0));
+//            _positionList.Add(new Vector3(100, 185f, 0));
+//            _positionList.Add(new Vector3(50, 185f, 0));
+//            _positionList.Add(new Vector3(0, 185f, 0));
+//            _positionList.Add(new Vector3(-50, 185f, 0));
+//            _positionList.Add(new Vector3(-100, 185f, 0));
 
-                /*if (UnitManager.Instance.baseHeroes[i].Faction == Faction.Blue)
-                {
+//            for (int i = 0; i < 6; i++)
+//            {
 
-                }*/
-            }
-            List<PersonnageInitiative> SortedInitiative = _initiative.OrderBy(x => x.Initiative).ToList();
 
-            for (int i = 0; i < 6; i++)
-            {
+//                _initiative.Add(new PersonnageInitiative
+//                {
+//                    Initiative = UnitManager.Instance.baseHeroes[i].GetInitiative()
+//                    ,
+//                    Hero = UnitManager.Instance.baseHeroes[i]
+//                });
 
-                Instantiate(SortedInitiative[i].Hero._imageIcon, _positionList[i], Quaternion.identity);
+//                /*if (UnitManager.Instance.baseHeroes[i].Faction == Faction.Blue)
+//                {
 
-            }
-            _initiative.Clear();
-        }
-    }
-}
+//                }*/
+//            }
+//            List<PersonnageInitiative> SortedInitiative = _initiative.OrderBy(x => x.Initiative).ToList();
+
+//            for (int i = 0; i < 6; i++)
+//            {
+
+//                Instantiate(SortedInitiative[i].Hero._imageIcon, _positionList[i], Quaternion.identity);
+
+//            }
+//            _initiative.Clear();
+//        }
+//    }
+//}

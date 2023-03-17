@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c102cab40a3904448f5b502a2d26739, type: 3}
   m_Name: LavaTile
   m_EditorClassIdentifier: 
-  baseTile: []
+  baseTile:
+  - {fileID: 5220461806178935327, guid: a22db04fa71aeca42a903234babe52e5, type: 3}
   message: Flaming Hot!
   type: 0
   effect: {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
+  Tiles3D:
+  - {fileID: 2100000, guid: 5228f4734163b2646a2bf19a08fd277e, type: 2}
+  - {fileID: 2100000, guid: bce188e653a1ebc4f89bc459bf00547b, type: 2}

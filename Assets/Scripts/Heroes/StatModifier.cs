@@ -10,14 +10,14 @@ namespace MercenariesProject
     public class StatModifier
     {
         public Stats attributeName;
-        public float value;
+        public int value;
         public int duration;
         public Operation Operator;
         public bool isActive;
         public string statModName;
 
 
-        public StatModifier(Stats attribute, float value, int duration, Operation op, string statModName)
+        public StatModifier(Stats attribute, int value, int duration, Operation op, string statModName)
         {
             this.attributeName = attribute;
             this.value = value;

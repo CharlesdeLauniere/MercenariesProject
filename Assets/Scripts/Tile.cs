@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 namespace MercenariesProject
 {
-    
+
 
     public class Tile : MonoBehaviour
     {
@@ -15,7 +15,6 @@ namespace MercenariesProject
         //[SerializeField] protected Color _baseColour, _offsetColour, _highlightColour;
         public int G, H;
         public int F { get { return G + H; } }
-
         public bool isWalkable;
         public Tile previous;
         public Vector2Int gridLocation;
@@ -25,8 +24,10 @@ namespace MercenariesProject
         public Hero activeHero;
 
 
-       
-        public BaseHero OccupiedUnit;
+
+
+
+       // public BaseHero OccupiedUnit;
 
         //public bool Walkable => isWalkable && OccupiedUnit == null;
 
@@ -73,17 +74,17 @@ namespace MercenariesProject
         //    MenuManager.Instance.ShowTileInfo(null);
         //}
 
-        
 
-        public void SetUnit(BaseHero hero)
-        {
-            if (hero.OccupiedTile != null) hero.OccupiedTile.OccupiedUnit = null;
-            Vector3 temp = transform.position;
-            temp.y = 0.2f;
-            hero.transform.position = temp;
-            OccupiedUnit = hero;
-            hero.OccupiedTile = this;
-        }
+
+        //public void SetUnit(BaseHero hero)
+        //{
+        //    if (hero.OccupiedTile != null) hero.OccupiedTile.OccupiedUnit = null;
+        //    Vector3 temp = transform.position;
+        //    temp.y = 0.2f;
+        //    hero.transform.position = temp;
+        //    OccupiedUnit = hero;
+        //    hero.OccupiedTile = this;
+        //}
     }
 
 

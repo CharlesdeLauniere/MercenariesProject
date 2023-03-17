@@ -11,12 +11,12 @@ namespace MercenariesProject
         public Stats statKey;
         public Hero hero;
         public string name;
-        public float baseStatValue;
-        public float statValue;
+        public int baseStatValue;
+        public int statValue;
         public bool isModified;
         public List<StatModifier> statMods;
 
-        public Stat(Stats statKey, float statValue, Hero hero)
+        public Stat(Stats statKey, int statValue, Hero hero)
         {
             this.hero = hero;
             this.statValue = statValue;

@@ -24,8 +24,8 @@ namespace MercenariesProject
 
         private Hero activeHero;
 
-        public Dictionary<Vector2Int, Tile> tileMap;
-        public Dictionary<Vector2Int, GameObject> grid;
+        public Dictionary<Vector2Int, Tile> tileMap = new();
+        public Dictionary<Vector2Int, GameObject> grid = new();
 
 
 
@@ -45,9 +45,9 @@ namespace MercenariesProject
         }
 
         public void GenerateGrid()
-        { 
+        {
 
-            
+            //Dictionary<Vector2Int, GameObject> grid = new();
             GameObject CubeContainer = new GameObject("CubesTileContainer");
             for (int i = 0; i < XGridSize; i++)
             {
@@ -59,6 +59,8 @@ namespace MercenariesProject
                     var randomTile = randomTileType.GetRandomVariant();
                     //var tileLocation = new Vector2Int(i, j);
                     var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
+                    //grid[new Vector2Int(i, j)] = spawnedTile;
+                    grid[new Vector2Int(i, j)] = spawnedTile;
                     spawnedTile.name = $"MapTile {i} {j}";
 
                     spawnedTile.transform.SetParent(CubeContainer.transform);
@@ -79,14 +81,14 @@ namespace MercenariesProject
                     //var isOffset = ((i + j) % 2 != 0);
                     //spawnedTile.Init(isOffset);
                     //spawnedTile.gridLocation = tileLocation;
-                    //grid[new Vector2Int(i, j)] = spawnedTile;
+                    
                 }
 
             }
-            //GenerateOverlayTiles();
+            GenerateOverlayTiles();
 
         }
-        public virtual void GenerateOverlayTiles()
+        public void GenerateOverlayTiles()
         {
             GameObject OverlayTilesContainer = new GameObject("OverlayTilesContainer");
             if (tileTypeList)
@@ -101,43 +103,62 @@ namespace MercenariesProject
             }
 
            // gridTilemap = gameObject.GetComponentInChildren<Tilemap>();
-            tileMap = new Dictionary<Vector2Int, Tile>();
-            
+            //tileMap = new Dictionary<Vector2Int, Tile>();
 
-          
+
+
 
             //loop through the tilemap and create all the overlay tiles
-            
-                for (int x = 0; x < XGridSize; x++)
+
+            for (int x = 0; x < XGridSize; x++)
+            {
+                for (int z = 0; z < ZGridSize; z++)
                 {
-                    for (int z = 0; x < ZGridSize; z++)
-                    {
-                    
-                    var overlayTile = Instantiate(_overlayTile, new Vector3(x, 0.5f, z), Quaternion.identity);
+
+                    var overlayTile = Instantiate(_overlayTile, new Vector3(x, 0.6f, z), Quaternion.identity);
                     overlayTile.transform.SetParent(OverlayTilesContainer.transform);
                     var tileKey = new Vector2Int(x, z);
-                        if (!tileMap.ContainsKey(tileKey))//gridTilemap.HasTile(tileKey) && 
+                    if (!tileMap.ContainsKey(tileKey))//gridTilemap.HasTile(tileKey) && 
+                    {
+
+                        var tileLocation = new Vector3(x, 0.6f, z);
+                        var baseTile = grid.GetValueOrDefault(tileKey);
+                        overlayTile.transform.position = tileLocation;
+                        //overlayTile.GetComponent<SpriteRenderer>().sortingOrder = gridTilemap.GetComponent<TilemapRenderer>().sortingOrder;
+                        overlayTile.gridLocation = new Vector2Int(x, z);
+
+                        foreach (var tileData in tileTypeList.items)
                         {
-                            
-                            var tileLocation = new Vector3(x, 0.2f, z);
-                            var baseTile = grid.GetValueOrDefault(tileKey);
-                            overlayTile.transform.position = tileLocation;
-                            //overlayTile.GetComponent<SpriteRenderer>().sortingOrder = gridTilemap.GetComponent<TilemapRenderer>().sortingOrder;
-                            overlayTile.gridLocation = new Vector2Int (x, z);
-
-                            if (dataFromTiles.ContainsKey(baseTile))
+                            foreach (var material in tileData.Tiles3D)
                             {
-                                overlayTile.tileData = dataFromTiles[baseTile];
-                                if (dataFromTiles[baseTile].type == TileTypes.NonTraversable)
-                                    overlayTile.isWalkable = false;
+                                if (material == baseTile.GetComponent<MeshRenderer>().sharedMaterial)
+                                {
+                                    overlayTile.tileData = tileData;
+                                }
                             }
-
-                            tileMap.Add(tileKey, _overlayTile);
                         }
-                        
+
+                        if (dataFromTiles.ContainsKey(baseTile))
+                        {
+                            overlayTile.tileData = dataFromTiles[baseTile];
+                            if (dataFromTiles[baseTile].type == TileTypes.NonTraversable)
+                                overlayTile.isWalkable = false;
+                        }
+
+                        if (!tileMap.ContainsKey(tileKey))
+                        {
+                            tileMap.Add(tileKey, overlayTile);
+                        }
+                        else
+                        {
+                            tileMap.Remove(tileKey);
+                            tileMap.Add(tileKey, overlayTile);
+                        }
                     }
+
                 }
-            
+            }
+
         }
         public MapTile GetRandomMapTile()
         {
@@ -169,6 +190,7 @@ namespace MercenariesProject
             }
             return null;
         }
+        
         //public void GenerateOverlayTiles()
         //{
         //    GameObject TileContainer = new GameObject("OverlayTileContainer");

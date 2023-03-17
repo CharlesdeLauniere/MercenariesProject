@@ -11,6 +11,6 @@ namespace MercenariesProject
         public string message;
         public TileTypes type = TileTypes.Traversable;
         public ScriptableEffect effect;
-        //public List<Material> Tiles3D;
+        public List<Material> Tiles3D;
     }
 }

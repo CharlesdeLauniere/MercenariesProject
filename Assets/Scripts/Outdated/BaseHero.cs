@@ -1,74 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace MercenariesProject
-{
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//namespace MercenariesProject
+//{
    
 
-    public class BaseHero : MonoBehaviour
-    {
+//    public class BaseHero : MonoBehaviour
+//    {
 
-        public string UnitName = "";
-        public Tile OccupiedTile;
-        public Faction Faction;
-        public int _maxHealth;
-        public int _currentHealth;
-        public int _baseAttackDmg;
-        public HealthBar HealthBar;
-        public GameObject _imageIcon;
+//        public string UnitName = "";
+//        public Tile OccupiedTile;
+//        public Faction Faction;
+//        public int _maxHealth;
+//        public int _currentHealth;
+//        public int _baseAttackDmg;
+//        public HealthBar HealthBar;
+//        public GameObject _imageIcon;
 
-        public int _initiative;
+//        public int _initiative;
 
-        public int Initiative { get; set; }
+//        public int Initiative { get; set; }
 
-        public int BaseAttackRange { get; set; }
+//        public int BaseAttackRange { get; set; }
 
 
 
-        public string GetUnitName()
-        {
-            return this.UnitName;
-        }
-        public void BaseAttack(BaseHero targetHero)
-        {
-            targetHero.TakeDamage(_baseAttackDmg);
+//        public string GetUnitName()
+//        {
+//            return this.UnitName;
+//        }
+//        public void BaseAttack(BaseHero targetHero)
+//        {
+//            targetHero.TakeDamage(_baseAttackDmg);
 
-        }
+//        }
 
-        public virtual void Ability1(BaseHero baseHero)
-        {
+//        public virtual void Ability1(BaseHero baseHero)
+//        {
 
-        }
+//        }
 
-        public virtual void Ability2(BaseHero baseHero)
-        {
+//        public virtual void Ability2(BaseHero baseHero)
+//        {
 
-        }
-        public void TakeDamage(int baseAttackDmg)
-        {
-            _currentHealth -= baseAttackDmg;
-            this.HealthBar.SetHealth(_currentHealth);
-            if (_currentHealth < 0) this.Dead(this);
+//        }
+//        public void TakeDamage(int baseAttackDmg)
+//        {
+//            _currentHealth -= baseAttackDmg;
+//            this.HealthBar.SetHealth(_currentHealth);
+//            if (_currentHealth < 0) this.Dead(this);
 
-        }
-        public void Dead(BaseHero baseHero)
-        {
-            Destroy(HealthBar);
-            UnitManager.Instance.baseHeroes.Remove(UnitManager.Instance.baseHeroes.Find(o => o.name == baseHero.name && o.Faction == baseHero.Faction));
-            Destroy(gameObject);
+//        }
+//        public void Dead(BaseHero baseHero)
+//        {
+//            Destroy(HealthBar);
+//            UnitManager.Instance.baseHeroes.Remove(UnitManager.Instance.baseHeroes.Find(o => o.name == baseHero.name && o.Faction == baseHero.Faction));
+//            Destroy(gameObject);
 
-        }
+//        }
 
-        public void SetupHealthBar()
-        {
-            HealthBar.SetMaxHealth(_maxHealth);
-        }
+//        public void SetupHealthBar()
+//        {
+//            HealthBar.SetMaxHealth(_maxHealth);
+//        }
 
-        public int GetInitiative()
-        {
-            return _initiative;
-        }
+//        public int GetInitiative()
+//        {
+//            return _initiative;
+//        }
 
-    }
+//    }
 
-}
+//}

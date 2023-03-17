@@ -17,3 +17,9 @@ MonoBehaviour:
   message: Mountain
   type: 1
   effect: {fileID: 0}
+  Tiles3D:
+  - {fileID: 2100000, guid: 294a552cb80d40143bc05244653ce779, type: 2}
+  - {fileID: 2100000, guid: 2fc3af53591fd5742bb6a040e9310588, type: 2}
+  - {fileID: 2100000, guid: f9ed660183bae0042a4452aa1fe157dc, type: 2}
+  - {fileID: 2100000, guid: ce52b39ac8a953a4d9ce93e39895b5d7, type: 2}
+  - {fileID: 2100000, guid: e7d490162b033eb4ca1bd0f53e979fa7, type: 2}

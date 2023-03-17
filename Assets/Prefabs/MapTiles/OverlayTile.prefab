@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9198371207481568545}
   - component: {fileID: 2744037606676981325}
   - component: {fileID: -8336263537331444715}
-  - component: {fileID: 309124275738390179}
+  - component: {fileID: 1426900140473761730}
   m_Layer: 0
   m_Name: OverlayTile
   m_TagString: Untagged
@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6763770361356661843}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2744037606676981325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   tileData: {fileID: 0}
   activeHero: {fileID: 0}
   OccupiedUnit: {fileID: 0}
---- !u!65 &309124275738390179
+--- !u!65 &1426900140473761730
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,5 +118,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.12865737}
-  m_Center: {x: 0, y: -9.141624e-16, z: -0.43567142}
+  m_Size: {x: 1, y: 0.22760904, z: 1}
+  m_Center: {x: 0, y: -0.38619548, z: 0}

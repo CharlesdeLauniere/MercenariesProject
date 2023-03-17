@@ -64,7 +64,7 @@ namespace MercenariesProject
                 statsContainer = ScriptableObject.CreateInstance<HeroStats>();
                 statsContainer.Health = new Stat(Stats.Health, characterClass.Health.baseStatValue, this);
                 statsContainer.Mana = new Stat(Stats.Mana, characterClass.Mana.baseStatValue, this);
-                statsContainer.Strenght = new Stat(Stats.Strenght, characterClass.Strenght.baseStatValue, this);
+                statsContainer.Strenght = new Stat(Stats.Strenght, characterClass.Strength.baseStatValue, this);
                 statsContainer.Endurance = new Stat(Stats.Endurance, characterClass.Endurance.baseStatValue, this);
                 statsContainer.Speed = new Stat(Stats.Speed, characterClass.Speed.baseStatValue, this);
                 statsContainer.Intelligence = new Stat(Stats.Intelligence, characterClass.Intelligence.baseStatValue, this);
