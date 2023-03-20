@@ -18,7 +18,7 @@ namespace MercenariesProject
         public TileDataRuntimeSet tileTypeList;
         //SerializeField] GameObject _TurnSystem;
         [SerializeField] private int XGridSize, ZGridSize;
-        [SerializeField] private GameObject OverlayTilesContainer,_acessibleTileIndicator, _inacessibleTileIndicator;
+        [SerializeField] private GameObject OverlayTilesContainer;
 
         public Dictionary<GameObject, TileData> dataFromTiles = new Dictionary<GameObject, TileData>();
 
@@ -90,7 +90,7 @@ namespace MercenariesProject
         }
         public void GenerateOverlayTiles()
         {
-            GameObject OverlayTilesContainer = new GameObject("OverlayTilesContainer");
+            //GameObject OverlayTilesContainer = new GameObject("OverlayTilesContainer");
             if (tileTypeList)
             {
                 foreach (var tileData in tileTypeList.items)

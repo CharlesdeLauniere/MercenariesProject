@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8373918035330691185}
   m_Layer: 0
   m_Name: Knight 1
-  m_TagString: Player2
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd2b84446bedff4f95ae32e40863591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamID: 2
+  teamID: 1
   activeTile: {fileID: 0}
   characterClass: {fileID: 11400000, guid: c2f253a57bedf7f4789676677fcceed8, type: 2}
   statsContainer: {fileID: 0}

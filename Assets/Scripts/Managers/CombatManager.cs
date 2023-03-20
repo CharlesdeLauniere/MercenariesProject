@@ -6,7 +6,7 @@ namespace MercenariesProject
 {
     public class CombatManager : MonoBehaviour
     {
-        public Hero activeCharacter;
+        public Hero activeHero;
 
         public GameEvent clearTiles;
         public GameEventString cancelActionEvent;
@@ -24,7 +24,7 @@ namespace MercenariesProject
 
         public void SetActiveCharacter(GameObject character)
         {
-            activeCharacter = character.GetComponent<Hero>();
+            activeHero = character.GetComponent<Hero>();
         }
 
         private void Update()
@@ -90,8 +90,8 @@ namespace MercenariesProject
             var focusedCharacter = inRangeCharacters[focusedCharIndex];
             focusedCharacter.SetTargeted(false);
 
-            focusedCharacter.TakeDamage(activeCharacter.GetStat(Stats.Strenght).statValue);
-            activeCharacter.UpdateInitiative(Constants.AttackCost);
+            focusedCharacter.TakeDamage(activeHero.GetStat(Stats.Strenght).statValue);
+            activeHero.UpdateInitiative(Constants.AttackCost);
             inRangeCharacters.Clear();
             InAttackMode = false;
             focusedCharIndex = 0;
@@ -101,8 +101,8 @@ namespace MercenariesProject
         public void EnterAttackMode()
         {
             InAttackMode = true;
-            var inRangeTiles = rangeFinder.GetTilesInRange(activeCharacter.activeTile, activeCharacter.GetStat(Stats.AttackRange).statValue, true);
-            inRangeCharacters = inRangeTiles.Where(x => x.activeHero && x.activeHero.teamID != activeCharacter.teamID && x.activeHero.isAlive).Select(x => x.activeHero).ToList();
+            var inRangeTiles = rangeFinder.GetTilesInRange(activeHero.activeTile, activeHero.GetStat(Stats.AttackRange).statValue, true);
+            inRangeCharacters = inRangeTiles.Where(x => x.activeHero && x.activeHero.teamID != activeHero.teamID && x.activeHero.isAlive).Select(x => x.activeHero).ToList();
 
             if (inRangeCharacters.Count > 0)
                 inRangeCharacters[focusedCharIndex].SetTargeted(true);
@@ -122,9 +122,9 @@ namespace MercenariesProject
         //Show all the tiles in attack range based on mouse position. 
         public void DisplayAttackRange(GameObject focusedOnTile = null)
         {
-            var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeCharacter.activeTile;
+            var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeHero.activeTile;
             var attackColor = OverlayController.Instance.AttackRangeColor;
-            List<Tile> inAttackRangeTiles = rangeFinder.GetTilesInRange(tileToUse, activeCharacter.GetStat(Stats.AttackRange).statValue, true, true);
+            List<Tile> inAttackRangeTiles = rangeFinder.GetTilesInRange(tileToUse, activeHero.GetStat(Stats.AttackRange).statValue, true, true);
             OverlayController.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
     }
