@@ -20,14 +20,16 @@ namespace MercenariesProject
         [SerializeField] private int XGridSize, ZGridSize;
         [SerializeField] private GameObject OverlayTilesContainer;
 
-        public Dictionary<GameObject, TileData> dataFromTiles = new Dictionary<GameObject, TileData>();
+        public Dictionary<GameObject, TileData> dataFromTiles = new();
 
         private Hero activeHero;
 
+         // Overlay tiles
         public Dictionary<Vector2Int, Tile> tileMap = new();
+         // Map cubes (uninteractable)
         public Dictionary<Vector2Int, GameObject> grid = new();
 
-
+        public GameEventStringList spawnHeroesByList;
 
 
         void Awake()
@@ -88,6 +90,13 @@ namespace MercenariesProject
             GenerateOverlayTiles();
 
         }
+
+        public void TempSetHeroesToSpawnList()
+        {
+            HeroesToSpawnList.heroesTospawn = new List<string> { "Knight", "Archer", "Mage" };
+            spawnHeroesByList.Raise(HeroesToSpawnList.heroesTospawn);
+        }
+
         public void GenerateOverlayTiles()
         {
             //GameObject OverlayTilesContainer = new GameObject("OverlayTilesContainer");
@@ -115,15 +124,17 @@ namespace MercenariesProject
                 for (int z = 0; z < ZGridSize; z++)
                 {
 
-                    var overlayTile = Instantiate(_overlayTile, new Vector3(x, 0.6f, z), Quaternion.identity);
+                    var overlayTile = Instantiate(_overlayTile, new Vector3(x, 0.121f, z), Quaternion.identity);
+                    overlayTile.transform.Rotate(90, 0, 0);
+                    
                     overlayTile.transform.SetParent(OverlayTilesContainer.transform);
                     var tileKey = new Vector2Int(x, z);
                     if (!tileMap.ContainsKey(tileKey))//gridTilemap.HasTile(tileKey) && 
                     {
 
-                        var tileLocation = new Vector3(x, 0.6f, z);
+                        var tileLocation = overlayTile.transform.position;
                         var baseTile = grid.GetValueOrDefault(tileKey);
-                        overlayTile.transform.position = tileLocation;
+                        //overlayTile.transform.position = tileLocation;
                         //overlayTile.GetComponent<SpriteRenderer>().sortingOrder = gridTilemap.GetComponent<TilemapRenderer>().sortingOrder;
                         overlayTile.gridLocation = new Vector2Int(x, z);
 
@@ -138,12 +149,7 @@ namespace MercenariesProject
                             }
                         }
 
-                        if (dataFromTiles.ContainsKey(baseTile))
-                        {
-                            overlayTile.tileData = dataFromTiles[baseTile];
-                            if (dataFromTiles[baseTile].type == TileTypes.NonTraversable)
-                                overlayTile.isWalkable = false;
-                        }
+                        
 
                         if (!tileMap.ContainsKey(tileKey))
                         {
@@ -191,42 +197,6 @@ namespace MercenariesProject
             return null;
         }
         
-        //public void GenerateOverlayTiles()
-        //{
-        //    GameObject TileContainer = new GameObject("OverlayTileContainer");
-        //    tileMap = new Dictionary<Vector2Int, Tile>();
-        //    for (int i = 0; i < _longueurGrid; i++)
-        //    {
-        //        for (int j = 0; j < _largeurGrid; j++)
-        //        {
-
-        //            var tileLocation = new Vector2Int(i, j);
-        //            var spawnedTile = Instantiate(overlayTile, new Vector3(i, -0.38f, j), Quaternion.identity);
-        //            spawnedTile.name = $"Tile {i} {j}";
-
-        //            spawnedTile.transform.SetParent(TileContainer.transform);
-        //            if (spawnedTile.isWalkable)
-        //            {
-        //                var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-        //                indicatorG.name = $"IndicG {i} {j}";
-        //                indicatorG.transform.SetParent(spawnedTile.transform);
-        //            }
-
-
-        //            //_indicators[new Vector2Int(i, j)] = indicatorG;
-        //            /*
-        //            var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-        //            indicatorR.name = $"IndicR {i} {j}";
-        //            indicatorR.transform.SetParent(IndicContainer.transform);*/
-        //            spawnedTile.Init(i, j);
-        //            var isOffset = ((i + j) % 2 != 0);
-        //            //spawnedTile.Init(isOffset);
-        //            spawnedTile.gridLocation = tileLocation;
-        //            tileMap[new Vector2Int(i, j)] = spawnedTile;
-        //        }
-
-        //    }
-        //}
 
         public int[] GetGridSize()
         {
@@ -235,12 +205,12 @@ namespace MercenariesProject
         public Tile GetRedHeroSpawnTile()
         {
             return tileMap.Where(t => t.Key.x < ZGridSize / 2 &&
-            t.Value.isWalkable).OrderBy(t => Random.value).First().Value;
+            t.Value.tileData.type == TileTypes.Traversable).OrderBy(t => Random.value).First().Value;
         }
         public Tile GetBlueHeroSpawnTile()
         {
             return tileMap.Where(t => t.Key.x < ZGridSize && t.Key.x > ZGridSize / 2 &&
-            t.Value.isWalkable).OrderBy(t => Random.value).First().Value;
+             t.Value.tileData.type == TileTypes.Traversable).OrderBy(t => Random.value).First().Value;
         }
         public Tile GetTileAtPosition(Vector2Int pos)
         {
@@ -250,53 +220,10 @@ namespace MercenariesProject
             }
             return null;
         }
-        //public List<Tile> GetSurroundingTiles(Vector2Int originTile)
-        //{
-        //    Dictionary<Vector2IntInt, Tile> tileToSearch = new Dictionary<Vector2IntInt, Tile>();
-        //    var surroundingTiles = new List<Tile>();
-        //    ////if (searchableTiles.Count > 0)
-        //    ////{
-        //    ////    foreach (var item in searchableTiles)
-        //    ////    {
-        //    ////        tileToSearch.Add(item.gridLocation, item);
-        //    ////    }
-
-        //    ////}
-        //    ////else
-        //    ////{
-        //    ////    tileToSearch = tileMap;
-        //    ////}
-
-
-        //    //top neighbour
-        //    Vector2IntInt locationToCheck = new Vector2IntInt(originTile.x, originTile.y + 1);
-        //    if (tileMap.ContainsKey(locationToCheck))
-        //    {
-        //        surroundingTiles.Add(tileMap[locationToCheck]);
-        //    }
-        //    //bottom neighbour
-        //    locationToCheck = new Vector2IntInt(originTile.x, originTile.y - 1);
-        //    if (tileMap.ContainsKey(locationToCheck))
-        //    {
-        //        surroundingTiles.Add(tileMap[locationToCheck]);
-        //    }
-        //    //right neighbour
-        //    locationToCheck = new Vector2IntInt(originTile.x + 1, originTile.y);
-        //    if (tileMap.ContainsKey(locationToCheck))
-        //    {
-        //        surroundingTiles.Add(tileMap[locationToCheck]);
-        //    }
-        //    //left neighbour
-        //    locationToCheck = new Vector2IntInt(originTile.x - 1, originTile.y);
-        //    if (tileMap.ContainsKey(locationToCheck))
-        //    {
-        //        surroundingTiles.Add(tileMap[locationToCheck]);
-        //    }
-        //    return surroundingTiles;
-        //}
+        
         public List<Tile> GetNeighbourTiles(Tile currentTile, List<Tile> searchableTiles, bool ignoreObstacles = false, bool walkThroughAllies = true)
         {
-            Dictionary<Vector2Int, Tile> tileToSearch = new Dictionary<Vector2Int, Tile>();
+            Dictionary<Vector2Int, Tile> tileToSearch = new();
 
             if (searchableTiles.Count > 0)
             {
@@ -316,16 +243,14 @@ namespace MercenariesProject
                 //top
                 Vector2Int locationToCheck = new Vector2Int(
                     currentTile.gridLocation.x,
-                    currentTile.gridLocation.y + 1
-                    );
+                    currentTile.gridLocation.y + 1);
 
                 ValidateNeighbour(currentTile, ignoreObstacles, walkThroughAllies, tileToSearch, neighbours, locationToCheck);
 
                 //bottom
                 locationToCheck = new Vector2Int(
                     currentTile.gridLocation.x,
-                    currentTile.gridLocation.y - 1
-                    );
+                    currentTile.gridLocation.y - 1);
 
 
                 ValidateNeighbour(currentTile, ignoreObstacles, walkThroughAllies, tileToSearch, neighbours, locationToCheck);
@@ -333,8 +258,7 @@ namespace MercenariesProject
                 //right
                 locationToCheck = new Vector2Int(
                     currentTile.gridLocation.x + 1,
-                    currentTile.gridLocation.y
-                    );
+                    currentTile.gridLocation.y);
 
 
                 ValidateNeighbour(currentTile, ignoreObstacles, walkThroughAllies, tileToSearch, neighbours, locationToCheck);
@@ -342,8 +266,7 @@ namespace MercenariesProject
                 //left
                 locationToCheck = new Vector2Int(
                     currentTile.gridLocation.x - 1,
-                    currentTile.gridLocation.y
-                    );
+                    currentTile.gridLocation.y);
 
 
                 ValidateNeighbour(currentTile, ignoreObstacles, walkThroughAllies, tileToSearch, neighbours, locationToCheck);
@@ -355,13 +278,10 @@ namespace MercenariesProject
             Dictionary<Vector2Int, Tile> tilesToSearch, List<Tile> neighbours, Vector2Int locationToCheck)
         {
             if (tilesToSearch.ContainsKey(locationToCheck) &&
-                (ignoreObstacles ||
-                (!ignoreObstacles && tilesToSearch[locationToCheck].isWalkable) ||
-                (!ignoreObstacles &&
-                walkThroughAllies &&
-                (tilesToSearch[locationToCheck].activeHero && Instance.activeHero &&
+                (ignoreObstacles || (!ignoreObstacles && tilesToSearch[locationToCheck].isWalkable) ||
+                (!ignoreObstacles && walkThroughAllies && (tilesToSearch[locationToCheck].activeHero && Instance.activeHero &&
                 tilesToSearch[locationToCheck].activeHero.teamID == Instance.activeHero.teamID))))
-            {
+            { 
                 neighbours.Add(tilesToSearch[locationToCheck]);
             }
         }
@@ -388,6 +308,13 @@ namespace MercenariesProject
             }
 
             return overlayTiles;
+        }
+        public void ClearTiles()
+        {
+            foreach (var item in tileMap.Values)
+            {
+                item.HideTile();
+            }
         }
 
 

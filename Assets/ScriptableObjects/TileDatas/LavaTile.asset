@@ -15,7 +15,7 @@ MonoBehaviour:
   baseTile:
   - {fileID: 5220461806178935327, guid: a22db04fa71aeca42a903234babe52e5, type: 3}
   message: Flaming Hot!
-  type: 0
+  type: 2
   effect: {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
   Tiles3D:
   - {fileID: 2100000, guid: 5228f4734163b2646a2bf19a08fd277e, type: 2}

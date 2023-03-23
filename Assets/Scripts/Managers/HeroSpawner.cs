@@ -6,25 +6,90 @@ namespace MercenariesProject
 {
     public class HeroSpawner : MonoBehaviour
     {
-        public List<HeroManager> characters;
-        //public List<SpawnTileContainer> spawnZones;
-        public Tile focusedOnTile;
+        public List<Hero> heroes;
 
-        public GameEventGameObject spawnCharacter;
+        //public Tile focusedOnTile;
+
+        public GameEventStringList spawnHeroes;
+        public GameEventGameObject heroSpawned;
         public GameEvent startGame;
 
-        public bool globalSpawn;
+        //public bool globalSpawn;
 
         private SpriteRenderer CharacterPreview;
-
+        private List<string> heroesToSpawn;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            CharacterPreview = GetComponent<SpriteRenderer>();
+            CharacterPreview = GetComponent<SpriteRenderer>(); 
         }
+        public void SpawnHeroes(List<string> spawnName)
+        {
+            for (int i = 0; i < heroes.Count; i += 1)
+            {
+                var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
+                var redSpawnedHero = Instantiate(redHeroPrefab);
+                redSpawnedHero.tag = "Player1";
+                redSpawnedHero.teamID = 1;
+                var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
+                redSpawnedHero.SetupHealthBar();
+                heroSpawned.Raise(redSpawnedHero.gameObject);
 
+                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnName[i]);
+                var blueSpawnedHero = Instantiate(blueHeroPrefab);
+                blueSpawnedHero.tag = "Player2";
+                blueSpawnedHero.teamID = 2;
+                var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
+                blueSpawnedHero.SetupHealthBar();
+                heroSpawned.Raise(blueSpawnedHero.gameObject);
+
+                redRandomSpawnTile.SetUnit(redSpawnedHero);
+                blueRandomSpawnTile.SetUnit(blueSpawnedHero);
+
+                //blueHeroPrefab.SetupHealthBar();
+               //redHeroPrefab.SetupHealthBar();
+
+                //heroes.Add(redSpawnedHero);
+                //heroes.Add(blueSpawnedHero);
+
+            }
+            startGame.Raise();
+
+        }
+       
+        private T GetSpecificHeroToSpawn<T>(string heroName) where T : Hero
+        {
+            return (T)heroes.Find(x => x.heroClass.ClassName == heroName);
+
+        }
+        //         
+        //        {
+        //            var heroCount = 3;
+        //            for (int i = 0; i < heroCount; i++)
+        //            {
+        //                var redHeroPrefab = GetSpecificHeroToSpawn<BaseHero>(Faction.Red, spawnName[i]);
+        //                var redSpawnedHero = Instantiate(redHeroPrefab);
+        //                var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
+
+        //                var blueHeroPrefab = GetSpecificHeroToSpawn<BaseHero>(Faction.Blue, spawnName[i]);
+        //                var blueSpawnedHero = Instantiate(blueHeroPrefab);
+        //                var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
+
+        //                redRandomSpawnTile.SetUnit(redSpawnedHero);
+        //                blueRandomSpawnTile.SetUnit(blueSpawnedHero);
+
+        //                //blueHeroPrefab.SetupHealthBar();
+        //                //redHeroPrefab.SetupHealthBar();
+
+        //                baseHeroes.Add(redSpawnedHero);
+        //                baseHeroes.Add(blueSpawnedHero);
+
+
+
+        //            }
+        //         
         // Update is called once per frame
         //void Update()
         //{

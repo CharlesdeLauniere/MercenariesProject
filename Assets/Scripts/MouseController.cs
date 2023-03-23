@@ -10,14 +10,12 @@ namespace MercenariesProject
 
     public class MouseController : MonoBehaviour
     {
-        public HeroSpawner heroSpawner;
         public Tile focusedOnTile;
     [SerializeField] private Vector3 previousMousePosition;
         public GameEventGameObject focusOnNewTile;
 
 
-        public GameObject cursor;
-        public float speed;
+        //public GameObject cursor;
 
         //public Vector3 mousePosition;
         [SerializeField] Camera mainCamera;
@@ -33,28 +31,23 @@ namespace MercenariesProject
             previousMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
            // pathFinder = new PathFinder();
            // path = new List<Tile>();
+
         }
 
         void FixedUpdate()
         {
-            Debug.Log("Ok");
+            //Debug.Log("Ok");
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (previousMousePosition != Camera.main.ScreenToWorldPoint(Input.mousePosition))
             {
-                Debug.Log("Ok2");
                 Tile newFocusedOnTile;
                 newFocusedOnTile = GetFocusedOnTile(mousePos);
-
-
+                //Debug.Log("Ok2");
                 if (newFocusedOnTile)
                 {
-                    Debug.Log("Ok3");
                     if (focusedOnTile != newFocusedOnTile)
                     {
-                        if (heroSpawner)
-                        {
-                            heroSpawner.focusedOnTile = newFocusedOnTile;
-                        }
+                       
                         transform.position = newFocusedOnTile.transform.position;
                         focusedOnTile = newFocusedOnTile;
 
@@ -62,8 +55,10 @@ namespace MercenariesProject
                             focusOnNewTile.Raise(newFocusedOnTile.gameObject);
                     }
                 }
+
                 previousMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
+
         }
         //void LateUpdate()
         //{
@@ -168,24 +163,7 @@ namespace MercenariesProject
             }
             return null;
         }
-        //public void MoveAlongPath()
-        //{
-        //    Debug.Log("Moving");
-        //    UnitManager.Instance.SelectedHero.transform.position = 
-        //        Vector3.MoveTowards(UnitManager.Instance.SelectedHero.transform.position,
-        //        path[0].transform.position, moveSpeed * Time.deltaTime);
-        //    UnitManager.Instance.SelectedHero.transform.position = new Vector3(UnitManager.Instance.SelectedHero.transform.position.x,
-        //        0.2f, UnitManager.Instance.SelectedHero.transform.position.z);
-
-        //    if ((Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.x - path[0].transform.position.x) +
-        //        Mathf.Abs(UnitManager.Instance.SelectedHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
-        //    {
-        //        Debug.Log("Moving2");
-        //        path[0].SetUnit(UnitManager.Instance.SelectedHero);
-        //        path.RemoveAt(0);
-        //        if (path.Count == 0) TurnManager.Instance.SwitchBetweenTurnStates(TurnManager.TurnState.selectingAttack);
-        //    }
-        //}
+        
 
     }
 

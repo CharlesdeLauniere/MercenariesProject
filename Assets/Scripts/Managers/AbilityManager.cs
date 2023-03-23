@@ -82,7 +82,7 @@ namespace MercenariesProject
             activeCharacter.UpdateMana(abilityContainer.ability.cost);
             disableAbility.Raise(abilityContainer.ability.Name);
             abilityContainer = null;
-            OverlayController.Instance.ClearTiles(null);
+            OverlayTileColorManager.Instance.ClearTiles(null);
         }
 
         //The event receiver for Casting an Ability. 
@@ -131,7 +131,7 @@ namespace MercenariesProject
                     {
                         var gridTile = map[tile.gridLocation];
                         gridTile.GetComponent<SpriteRenderer>().color = abilityRangeTiles.Contains<Tile>(gridTile)
-                            ? OverlayController.Instance.MoveRangeColor
+                            ? OverlayTileColorManager.Instance.MoveRangeColor
                             : new Color(0, 0, 0, 0);
                     }
                 }
@@ -143,7 +143,7 @@ namespace MercenariesProject
                     if (abilityContainer.ability.includeOrigin)
                         abilityAffectedTiles.Add(tilePosition);
 
-                    OverlayController.Instance.ColorTiles(OverlayController.Instance.AttackRangeColor, abilityAffectedTiles);
+                    OverlayTileColorManager.Instance.ColorTiles(OverlayTileColorManager.Instance.AttackRangeColor, abilityAffectedTiles);
                 }
             }
         }
@@ -151,14 +151,14 @@ namespace MercenariesProject
         //Set ability casting mode. 
         public void AbilityModeEvent(string abilityName)
         {
-            OverlayController.Instance.ClearTiles(null);
+            OverlayTileColorManager.Instance.ClearTiles(null);
 
             var abilityContainer = activeCharacter.abilitiesForUse.Find(x => x.ability.Name == abilityName);
             if (abilityContainer.ability.cost <= activeCharacter.statsContainer.CurrentMana.statValue)
             {
                 abilityRangeTiles = eventRangeController.GetTilesInRange(activeCharacter.activeTile, abilityContainer.ability.range, true);
 
-                OverlayController.Instance.ColorTiles(OverlayController.Instance.MoveRangeColor, abilityRangeTiles);
+                OverlayTileColorManager.Instance.ColorTiles(OverlayTileColorManager.Instance.MoveRangeColor, abilityRangeTiles);
 
                 this.abilityContainer = abilityContainer;
             }
@@ -167,7 +167,7 @@ namespace MercenariesProject
         //Cancel ability casting mode. 
         public void CancelEventMode()
         {
-            OverlayController.Instance.ClearTiles(null);
+            OverlayTileColorManager.Instance.ClearTiles(null);
             abilityContainer = null;
         }
     }

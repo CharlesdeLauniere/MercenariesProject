@@ -15,9 +15,10 @@ namespace MercenariesProject
 
         [Header("General")]
         public int teamID = 0;
+        public Sprite portrait;
         [HideInInspector]
         public Tile activeTile;
-        public HeroClass characterClass;
+        public HeroClass heroClass;
         [HideInInspector]
         public HeroStats statsContainer;
         [HideInInspector]
@@ -28,7 +29,7 @@ namespace MercenariesProject
         [HideInInspector]
         public bool isActive;
         public GameEvent endTurn;
-        public Image healthBar;
+        public HealthBar HealthBar;
         [HideInInspector]
         public int previousTurnCost = -1;
 
@@ -62,16 +63,16 @@ namespace MercenariesProject
             if (statsContainer == null)
             {
                 statsContainer = ScriptableObject.CreateInstance<HeroStats>();
-                statsContainer.Health = new Stat(Stats.Health, characterClass.Health.baseStatValue, this);
-                statsContainer.Mana = new Stat(Stats.Mana, characterClass.Mana.baseStatValue, this);
-                statsContainer.Strenght = new Stat(Stats.Strenght, characterClass.Strength.baseStatValue, this);
-                statsContainer.Endurance = new Stat(Stats.Endurance, characterClass.Endurance.baseStatValue, this);
-                statsContainer.Speed = new Stat(Stats.Speed, characterClass.Speed.baseStatValue, this);
-                statsContainer.Intelligence = new Stat(Stats.Intelligence, characterClass.Intelligence.baseStatValue, this);
-                statsContainer.MoveRange = new Stat(Stats.MoveRange, characterClass.MoveRange, this);
-                statsContainer.AttackRange = new Stat(Stats.AttackRange, characterClass.AttackRange, this);
-                statsContainer.CurrentHealth = new Stat(Stats.CurrentHealth, characterClass.Health.baseStatValue, this);
-                statsContainer.CurrentMana = new Stat(Stats.CurrentMana, characterClass.Mana.baseStatValue, this);
+                statsContainer.Health = new Stat(Stats.Health, heroClass.Health.baseStatValue, this);
+                statsContainer.Mana = new Stat(Stats.Mana, heroClass.Mana.baseStatValue, this);
+                statsContainer.Strenght = new Stat(Stats.Strenght, heroClass.Strength.baseStatValue, this);
+                statsContainer.Endurance = new Stat(Stats.Endurance, heroClass.Endurance.baseStatValue, this);
+                statsContainer.Speed = new Stat(Stats.Speed, heroClass.Speed.baseStatValue, this);
+                statsContainer.Intelligence = new Stat(Stats.Intelligence, heroClass.Intelligence.baseStatValue, this);
+                statsContainer.MoveRange = new Stat(Stats.MoveRange, heroClass.MoveRange, this);
+                statsContainer.AttackRange = new Stat(Stats.AttackRange, heroClass.AttackRange, this);
+                statsContainer.CurrentHealth = new Stat(Stats.CurrentHealth, heroClass.Health.baseStatValue, this);
+                statsContainer.CurrentMana = new Stat(Stats.CurrentMana, heroClass.Mana.baseStatValue, this);
             }
 
             //for (int i = 0; i < level; i++)
@@ -81,25 +82,29 @@ namespace MercenariesProject
         }
 
         // Update is called once per frame
-        public void Update()
-        {
-            if (isTargetted)
-            {
-                //Just a Color Lerp for when a character is targetted for an attack. 
-                i += Time.deltaTime * 0.5f;
-                myRenderer.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0.5f, 0, 1), Mathf.PingPong(i * 2, 1));
-            }
-        }
+        //public void Update()
+        //{
+        //    if (isTargetted)
+        //    {
+        //        //Just a Color Lerp for when a character is targetted for an attack. 
+        //        i += Time.deltaTime * 0.5f;
+        //        myRenderer.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0.5f, 0, 1), Mathf.PingPong(i * 2, 1));
+        //    }
+        //}
 
         //Get's all the available abilities from the characters class. 
         public void SetAbilityList()
         {
             abilitiesForUse = new List<AbilityContainer>();
-            foreach (var ability in characterClass.abilities)
+            foreach (var ability in heroClass.abilities)
             {
                 //if (level >= ability.requiredLevel)
                     abilitiesForUse.Add(new AbilityContainer(ability));
             }
+        }
+        public void SetupHealthBar()
+        {
+            HealthBar.SetMaxHealth(heroClass.Health.baseStatValue);
         }
 
         //Scale up attributes based on a weighted random. 
@@ -181,14 +186,14 @@ namespace MercenariesProject
         {
             isTargetted = focused;
 
-            if (isTargetted)
-            {
-                myRenderer.color = new Color(1, 0, 0, 1);
-            }
-            else
-            {
-                myRenderer.color = new Color(1, 1, 1, 1);
-            }
+            //if (isTargetted)
+            //{
+            //    myRenderer.color = new Color(1, 0, 0, 1);
+            //}
+            //else
+            //{
+            //    myRenderer.color = new Color(1, 1, 1, 1);
+            //}
         }
 
         //Take damage from an attack or ability. 
@@ -287,7 +292,7 @@ namespace MercenariesProject
         //Updates the characters healthbar. 
         private void UpdateCharacterUI()
         {
-            healthBar.fillAmount = (float)statsContainer.CurrentHealth.statValue / (float)statsContainer.Health.statValue;
+            HealthBar.SetHealth((float)statsContainer.CurrentHealth.statValue);
         }
 
         //Change characters mana

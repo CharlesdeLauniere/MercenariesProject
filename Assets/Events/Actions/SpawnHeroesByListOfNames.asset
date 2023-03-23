@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b62ddf693d77b4f95cadaf7d77ad53, type: 3}
-  m_Name: SpawnHeroes
+  m_Script: {fileID: 11500000, guid: 562e9505d3e934b489d3e921503388cb, type: 3}
+  m_Name: SpawnHeroesByListOfNames
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
+  _stringList: []

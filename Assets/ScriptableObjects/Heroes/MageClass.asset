@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9555c8a73a3505841b42f0501584dd87, type: 3}
-  m_Name: KnightClass
+  m_Name: MageClass
   m_EditorClassIdentifier: 
-  ClassName: Knight
+  ClassName: Mage
   Health:
-    baseStatValue: 100
+    baseStatValue: 50
   Mana:
-    baseStatValue: 20
+    baseStatValue: 100
   Strength:
-    baseStatValue: 50
+    baseStatValue: 10
   Endurance:
-    baseStatValue: 50
+    baseStatValue: 10
   Speed:
-    baseStatValue: 10
+    baseStatValue: 4
   Intelligence:
-    baseStatValue: 10
-  MoveRange: 4
-  AttackRange: 1
+    baseStatValue: 100
+  MoveRange: 3
+  AttackRange: 2
   abilities: []

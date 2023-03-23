@@ -1,21 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MercenariesProject
 {
     public class SetActiveCharacterPortrait : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public void SetCharacterImage(GameObject activeCharacter)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            GetComponent<Image>().sprite = activeCharacter.GetComponent<Hero>().portrait;
         }
     }
 }

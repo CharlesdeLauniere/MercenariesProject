@@ -22,10 +22,10 @@ namespace MercenariesProject
         private PathFinder pathFinder;
         private RangeFinder rangeFinder;
         //private ArrowTranslator arrowTranslator;
-        private List<Tile> path = new List<Tile>();
-        private List<Tile> inRangeTiles = new List<Tile>();
-        private List<Tile> inAttackRangeTiles = new List<Tile>();
-        private Tile focusedTile;
+        [SerializeField] private List<Tile> path = new List<Tile>();
+        [SerializeField] private List<Tile> inRangeTiles = new List<Tile>();
+        [SerializeField] private List<Tile> inAttackRangeTiles = new List<Tile>();
+        [SerializeField] private Tile focusedTile;
         private bool movementModeEnabled = false;
         private bool isMoving = false;
 
@@ -70,7 +70,7 @@ namespace MercenariesProject
             if (Input.GetMouseButtonDown(0) && movementModeEnabled && path.Count > 0)
             {
                 isMoving = true;
-                OverlayController.Instance.ClearTiles(null);
+                OverlayTileColorManager.Instance.ClearTiles(null);
                 activeHero.UpdateInitiative(Constants.MoveCost);
             }
 
@@ -92,20 +92,21 @@ namespace MercenariesProject
         {
             movementModeEnabled = false;
             isMoving = false;
-            OverlayController.Instance.ClearTiles(null);
+            OverlayTileColorManager.Instance.ClearTiles(null);
             activeHero.CharacterMoved();
         }
 
         //Move along a set path.
         private void MoveAlongPath()
         {
-            var step = speed * Time.deltaTime;
 
-            var zIndex = path[0].transform.position.z;
-            activeHero.transform.position = Vector3.MoveTowards(activeHero.transform.position, path[0].transform.position, step);
+            activeHero.transform.position = Vector3.MoveTowards(activeHero.transform.position,
+                path[0].transform.position, speed * Time.deltaTime);
+            activeHero.transform.position = new Vector3(activeHero.transform.position.x, 0.2f, activeHero.transform.position.z);
             //activeCharacter.transform.position = new Vector3(activeCharacter.transform.position.x, activeCharacter.transform.position.y, activeCharacter.transform.position.z);
 
-            if (Vector3.Distance(activeHero.transform.position, path[0].transform.position) < 0.0001f)
+            if ((Mathf.Abs(activeHero.transform.position.x - path[0].transform.position.x) + 
+                Mathf.Abs(activeHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
             {
                 //last tile
                 if (path.Count == 1)
@@ -127,15 +128,17 @@ namespace MercenariesProject
                 }
             }
         }
+       
 
         //Get all tiles in movement range. 
         private void GetInRangeTiles()
         {
-            var moveColor = OverlayController.Instance.MoveRangeColor;
+            var moveColor = OverlayTileColorManager.Instance.MoveRangeColor;
             if (activeHero && activeHero.activeTile)
             {
+                Debug.Log(activeHero.GetStat(Stats.MoveRange).statValue);
                 inRangeTiles = rangeFinder.GetTilesInRange(activeHero.activeTile, activeHero.GetStat(Stats.MoveRange).statValue, false, moveThroughAllies);
-                OverlayController.Instance.ColorTiles(moveColor, inRangeTiles);
+                OverlayTileColorManager.Instance.ColorTiles(moveColor, inRangeTiles);
             }
         }
 
@@ -175,10 +178,10 @@ namespace MercenariesProject
         //Show all the tiles in attack range based on mouse position. 
         public void ShowAttackRangeTiles(GameObject focusedOnTile)
         {
-            var attackColor = OverlayController.Instance.AttackRangeColor;
+            var attackColor = OverlayTileColorManager.Instance.AttackRangeColor;
             inAttackRangeTiles = rangeFinder.GetTilesInRange(focusedOnTile.GetComponent<Tile>(), activeHero.GetStat(Stats.AttackRange).statValue, true, moveThroughAllies);
 
-            OverlayController.Instance.ColorTiles(attackColor, inAttackRangeTiles);
+            OverlayTileColorManager.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
 
         //Set new active character

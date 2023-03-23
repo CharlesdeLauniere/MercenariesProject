@@ -4,10 +4,10 @@ using UnityEngine;
 namespace MercenariesProject
 {
     //Handles the colouring of tiles. 
-    public class OverlayController : MonoBehaviour
+    public class OverlayTileColorManager : MonoBehaviour
     {
-        private static OverlayController _instance;
-        public static OverlayController Instance { get { return _instance; } }
+        private static OverlayTileColorManager _instance;
+        public static OverlayTileColorManager Instance { get { return _instance; } }
 
         public Dictionary<Color, List<Tile>> coloredTiles;
         

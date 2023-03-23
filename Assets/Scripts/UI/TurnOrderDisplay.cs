@@ -1,21 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MercenariesProject
 {
     public class TurnOrderDisplay : MonoBehaviour
     {
-        // Start is called before the first frame update
+        public GameObject portraitPrefab;
+
+
+        private List<string> turnOrder;
+
         void Start()
         {
-        
+            turnOrder = new List<string>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SetTurnOrderDisplay(List<GameObject> characters)
         {
-        
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+                turnOrder.RemoveRange(0, turnOrder.Count);
+            }
+
+            turnOrder = new List<string>();
+
+            //the order should be consistent
+            foreach (var item in characters)
+            {
+                var spawnedObject = Instantiate(portraitPrefab, transform);
+                spawnedObject.GetComponent<Image>().sprite = item.GetComponent<Hero>().portrait;
+
+                turnOrder.Add(item.ToString() + " - " + item.name);
+            }
         }
     }
 }

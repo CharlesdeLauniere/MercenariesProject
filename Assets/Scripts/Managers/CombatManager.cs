@@ -123,9 +123,9 @@ namespace MercenariesProject
         public void DisplayAttackRange(GameObject focusedOnTile = null)
         {
             var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeHero.activeTile;
-            var attackColor = OverlayController.Instance.AttackRangeColor;
+            var attackColor = OverlayTileColorManager.Instance.AttackRangeColor;
             List<Tile> inAttackRangeTiles = rangeFinder.GetTilesInRange(tileToUse, activeHero.GetStat(Stats.AttackRange).statValue, true, true);
-            OverlayController.Instance.ColorTiles(attackColor, inAttackRangeTiles);
+            OverlayTileColorManager.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
     }
 }

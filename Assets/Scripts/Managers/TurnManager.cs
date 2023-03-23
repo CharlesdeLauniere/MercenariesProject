@@ -8,8 +8,8 @@ namespace MercenariesProject
 {
     public class TurnManager : MonoBehaviour
     {
-        private List<Hero> teamA = new List<Hero>();
-        private List<Hero> teamB = new List<Hero>();
+        [SerializeField] private List<Hero> teamA = new();
+        [SerializeField] private List<Hero> teamB = new();
 
         public TurnSorting turnSorting;
 
@@ -18,34 +18,19 @@ namespace MercenariesProject
 
         public List<Hero> combinedList;
 
-        public bool ignorePlayers = false;
-        public bool ignoreEnemies = false;
-
         public enum TurnSorting
         {
             ConstantAttribute,
             CTB
         };
 
-        void Start()
+        public void HeroesHaveBeenSpawned()
         {
-            if (!ignorePlayers)
-                teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
+            teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
 
-            if (!ignoreEnemies)
-                teamB = GameObject.FindGameObjectsWithTag("Player2").Select(x => x.GetComponent<Hero>()).ToList();
+            teamB = GameObject.FindGameObjectsWithTag("Player2").Select(x => x.GetComponent<Hero>()).ToList();
 
             combinedList = new List<Hero>();
-
-            foreach (var item in teamA)
-            {
-                item.teamID = 1;
-            }
-
-            foreach (var item in teamB)
-            {
-                item.teamID = 2;
-            }
 
             SortTeamOrder(true);
         }
@@ -88,9 +73,9 @@ namespace MercenariesProject
             SortTeamOrder(true);
             if (combinedList.Where(x => x.isAlive).ToList().Count > 0)
             {
-                var firsCharacter = combinedList.First();
-                firsCharacter.StartTurn();
-                startNewCharacterTurn.Raise(firsCharacter.gameObject);
+                var firstCharacter = combinedList.First();
+                firstCharacter.StartTurn();
+                startNewCharacterTurn.Raise(firstCharacter.gameObject);
             }
         }
 
@@ -99,7 +84,7 @@ namespace MercenariesProject
         {
             if (combinedList.Count > 0)
             {
-                FinaliseEndCharactersTurn();
+                FinaliseEndHeroTurn();
 
                 SortTeamOrder();
 
@@ -138,17 +123,17 @@ namespace MercenariesProject
         }
 
         //Last few steps of ending a characters turn. 
-        private void FinaliseEndCharactersTurn()
+        private void FinaliseEndHeroTurn()
         {
-            var characterEndingTurn = combinedList.First();
+            var heroEndingTurn = combinedList.First();
 
-            if (characterEndingTurn.activeTile && characterEndingTurn.activeTile.tileData)
+            if (heroEndingTurn.activeTile && heroEndingTurn.activeTile.tileData)
             {
                 //Attach Apply Tile Effect
-                var tileEffect = characterEndingTurn.activeTile.tileData.effect;
+                var tileEffect = heroEndingTurn.activeTile.tileData.effect;
 
                 if (tileEffect != null)
-                    characterEndingTurn.AttachEffect(tileEffect);
+                    heroEndingTurn.AttachEffect(tileEffect);
             }
 
             combinedList.First().UpdateInitiative(Constants.BaseCost);
@@ -156,16 +141,17 @@ namespace MercenariesProject
 
 
         //Wait until next loop to avoid possible race condition. 
-        IEnumerator DelayedSetActiveCharacter(Hero firstCharacter)
+        IEnumerator DelayedSetActiveCharacter(Hero firstHero)
         {
             yield return new WaitForFixedUpdate();
-            startNewCharacterTurn.Raise(firstCharacter.gameObject);
+            startNewCharacterTurn.Raise(firstHero.gameObject);
         }
 
         //Add a character to the turn order when they spawn. 
-        public void SpawnNewCharacter(GameObject character)
+        public void SpawnNewCharacter(GameObject hero)
         {
-            teamA.Add(character.GetComponent<HeroManager>());
+            if(hero.CompareTag("Player1"))teamA.Add(hero.GetComponent<Hero>());
+            else if(hero.CompareTag("Player2"))teamB.Add(hero.GetComponent<Hero>());
             SortTeamOrder(true);
         }
 

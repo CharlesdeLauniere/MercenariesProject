@@ -10,7 +10,7 @@ namespace MercenariesProject
         [SerializeField]
         public int baseStatValue;
 
-        [SerializeField]
-        public AnimationCurve baseStatModifier = new AnimationCurve();
+        //[SerializeField]
+        //public AnimationCurve baseStatModifier = new AnimationCurve();
     }
 }

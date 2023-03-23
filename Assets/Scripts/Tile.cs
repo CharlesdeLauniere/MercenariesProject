@@ -15,8 +15,8 @@ namespace MercenariesProject
         //[SerializeField] protected Color _baseColour, _offsetColour, _highlightColour;
         public int G, H;
         public int F { get { return G + H; } }
-        public bool isWalkable;
         public Tile previous;
+        public bool isWalkable = true;
         public Vector2Int gridLocation;
         //public Vector3Int grid3DLocation { get { return new Vector3Int(gridLocation.x, 0, gridLocation.y); } }
         public List<Sprite> arrows;
@@ -27,10 +27,14 @@ namespace MercenariesProject
 
 
 
-       // public BaseHero OccupiedUnit;
+        // public BaseHero OccupiedUnit;
 
         //public bool Walkable => isWalkable && OccupiedUnit == null;
 
+        public void Start()
+        {
+            if (this.tileData.type == TileTypes.NonTraversable) isWalkable = false;
+        }
         public enum TileColors
         {
             MovementColor,
@@ -76,15 +80,14 @@ namespace MercenariesProject
 
 
 
-        //public void SetUnit(BaseHero hero)
-        //{
-        //    if (hero.OccupiedTile != null) hero.OccupiedTile.OccupiedUnit = null;
-        //    Vector3 temp = transform.position;
-        //    temp.y = 0.2f;
-        //    hero.transform.position = temp;
-        //    OccupiedUnit = hero;
-        //    hero.OccupiedTile = this;
-        //}
+        public void SetUnit(Hero hero)
+        {
+            if (hero.activeTile != null) hero.activeTile.activeHero = null;
+           
+            hero.transform.position = new Vector3(transform.position.x, 0.2f, transform.position.z);
+            activeHero = hero;
+            hero.activeTile = this;
+        }
     }
 
 

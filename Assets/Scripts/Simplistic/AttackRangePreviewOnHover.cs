@@ -18,7 +18,7 @@ namespace MercenariesProject
         //Hides a characters attack range.
         public void HideRangePreview(BaseEventData eventData)
         {
-            OverlayController.Instance.ClearTiles(OverlayController.Instance.AttackRangeColor);
+            OverlayTileColorManager.Instance.ClearTiles(OverlayTileColorManager.Instance.AttackRangeColor);
         }
     }
 }

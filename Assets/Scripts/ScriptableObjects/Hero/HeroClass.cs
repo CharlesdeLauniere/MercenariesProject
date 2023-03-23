@@ -7,6 +7,8 @@ namespace MercenariesProject
     [CreateAssetMenu(fileName = "HeroClass", menuName = "ScriptableObjects/HeroClass", order = 1)]
     public class HeroClass : ScriptableObject
     {
+        public string ClassName;
+
         public BaseStat Health;
         public BaseStat Mana;
         public BaseStat Strength;
