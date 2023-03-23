@@ -19,7 +19,7 @@ namespace MercenariesProject
         [HideInInspector]
         public Tile activeTile;
         public HeroClass heroClass;
-        [HideInInspector]
+       // [HideInInspector]
         public HeroStats statsContainer;
         [HideInInspector]
         public int initiativeValue;
@@ -65,7 +65,7 @@ namespace MercenariesProject
                 statsContainer = ScriptableObject.CreateInstance<HeroStats>();
                 statsContainer.Health = new Stat(Stats.Health, heroClass.Health.baseStatValue, this);
                 statsContainer.Mana = new Stat(Stats.Mana, heroClass.Mana.baseStatValue, this);
-                statsContainer.Strenght = new Stat(Stats.Strenght, heroClass.Strength.baseStatValue, this);
+                statsContainer.Strength = new Stat(Stats.Strength, heroClass.Strength.baseStatValue, this);
                 statsContainer.Endurance = new Stat(Stats.Endurance, heroClass.Endurance.baseStatValue, this);
                 statsContainer.Speed = new Stat(Stats.Speed, heroClass.Speed.baseStatValue, this);
                 statsContainer.Intelligence = new Stat(Stats.Intelligence, heroClass.Intelligence.baseStatValue, this);
@@ -104,7 +104,7 @@ namespace MercenariesProject
         }
         public void SetupHealthBar()
         {
-            HealthBar.SetMaxHealth(heroClass.Health.baseStatValue);
+            HealthBar.SetMaxHealth((float)heroClass.Health.baseStatValue);
         }
 
         //Scale up attributes based on a weighted random. 
@@ -245,8 +245,8 @@ namespace MercenariesProject
                     return statsContainer.Health;
                 case Stats.Mana:
                     return statsContainer.Mana;
-                case Stats.Strenght:
-                    return statsContainer.Strenght;
+                case Stats.Strength:
+                    return statsContainer.Strength;
                 case Stats.Endurance:
                     return statsContainer.Endurance;
                 case Stats.Speed:
@@ -286,13 +286,14 @@ namespace MercenariesProject
                 yield return null;
             }
 
-            GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f, 1);
+           // GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f, 1);
         }
 
         //Updates the characters healthbar. 
         private void UpdateCharacterUI()
         {
-            HealthBar.SetHealth((float)statsContainer.CurrentHealth.statValue);
+            Debug.Log(statsContainer.CurrentHealth.statValue);
+            this.HealthBar.SetHealth((float)statsContainer.CurrentHealth.statValue);
         }
 
         //Change characters mana

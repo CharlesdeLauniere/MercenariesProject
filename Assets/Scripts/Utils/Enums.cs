@@ -5,7 +5,7 @@ namespace MercenariesProject
     {
         Health,
         Mana,
-        Strenght,
+        Strength,
         Endurance,
         Speed,
         Intelligence,

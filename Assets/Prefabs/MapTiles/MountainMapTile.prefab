@@ -51,4 +51,4 @@ MonoBehaviour:
   - {fileID: 3123026275325838348, guid: 5cb1b4a534163d343b176e43edde038e, type: 3}
   - {fileID: 3123026275325838348, guid: 3eaa628c00444bb4f8e24557e1762ab3, type: 3}
   Weights: 0500000005000000030000000300000001000000
-  MapTileWeight: 3
+  MapTileWeight: 0

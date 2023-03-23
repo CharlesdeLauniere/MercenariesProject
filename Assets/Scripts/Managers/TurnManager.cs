@@ -16,7 +16,7 @@ namespace MercenariesProject
         public GameEventGameObject startNewCharacterTurn;
         public GameEventGameObjectList turnOrderSet;
 
-        public List<Hero> combinedList;
+        public List<Hero> combinedList = new();
 
         public enum TurnSorting
         {
@@ -24,16 +24,16 @@ namespace MercenariesProject
             CTB
         };
 
-        public void HeroesHaveBeenSpawned()
-        {
-            teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
+        //public void HeroesHaveBeenSpawned()
+        //{
+        //    teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
 
-            teamB = GameObject.FindGameObjectsWithTag("Player2").Select(x => x.GetComponent<Hero>()).ToList();
+        //    teamB = GameObject.FindGameObjectsWithTag("Player2").Select(x => x.GetComponent<Hero>()).ToList();
 
-            combinedList = new List<Hero>();
+        //    combinedList = new List<Hero>();
 
-            SortTeamOrder(true);
-        }
+        //    SortTeamOrder(true);
+        //}
 
         //Sort the team turn order based on TurnSorting.
         private void SortTeamOrder(bool updateListSize = false)

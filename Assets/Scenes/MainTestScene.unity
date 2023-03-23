@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -903,7 +903,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1739611644}
+      - m_Target: {fileID: 1336260831}
         m_TargetAssemblyTypeName: MercenariesProject.TurnManager, Assembly-CSharp
         m_MethodName: EndTurn
         m_Mode: 1
@@ -915,7 +915,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 889662963}
+      - m_Target: {fileID: 889662967}
         m_TargetAssemblyTypeName: MercenariesProject.UIManager, Assembly-CSharp
         m_MethodName: EnableUI
         m_Mode: 1
@@ -1234,6 +1234,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.0164032
       objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MercenariesProject.GameEvent`1[[UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198427, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1359,7 +1387,7 @@ PrefabInstance:
       value: ButtonContainer
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6015064798960106397, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
 --- !u!224 &613794432 stripped
 RectTransform:
@@ -1509,7 +1537,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889662963}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MercenariesProject.UIManager, Assembly-CSharp
         m_MethodName: CancelActionState
         m_Mode: 0
@@ -1521,18 +1549,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &889662960 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5804511797640770174, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+--- !u!114 &889662967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6835725264571503327, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
   m_PrefabInstance: {fileID: 613794431}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &889662963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889662960}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf12e36fc6470d74da054beabb02d07f, type: 3}
@@ -2560,7 +2582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1739611643
 Transform:
   m_ObjectHideFlags: 0
@@ -3048,18 +3070,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MercenariesProject.HeroSpawner, Assembly-CSharp
         m_MethodName: SpawnHeroes
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1739611644}
-        m_TargetAssemblyTypeName: MercenariesProject.TurnManager, Assembly-CSharp
-        m_MethodName: HeroesHaveBeenSpawned
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

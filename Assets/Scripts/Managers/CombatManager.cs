@@ -32,6 +32,7 @@ namespace MercenariesProject
             //Some controls for targetting different characters in range and then attacking them. 
             if (InAttackMode)
             {
+                Debug.Log("ATKMODE");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     inRangeCharacters[focusedCharIndex].SetTargeted(false);
@@ -64,6 +65,7 @@ namespace MercenariesProject
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    Debug.Log("SPACE");
                     AttackUnit();
                 }
 
@@ -87,10 +89,11 @@ namespace MercenariesProject
         //Attack targeted Hero.
         private void AttackUnit()
         {
+            Debug.Log("AtkUnit");
             var focusedCharacter = inRangeCharacters[focusedCharIndex];
             focusedCharacter.SetTargeted(false);
 
-            focusedCharacter.TakeDamage(activeHero.GetStat(Stats.Strenght).statValue);
+            focusedCharacter.TakeDamage(activeHero.GetStat(Stats.Strength).statValue);
             activeHero.UpdateInitiative(Constants.AttackCost);
             inRangeCharacters.Clear();
             InAttackMode = false;

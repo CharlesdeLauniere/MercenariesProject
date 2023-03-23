@@ -11,7 +11,7 @@ namespace MercenariesProject
 
         public Stat Health;
         public Stat Mana;
-        public Stat Strenght;
+        public Stat Strength;
         public Stat Endurance;
         public Stat Speed;
         public Stat Intelligence;

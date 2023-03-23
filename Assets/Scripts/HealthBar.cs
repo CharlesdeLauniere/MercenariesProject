@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+
 public class HealthBar : MonoBehaviour
 {
 
@@ -13,14 +14,19 @@ public class HealthBar : MonoBehaviour
 
 	public void SetHealth(float currentHealth)
     {
+		Debug.Log("sethealthbar");
 		slider.value = currentHealth;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-	public void SetMaxHealth(int maxHealth)
+	public void SetMaxHealth(float maxHealth)
 	{
-		slider.maxValue = maxHealth;
+        Debug.Log("maxsethealthbar");
+        slider.maxValue = maxHealth;
 		slider.value = maxHealth;
-		fill.color = gradient.Evaluate(1f);
+		slider.maxValue = 60;
+
+		slider.value = 60; 
+        fill.color = gradient.Evaluate(1f);
 		
 	}
 
