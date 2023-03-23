@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [CreateAssetMenu]
 public class CharacterDataBase : ScriptableObject
 {
-    [SerializeField] public DraftManager[] draftManager;
+    public DraftManager[] draftManager;
 
     public int CharacterCount
     {

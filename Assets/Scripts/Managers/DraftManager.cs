@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DraftManager 
+[System.Serializable]
+public class DraftManager : MonoBehaviour
 {
-    [SerializeField] public Sprite characterSprite;
+    public Sprite characterSprite;
+
+
+    public void AffichageHero() 
+    {
+
+    }
 }

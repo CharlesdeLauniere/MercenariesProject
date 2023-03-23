@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a90b02a40d77c408b871cb42ab5fb7, type: 3}
   m_Name: New Character Data Base
   m_EditorClassIdentifier: 
+  draftManager:
+  - characterSprite: {fileID: 21300000, guid: b7ac7d689958df3488accdfebb6567ec, type: 3}
+  - characterSprite: {fileID: 0}
+  - characterSprite: {fileID: 0}
