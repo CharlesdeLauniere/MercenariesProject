@@ -2849,6 +2849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableAbility: {fileID: 11400000, guid: 58d60ddbd9ded434ab1feba6eb66db24, type: 2}
+  activeHero: {fileID: 0}
+  ability: {fileID: 0}
 --- !u!1 &1906792162
 GameObject:
   m_ObjectHideFlags: 0

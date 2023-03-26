@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  Name: 
-  Desc: 
-  abilityShape: {fileID: 0}
-  effects: []
-  range: 0
-  cooldown: 0
-  cost: 0
-  value: 0
-  abilityType: 0
+  Name: Test
+  Desc: Its a test
+  abilityShape: {fileID: 4900000, guid: f30cbe7258a912d48a84b0dca1125752, type: 3}
+  effects:
+  - {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
+  range: 3
+  cooldown: 2
+  cost: 10
+  value: 10
+  abilityType: 1
   includeOrigin: 0
-  requiredLevel: 0

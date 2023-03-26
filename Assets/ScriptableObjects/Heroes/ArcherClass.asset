@@ -27,4 +27,5 @@ MonoBehaviour:
     baseStatValue: 20
   MoveRange: 5
   AttackRange: 2
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
