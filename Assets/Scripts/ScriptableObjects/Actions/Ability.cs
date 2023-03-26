@@ -29,7 +29,6 @@ namespace MercenariesProject
 
         public bool includeOrigin;
 
-        public int requiredLevel;
 
         public enum AbilityTypes
         {

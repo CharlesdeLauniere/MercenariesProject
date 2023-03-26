@@ -18,9 +18,9 @@ namespace MercenariesProject
             buttons = new List<GameObject>();
         }
 
-        public void SetActiveCharacter(GameObject activeCharacter)
+        public void SetActiveCharacter(GameObject activeHero)
         {
-            this.activeHero = activeCharacter.GetComponent<Hero>();
+            this.activeHero = activeHero.GetComponent<Hero>();
         }
 
 
@@ -34,10 +34,9 @@ namespace MercenariesProject
                     item.SetActive(false);
                 }
 
-                var abilityList = activeHero
-                    .abilitiesForUse;
+                var abilityList = activeHero.heroClass.abilities;
 
-                foreach (var abilityContainer in abilityList)
+                foreach (var ability in abilityList)
                 {
                     var buttonToActivate = buttons.Find(x => !x.activeInHierarchy);
 
@@ -51,15 +50,16 @@ namespace MercenariesProject
                         buttonToActivate.SetActive(true);
                     }
 
-                    buttonToActivate.transform.GetComponentInChildren<Text>().text = abilityContainer.ability.name;
+                    buttonToActivate.transform.GetComponentInChildren<Text>().text = ability.name;
 
-                    if (abilityContainer.turnsSinceUsed > abilityContainer.ability.cooldown && 
-                        activeHero.GetStat(Stats.CurrentMana).statValue >= abilityContainer.ability.cost)
+                    if (activeHero.GetStat(Stats.CurrentMana).statValue >= ability.cost) //abilityContainer.turnsSinceUsed > abilityContainer.ability.cooldown
                     {
+                        Debug.Log("Yay");
                         buttonToActivate.GetComponent<Button>().interactable = true;
                     }
                     else
                     {
+                        Debug.Log("Nay");
                         buttonToActivate.GetComponent<Button>().interactable = false;
                     }
                 }

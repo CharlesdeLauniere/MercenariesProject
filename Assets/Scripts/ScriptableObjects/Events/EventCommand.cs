@@ -47,12 +47,12 @@ namespace MercenariesProject
     public class CastAbilityParams : CommandParam
     {
         public List<Tile> affectedTiles;
-        public AbilityContainer abilityContainer;
+        public Ability ability;
 
-        public CastAbilityParams(List<Tile> affectedTiles, AbilityContainer abilityContainer)
+        public CastAbilityParams(List<Tile> affectedTiles, Ability ability)
         {
             this.affectedTiles = affectedTiles;
-            this.abilityContainer = abilityContainer;
+            this.ability = ability;
         }
     }
 }

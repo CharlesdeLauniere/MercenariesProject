@@ -1,15 +1,15 @@
-namespace MercenariesProject
-{
-    //Ability containers keep track of when was the last time an ability was used. 
-    public class AbilityContainer
-    {
-        public Ability ability;
-        public int turnsSinceUsed;
+//namespace MercenariesProject
+//{
+//    //Ability containers keep track of when was the last time an ability was used. 
+//    public class AbilityContainer
+//    {
+//        public Ability ability;
+//        public int turnsSinceUsed;
 
-        public AbilityContainer(Ability ability)
-        {
-            this.ability = ability;
-            turnsSinceUsed = 999;
-        }
-    }
-}
+//        public AbilityContainer(Ability ability)
+//        {
+//            this.ability = ability;
+//            turnsSinceUsed = 999;
+//        }
+//    }
+//}

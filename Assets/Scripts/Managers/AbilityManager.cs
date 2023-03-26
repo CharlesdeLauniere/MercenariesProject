@@ -10,11 +10,11 @@ namespace MercenariesProject
         public GameEventString disableAbility;
         public RangeFinder eventRangeController;
 
-        private Hero activeCharacter;
+        [SerializeField] private Hero activeHero;
         private List<Tile> abilityRangeTiles;
         private List<Tile> abilityAffectedTiles;
         private ShapeParser shapeParser;
-        private AbilityContainer abilityContainer;
+        [SerializeField] private Ability ability;
 
         // Start is called before the first frame update
         void Start()
@@ -27,22 +27,25 @@ namespace MercenariesProject
 
         private void Update()
         {
-            if (abilityContainer != null && Input.GetMouseButtonDown(0))
+            if (activeHero != null) { 
+            if (Input.GetKeyDown(KeyCode.A) && activeHero.heroClass.abilities != null )
             {
                 CastAbility();
+            }
             }
         }
 
         //Cast an ability
         private void CastAbility()
         {
+            Debug.Log("WTF");
             var inRangeCharacters = new List<Hero>();
 
             //get in range characters
             foreach (var tile in abilityAffectedTiles)
             {
                 var targetCharacter = tile.activeHero;
-                if (targetCharacter != null && CheckAbilityTargets(abilityContainer.ability.abilityType, targetCharacter) && targetCharacter.isAlive)
+                if (targetCharacter != null && CheckAbilityTargets(ability.abilityType, targetCharacter) && targetCharacter.isAlive)
                 {
                     inRangeCharacters.Add(targetCharacter);
                 }
@@ -51,7 +54,7 @@ namespace MercenariesProject
             //attach effects
             foreach (var character in inRangeCharacters)
             {
-                foreach (var effect in abilityContainer.ability.effects)
+                foreach (var effect in ability.effects)
                 {
                     character.AttachEffect(effect);
                     if (effect.Duration == 0)
@@ -59,16 +62,16 @@ namespace MercenariesProject
                 }
 
                 //apply value
-                switch (abilityContainer.ability.abilityType)
+                switch (ability.abilityType)
                 {
                     case AbilityTypes.Ally:
-                        character.HealEntity(abilityContainer.ability.value);
+                        character.HealEntity(ability.value);
                         break;
                     case AbilityTypes.Enemy:
-                        character.TakeDamage(abilityContainer.ability.value);
+                        character.TakeDamage(ability.value);
                         break;
                     case AbilityTypes.All:
-                        character.TakeDamage(abilityContainer.ability.value);
+                        character.TakeDamage(ability.value);
                         break;
                     default:
                         break;
@@ -77,11 +80,11 @@ namespace MercenariesProject
 
 
 
-            abilityContainer.turnsSinceUsed = 0;
-            activeCharacter.UpdateInitiative(Constants.AbilityCost);
-            activeCharacter.UpdateMana(abilityContainer.ability.cost);
-            disableAbility.Raise(abilityContainer.ability.Name);
-            abilityContainer = null;
+            //turnsSinceUsed = 0;
+            activeHero.UpdateInitiative(Constants.AbilityCost);
+            activeHero.UpdateMana(ability.cost);
+            disableAbility.Raise(ability.Name);
+            ability = null;
             OverlayTileColorManager.Instance.ClearTiles(null);
         }
 
@@ -93,7 +96,7 @@ namespace MercenariesProject
                 CastAbilityCommand command = (CastAbilityCommand)abilityCommand;
                 CastAbilityParams castAbilityParams = command.StronglyTypedCommandParam();
                 abilityAffectedTiles = castAbilityParams.affectedTiles;
-                abilityContainer = castAbilityParams.abilityContainer;
+                ability = castAbilityParams.ability;
                 CastAbility();
             }
         }
@@ -103,11 +106,11 @@ namespace MercenariesProject
         {
             if (abilityType == AbilityTypes.Enemy)
             {
-                return characterTarget.teamID != activeCharacter.teamID;
+                return characterTarget.teamID != activeHero.teamID;
             }
             else if (abilityType == AbilityTypes.Ally)
             {
-                return characterTarget.teamID == activeCharacter.teamID;
+                return characterTarget.teamID == activeHero.teamID;
             }
 
             return true;
@@ -115,7 +118,7 @@ namespace MercenariesProject
 
         public void SetActiveCharacter(GameObject activeChar)
         {
-            activeCharacter = activeChar.GetComponent<Hero>();
+            activeHero = activeChar.GetComponent<Hero>();
         }
 
         //Set the position the abilities origin.
@@ -123,7 +126,7 @@ namespace MercenariesProject
         {
             var map = GridManager.Instance.tileMap;
             Tile tilePosition = focusedOnTile.GetComponent<Tile>();
-            if (abilityContainer != null)
+            if (ability != null)
             {
                 foreach (var tile in abilityAffectedTiles)
                 {
@@ -138,9 +141,9 @@ namespace MercenariesProject
 
                 if (abilityRangeTiles.Contains(map[tilePosition.gridLocation]))
                 {
-                    abilityAffectedTiles = shapeParser.GetAbilityTileLocations(tilePosition, abilityContainer.ability.abilityShape, activeCharacter.activeTile.gridLocation);
+                    abilityAffectedTiles = shapeParser.GetAbilityTileLocations(tilePosition, ability.abilityShape, activeHero.activeTile.gridLocation);
 
-                    if (abilityContainer.ability.includeOrigin)
+                    if (ability.includeOrigin)
                         abilityAffectedTiles.Add(tilePosition);
 
                     OverlayTileColorManager.Instance.ColorTiles(OverlayTileColorManager.Instance.AttackRangeColor, abilityAffectedTiles);
@@ -153,14 +156,14 @@ namespace MercenariesProject
         {
             OverlayTileColorManager.Instance.ClearTiles(null);
 
-            var abilityContainer = activeCharacter.abilitiesForUse.Find(x => x.ability.Name == abilityName);
-            if (abilityContainer.ability.cost <= activeCharacter.statsContainer.CurrentMana.statValue)
+            var ability = activeHero.heroClass.abilities.Find(x => x.Name == abilityName);
+            if (ability.cost <= activeHero.statsContainer.CurrentMana.statValue)
             {
-                abilityRangeTiles = eventRangeController.GetTilesInRange(activeCharacter.activeTile, abilityContainer.ability.range, true);
+                abilityRangeTiles = eventRangeController.GetTilesInRange(activeHero.activeTile, ability.range, true);
 
                 OverlayTileColorManager.Instance.ColorTiles(OverlayTileColorManager.Instance.MoveRangeColor, abilityRangeTiles);
 
-                this.abilityContainer = abilityContainer;
+                this.ability = ability;
             }
         }
 
@@ -168,7 +171,7 @@ namespace MercenariesProject
         public void CancelEventMode()
         {
             OverlayTileColorManager.Instance.ClearTiles(null);
-            abilityContainer = null;
+            ability = null;
         }
     }
 }

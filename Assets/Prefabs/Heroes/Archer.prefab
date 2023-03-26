@@ -71,6 +71,14 @@ PrefabInstance:
       propertyPath: heroClass
       value: 
       objectReference: {fileID: 11400000, guid: 6a992a00025d622468a955abb4f3cc0e, type: 2}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: abiltiies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: abiltiies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
 --- !u!114 &7884532261162854009 stripped

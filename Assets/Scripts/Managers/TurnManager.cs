@@ -109,10 +109,10 @@ namespace MercenariesProject
                             EndTurn();
 
 
-                        foreach (var ability in firstCharacter.abilitiesForUse)
-                        {
-                            ability.turnsSinceUsed++;
-                        }
+                        //foreach (var ability in firstCharacter.abilitiesForUse)
+                        //{
+                        //    ability.turnsSinceUsed++;
+                        //}
                     }
                     else
                     {

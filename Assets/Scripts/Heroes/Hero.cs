@@ -10,7 +10,7 @@ namespace MercenariesProject
     public class Hero : MonoBehaviour
     {
         [Header("Character Specific")]
-        public List<AbilityContainer> abilitiesForUse;
+        //public List<Ability> abilities;
 
 
         [Header("General")]
@@ -40,7 +40,6 @@ namespace MercenariesProject
         //public GameConfig gameConfig;
 
         private int initiativeBase = 1000;
-        private float i;
 
         private void Awake()
         {
@@ -49,7 +48,7 @@ namespace MercenariesProject
 
         public void SpawnCharacter()
         {
-            SetAbilityList();
+            //SetAbilityList();
             SetStats();
             //requiredExperience = gameConfig.GetRequiredExp(level);
 
@@ -93,15 +92,15 @@ namespace MercenariesProject
         //}
 
         //Get's all the available abilities from the characters class. 
-        public void SetAbilityList()
-        {
-            abilitiesForUse = new List<AbilityContainer>();
-            foreach (var ability in heroClass.abilities)
-            {
-                //if (level >= ability.requiredLevel)
-                    abilitiesForUse.Add(new AbilityContainer(ability));
-            }
-        }
+        //public void SetAbilityList()
+        //{
+        //    abilities = new List<Ability>();
+        //    foreach (var ability in heroClass.abilities)
+        //    {
+        //        //if (level >= ability.requiredLevel)
+        //            abilities.Add(new Ability(ability));
+        //    }
+        //}
         public void SetupHealthBar()
         {
             HealthBar.SetMaxHealth((float)heroClass.Health.baseStatValue);
@@ -341,9 +340,9 @@ namespace MercenariesProject
         }
 
         //Gets Entities ability. 
-        public AbilityContainer GetAbilityByName(string abilityName)
+        public Ability GetAbilityByName(string abilityName)
         {
-            return abilitiesForUse.Find(x => x.ability.Name == abilityName);
+            return heroClass.abilities.Find(x => x.Name == abilityName);
         }
 
         public virtual void StartTurn()
