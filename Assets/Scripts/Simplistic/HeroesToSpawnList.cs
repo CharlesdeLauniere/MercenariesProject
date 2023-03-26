@@ -7,7 +7,7 @@ namespace MercenariesProject
     public static class HeroesToSpawnList 
     {
         public static List<string> heroesTospawn;
-       // public static List<string> redHeroesTospawn; 
-        //public static List<string> blueHeroesTospawn;
+        public static List<string> redHeroesTospawn; 
+        public static List<string> blueHeroesTospawn;
     }
 }
