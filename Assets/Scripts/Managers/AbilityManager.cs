@@ -11,8 +11,8 @@ namespace MercenariesProject
         public RangeFinder eventRangeController;
 
         [SerializeField] private Hero activeHero;
-        private List<Tile> abilityRangeTiles;
-        private List<Tile> abilityAffectedTiles;
+        [SerializeField] private List<Tile> abilityRangeTiles;
+        [SerializeField] private List<Tile> abilityAffectedTiles;
         private ShapeParser shapeParser;
         [SerializeField] private Ability ability;
 
@@ -30,6 +30,7 @@ namespace MercenariesProject
             if (activeHero != null) { 
             if (Input.GetKeyDown(KeyCode.A) && activeHero.heroClass.abilities != null )
             {
+                Debug.Log("cast");
                 CastAbility();
             }
             }
@@ -38,24 +39,29 @@ namespace MercenariesProject
         //Cast an ability
         private void CastAbility()
         {
-            Debug.Log("WTF");
             var inRangeCharacters = new List<Hero>();
-
+            
             //get in range characters
             foreach (var tile in abilityAffectedTiles)
             {
+                
                 var targetCharacter = tile.activeHero;
                 if (targetCharacter != null && CheckAbilityTargets(ability.abilityType, targetCharacter) && targetCharacter.isAlive)
                 {
+                    Debug.Log("targetaquired");
                     inRangeCharacters.Add(targetCharacter);
                 }
             }
-
+            foreach (var Hero in inRangeCharacters)
+            {
+                Debug.Log(Hero.heroClass.ClassName);
+            }
             //attach effects
             foreach (var character in inRangeCharacters)
             {
                 foreach (var effect in ability.effects)
                 {
+                    Debug.Log("effecting");
                     character.AttachEffect(effect);
                     if (effect.Duration == 0)
                         character.ApplySingleEffects(effect.GetStatKey());
@@ -69,6 +75,7 @@ namespace MercenariesProject
                         break;
                     case AbilityTypes.Enemy:
                         character.TakeDamage(ability.value);
+                        Debug.Log("Ability used");
                         break;
                     case AbilityTypes.All:
                         character.TakeDamage(ability.value);

@@ -79,12 +79,19 @@ namespace MercenariesProject
             }
         }
 
-        public void DisableAbilityList(string abilityName)
+        public void DisableAbilityList() //string abilityName
         {
             foreach (var item in buttons)
             {
                 item.SetActive(false);
             }
+        }
+        public void DisableAbilityByName() //string abilityName
+        {
+            //foreach (var item in buttons)
+            //{
+            //    item.SetActive(false);
+            //}
         }
     }
 }
