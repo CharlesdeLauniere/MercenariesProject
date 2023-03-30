@@ -18,22 +18,35 @@ public class DraftManager : MonoBehaviour
     //public GameObject _abilites;
 
     public int i = 1;
+    public Canvas canvas;
+    public List<Hero> spawnableHeroes;
 
     public List<string> redHeroesTospawn;
     public List<string> blueHeroesTospawn;
 
     public GameObject _teamBlue;
     public GameObject _teamRed;
-    public GameObject _knightSkill;
+    public GameObject _abilitiesPrefabContainer;
     public GameObject _archerSkills;
     //public GameObject _mageSkills;
 
     void Start()
     {
-        _knightSkill.SetActive(false);
-        _archerSkills.SetActive(false);
-        //_mageSkills.SetActive(false);
-        _teamBlue.SetActive(true);
+        //_knightSkill.SetActive(false);
+        //_archerSkills.SetActive(false);
+        ////_mageSkills.SetActive(false);
+        //_teamBlue.SetActive(true);
+
+        foreach(var hero in spawnableHeroes)
+        {
+            var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0);
+            prefab.transform.SetParent(_abilitiesPrefabContainer.transform);
+            prefab.transform.localScale = Vector3.one;
+            prefab.SetActive(false);
+
+        }
+
     }
 
     void Update()
@@ -41,20 +54,30 @@ public class DraftManager : MonoBehaviour
         
     }
 
-
-    public void AffichageKnight() 
+    public void Selection(string className)
     {
-        _archerSkills.SetActive(false);
-        Debug.Log("Yo");
-        _knightSkill.SetActive(true);
-    }
-    public void AffichageArcher()
-    {
-        _knightSkill.SetActive(false);
-        Debug.Log("Oy");
-        _archerSkills.SetActive(true);
+        
+        if (i == 0 || i == 3 || i == 4)
+        {
+            blueHeroesTospawn.Add(className);
+        }
+        else if (i == 1 || i == 2 || i == 5)
+        {
+            redHeroesTospawn.Add(className);
+        }
+        SelectionManager();
+        Debug.Log("WTEWRR G");
     }
 
+    public void Affichage(GameObject abilitiesPrefab) 
+    {
+        abilitiesPrefab.SetActive(true);
+    }
+    public void Desaffichage(GameObject abilitiesPrefab)
+    {
+        abilitiesPrefab.SetActive(false);
+    }
+    
     public void SelectionManager()
     {
         Debug.Log(i);
@@ -74,45 +97,10 @@ public class DraftManager : MonoBehaviour
 
         else
         {
+            _teamRed.SetActive(false);
+            _teamBlue.SetActive(false);
             Debug.Log("Fin de la sélection");
         }
         
-    }
-
-    public void TurnTeamBlue()
-    {
-
-    }
-
-    public void TurnTeamRed()
-    {
-        
-    }
-
-    public string KnightSelection()
-    {
-        return "Knight";
-    }
-
-    public string ArcherSelection()
-    {
-
-        return "Archer";
-    }
-
-    public string MageSelection()
-    {
-        return "Mage";
-    }
-
-    public void DeleteKnightSelection()
-    {
-
-    }
-
-    public int OnSelection(int compteur)
-    {
-        compteur++;
-        return compteur;
     }
 }
