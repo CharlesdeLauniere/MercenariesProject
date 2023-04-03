@@ -88,7 +88,7 @@ namespace MercenariesProject
         }
 
         //Resets movement mode when movement has Finished or is Cancelled. 
-        private void ResetMovementManager()
+        public void ResetMovementManager()
         {
             movementModeEnabled = false;
             isMoving = false;
@@ -105,7 +105,7 @@ namespace MercenariesProject
             activeHero.transform.position = new Vector3(activeHero.transform.position.x, 0.2f, activeHero.transform.position.z);
             //activeCharacter.transform.position = new Vector3(activeCharacter.transform.position.x, activeCharacter.transform.position.y, activeCharacter.transform.position.z);
 
-            if ((Mathf.Abs(activeHero.transform.position.x - path[0].transform.position.x) + 
+            if ((Mathf.Abs(activeHero.transform.position.x - path[0].transform.position.x) +
                 Mathf.Abs(activeHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
             {
                 //last tile
@@ -128,7 +128,7 @@ namespace MercenariesProject
                 }
             }
         }
-       
+
 
         //Get all tiles in movement range. 
         private void GetInRangeTiles()
@@ -211,6 +211,10 @@ namespace MercenariesProject
         {
             GetInRangeTiles();
             movementModeEnabled = true;
+        }
+        public void ResetFocusedTile()
+        {
+            focusedTile = null;
         }
     }
 }

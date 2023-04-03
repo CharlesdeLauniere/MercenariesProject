@@ -29,3 +29,4 @@ MonoBehaviour:
   AttackRange: 2
   abilities:
   - {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
+  - {fileID: 11400000, guid: d86588a8c86b1734c97c56d876c9a3be, type: 2}

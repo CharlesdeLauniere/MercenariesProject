@@ -226,6 +226,66 @@ Transform:
   m_Father: {fileID: 187467074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &99194473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99194474}
+  - component: {fileID: 99194475}
+  m_Layer: 0
+  m_Name: DisplayMoveRange_Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99194474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99194473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1137980975}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99194475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99194473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e52fc835181994ca880296abaa9b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventGameObject: {fileID: 11400000, guid: ebea8699b38e805468fb4674e060cf55, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2071543014}
+        m_TargetAssemblyTypeName: MercenariesProject.CombatManager, Assembly-CSharp
+        m_MethodName: DisplayMoveRange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &111431588
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +963,18 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1824245819}
+        m_TargetAssemblyTypeName: MercenariesProject.MovementManager, Assembly-CSharp
+        m_MethodName: ResetMovementManager
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1336260831}
         m_TargetAssemblyTypeName: MercenariesProject.TurnManager, Assembly-CSharp
         m_MethodName: EndTurn
@@ -918,6 +990,31 @@ MonoBehaviour:
       - m_Target: {fileID: 889662967}
         m_TargetAssemblyTypeName: MercenariesProject.UIManager, Assembly-CSharp
         m_MethodName: EnableUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1507283371}
+        m_TargetAssemblyTypeName: MercenariesProject.MovementRangePreviewOnHover,
+          Assembly-CSharp
+        m_MethodName: SwapMovementMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 520799698}
+        m_TargetAssemblyTypeName: MercenariesProject.AttackRangePreviewOnHover, Assembly-CSharp
+        m_MethodName: SwapAttackMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1008,6 +1105,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f8940ccd637b9a4aa7823673745d066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &520799698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3999744288072007008, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+  m_PrefabInstance: {fileID: 613794431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9699d233a31304b8cc8cf550fb79ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &593552317
@@ -1126,6 +1234,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293152432}
     m_Modifications:
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1507283371}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SwapMovementMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MercenariesProject.MovementRangePreviewOnHover, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511796066194692, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5804511796066194694, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1236,31 +1376,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
+      objectReference: {fileID: 520799698}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Raise
+      value: SwapAttackMode
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: MercenariesProject.GameEvent`1[[UnityEngine.GameObject, UnityEngine
+      value: MercenariesProject.AttackRangePreviewOnHover, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198425, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797549198427, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1537,7 +1677,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 889662967}
         m_TargetAssemblyTypeName: MercenariesProject.UIManager, Assembly-CSharp
         m_MethodName: CancelActionState
         m_Mode: 0
@@ -1620,6 +1760,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &922433489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5804511796066194695, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+  m_PrefabInstance: {fileID: 613794431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938557451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2148,7 @@ Transform:
   - {fileID: 361077435}
   - {fileID: 1949799827}
   - {fileID: 1817602708}
+  - {fileID: 99194474}
   m_Father: {fileID: 1267204888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2360,12 +2506,73 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8676877385374036213, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
   m_PrefabInstance: {fileID: 613794431}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 922433489}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f8940ccd637b9a4aa7823673745d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1507283371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922433489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a292626bf3f4647879e0d0400e1cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovementMode: 0
+  showMovementRange: {fileID: 11400000, guid: ebea8699b38e805468fb4674e060cf55, type: 2}
+--- !u!114 &1507283372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922433489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1507283371}
+          m_TargetAssemblyTypeName: MercenariesProject.MovementRangePreviewOnHover,
+            Assembly-CSharp
+          m_MethodName: DisplayRangePreview
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1507283371}
+          m_TargetAssemblyTypeName: MercenariesProject.MovementRangePreviewOnHover,
+            Assembly-CSharp
+          m_MethodName: HideRangePreview
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1534599409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3313,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071543012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

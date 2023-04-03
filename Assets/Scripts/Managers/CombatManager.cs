@@ -70,7 +70,11 @@ namespace MercenariesProject
                 }
 
                 if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
+                }
+                    
             }
         }
 
@@ -112,6 +116,8 @@ namespace MercenariesProject
             else
             {
                 InAttackMode = false;
+                OverlayTileColorManager.Instance.ClearTiles(null);
+                cancelActionEvent.Raise("Attack");
             }
         }
 
@@ -130,5 +136,15 @@ namespace MercenariesProject
             List<Tile> inAttackRangeTiles = rangeFinder.GetTilesInRange(tileToUse, activeHero.GetStat(Stats.AttackRange).statValue, true, true);
             OverlayTileColorManager.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
+
+        //Show all the tiles in move range based on player position. 
+        public void DisplayMoveRange(GameObject focusedOnTile = null)
+        {
+            var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeHero.activeTile;
+            var moveColor = OverlayTileColorManager.Instance.MoveRangeColor;
+            List<Tile> inMoveRangeTiles = rangeFinder.GetTilesInRange(tileToUse, activeHero.GetStat(Stats.MoveRange).statValue, true, true);
+            OverlayTileColorManager.Instance.ColorTiles(moveColor, inMoveRangeTiles);
+        }
+
     }
 }

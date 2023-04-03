@@ -224,7 +224,7 @@ namespace MercenariesProject
             UpdateCharacterUI();
         }
 
-        //basic example if using a defencive stat
+        //basic example if using a defensive stat
         private int CalculateDamage(int damage)
         {
             float percentage = (((float)GetStat(Stats.Endurance).statValue / (float)damage) * 100) / 2;

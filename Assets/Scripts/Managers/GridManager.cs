@@ -126,7 +126,8 @@ namespace MercenariesProject
 
                     var overlayTile = Instantiate(_overlayTile, new Vector3(x, 0.121f, z), Quaternion.identity);
                     overlayTile.transform.Rotate(90, 0, 0);
-                    
+                    overlayTile.name = $"MapTile {x} {z}";
+
                     overlayTile.transform.SetParent(OverlayTilesContainer.transform);
                     var tileKey = new Vector2Int(x, z);
                     if (!tileMap.ContainsKey(tileKey))//gridTilemap.HasTile(tileKey) && 

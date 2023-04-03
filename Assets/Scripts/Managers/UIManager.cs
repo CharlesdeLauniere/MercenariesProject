@@ -17,17 +17,17 @@ namespace MercenariesProject
         }
 
         //If it's a character, enable all the UI. If it's an Enemy, disable all the UI.
-        public void StartNewCharacterTurn(GameObject activeCharacter)
-        {
-            if (activeCharacter.GetComponent<Hero>().teamID == 1)
-            {
-                EnableUI();
-            }
-            else
-            {
-                DisableUI();
-            }
-        }
+        //public void StartNewCharacterTurn(GameObject activeCharacter)
+        //{
+        //    if (activeCharacter.GetComponent<Hero>().teamID == 1)
+        //    {
+        //        EnableUI();
+        //    }
+        //    else
+        //    {
+        //        DisableUI();
+        //    }
+        //}
 
         //Enable all the buttons.
         public void EnableUI()
