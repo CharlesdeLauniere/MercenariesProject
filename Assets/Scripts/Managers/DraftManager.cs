@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using MercenariesProject;
+using System.Linq;
 
 [System.Serializable]
 public class DraftManager : MonoBehaviour
@@ -30,6 +31,8 @@ public class DraftManager : MonoBehaviour
     public GameObject _archerSkills;
     //public GameObject _mageSkills;
 
+    [SerializeField] private List<GameObject> abilityPrefabs;
+
     void Start()
     {
         //_knightSkill.SetActive(false);
@@ -39,19 +42,31 @@ public class DraftManager : MonoBehaviour
 
         foreach(var hero in spawnableHeroes)
         {
-            var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0);
+            var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector2(0f, 0f), Quaternion.identity);
+            prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(270f, 150f);
             prefab.transform.SetParent(_abilitiesPrefabContainer.transform);
             prefab.transform.localScale = Vector3.one;
             prefab.SetActive(false);
-
+            abilityPrefabs.Add(prefab);
         }
+
 
     }
 
     void Update()
     {
         
+    }
+
+    public void ShowHeroAbility(string heroName)
+    {
+        var abilityPrefab = abilityPrefabs.Where(x => x.GetComponent<GameObject>().name == heroName).First();
+        abilityPrefab.SetActive(true);
+    }
+    public void HideHeroAbility(string heroName)
+    {
+        var abilityPrefab = abilityPrefabs.Where(x => x.GetComponentInChildren<CarteManager>().hero.heroClass.ClassName == heroName).First();
+        abilityPrefab.SetActive(false);
     }
 
     public void Selection(string className)
@@ -71,9 +86,10 @@ public class DraftManager : MonoBehaviour
 
     public void Affichage(GameObject abilitiesPrefab) 
     {
+        Debug.Log("eeeeeeeeee");
         abilitiesPrefab.SetActive(true);
     }
-    public void Desaffichage(GameObject abilitiesPrefab)
+    public void DesAffichage(GameObject abilitiesPrefab)
     {
         abilitiesPrefab.SetActive(false);
     }

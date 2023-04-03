@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace MercenariesProject
@@ -10,6 +11,7 @@ namespace MercenariesProject
        public bool selectionValide = true;
        public Hero hero;
        public GameEventString heroDrafted;
+       public GameEventString showAbilitites;
        
        public void OnHeroSelect()
        {
@@ -22,6 +24,10 @@ namespace MercenariesProject
            
             selectionValide = false;
        }
+        public void ShowAbility()
+        {
+            //showAbilitites.Raise(hero.heroClass.ClassName);
+        }
         
     }
 }

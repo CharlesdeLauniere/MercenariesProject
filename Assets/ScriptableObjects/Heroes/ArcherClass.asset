@@ -29,4 +29,4 @@ MonoBehaviour:
   AttackRange: 2
   abilities:
   - {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
-  abilitiesPrefab: {fileID: 5319474931580595184, guid: f015a0b5a7d161e429af824d7bd88d71, type: 3}
+  abilitiesPrefab: {fileID: 1013208887011049763, guid: 63be57555a641d441b8cd8c0ef5454b2, type: 3}
