@@ -33,6 +33,10 @@ namespace MercenariesProject
             if (InAttackMode)
             {
                 Debug.Log("ATKMODE");
+                if (inRangeCharacters.Count > 0)
+                {
+
+                
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     inRangeCharacters[focusedCharIndex].SetTargeted(false);
@@ -68,13 +72,19 @@ namespace MercenariesProject
                     Debug.Log("SPACE");
                     AttackUnit();
                 }
-
+                
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
                 }
-                    
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    cancelActionEvent.Raise("Attack");
+                    ResetAttackMode();
+                }
+
             }
         }
 
@@ -111,14 +121,14 @@ namespace MercenariesProject
             var inRangeTiles = rangeFinder.GetTilesInRange(activeHero.activeTile, activeHero.GetStat(Stats.AttackRange).statValue, true);
             inRangeCharacters = inRangeTiles.Where(x => x.activeHero && x.activeHero.teamID != activeHero.teamID && x.activeHero.isAlive).Select(x => x.activeHero).ToList();
 
-            if (inRangeCharacters.Count > 0)
-                inRangeCharacters[focusedCharIndex].SetTargeted(true);
-            else
-            {
-                InAttackMode = false;
-                OverlayTileColorManager.Instance.ClearTiles(null);
-                cancelActionEvent.Raise("Attack");
-            }
+            //if (inRangeCharacters.Count > 0)
+            //    inRangeCharacters[focusedCharIndex].SetTargeted(true);
+            //else
+            //{
+            //    InAttackMode = false;
+            //    OverlayTileColorManager.Instance.ClearTiles(null);
+            //    cancelActionEvent.Raise("Attack");
+            //}
         }
 
         //Focus on a character.

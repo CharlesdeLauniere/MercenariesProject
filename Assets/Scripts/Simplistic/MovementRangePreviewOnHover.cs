@@ -7,7 +7,6 @@ namespace MercenariesProject
    
     public class MovementRangePreviewOnHover : MonoBehaviour
     {
-        public bool isMovementMode = false;
         public GameEventGameObject showMovementRange;
 
         //Displays a characters move range on hover. null will default to character position. 
@@ -20,11 +19,7 @@ namespace MercenariesProject
         //Hides a characters move range.
         public void HideRangePreview(BaseEventData eventData)
         {
-            if (!isMovementMode) OverlayTileColorManager.Instance.ClearTiles(OverlayTileColorManager.Instance.MoveRangeColor);
-        }
-        public void SwapMovementMode()
-        {
-            isMovementMode = !isMovementMode;
+            if (gameObject.GetComponent<Button>().IsInteractable()) OverlayTileColorManager.Instance.ClearTiles(OverlayTileColorManager.Instance.MoveRangeColor);
         }
     }
 }

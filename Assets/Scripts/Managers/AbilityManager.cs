@@ -33,6 +33,7 @@ namespace MercenariesProject
                 Debug.Log("cast");
                 CastAbility();
             }
+
             }
         }
 
