@@ -11,7 +11,7 @@ namespace MercenariesProject
        public bool selectionValide = true;
        public Hero hero;
        public GameEventString heroDrafted;
-       public GameEventString showAbilitites;
+       //public GameEventString showAbilitites;
        
        public void OnHeroSelect()
        {
