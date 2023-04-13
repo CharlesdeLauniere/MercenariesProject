@@ -86,6 +86,7 @@ namespace MercenariesProject
         {
             Instantiate(_CastEffect, new Vector3(playerPos.x, 0.2f, playerPos.z), Quaternion.identity);
         }
+     
         public void Cast_basicMagicAttack(Vector3 playerPos, Vector3 targetPos)
         {
 

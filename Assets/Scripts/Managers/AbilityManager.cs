@@ -24,7 +24,7 @@ namespace MercenariesProject
             abilityRangeTiles = new List<Tile>();
             abilityAffectedTiles = new List<Tile>();
         }
-
+        
         private void Update()
         {
             if (activeHero != null) { 
@@ -41,11 +41,11 @@ namespace MercenariesProject
         private void CastAbility()
         {
             var inRangeCharacters = new List<Hero>();
-            
+
             //get in range characters
             foreach (var tile in abilityAffectedTiles)
             {
-                
+
                 var targetCharacter = tile.activeHero;
                 if (targetCharacter != null && CheckAbilityTargets(ability.abilityType, targetCharacter) && targetCharacter.isAlive)
                 {
@@ -94,8 +94,13 @@ namespace MercenariesProject
             disableAbility.Raise(ability.Name);
             ability = null;
             OverlayTileColorManager.Instance.ClearTiles(null);
-        }
 
+            //Brandon Here
+            EffectManager particule = gameObject.GetComponent<EffectManager>();
+            particule.findAbility(ability.Name, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f));
+
+        }
+        
         //The event receiver for Casting an Ability. 
         public void CastAbilityCommand(EventCommand abilityCommand)
         {
