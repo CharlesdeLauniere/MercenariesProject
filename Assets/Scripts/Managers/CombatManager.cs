@@ -25,6 +25,7 @@ namespace MercenariesProject
         public void SetActiveCharacter(GameObject character)
         {
             activeHero = character.GetComponent<Hero>();
+            activeHero.ApplyEffects();
         }
 
         private void Update()
@@ -32,7 +33,7 @@ namespace MercenariesProject
             //Some controls for targetting different characters in range and then attacking them. 
             if (InAttackMode)
             {
-                Debug.Log("ATKMODE");
+                //Debug.Log("ATKMODE");
                 if (inRangeCharacters.Count > 0)
                 {
 
@@ -75,13 +76,13 @@ namespace MercenariesProject
                 
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    cancelActionEvent.Raise("Attack");
+                    //cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
                 }
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    cancelActionEvent.Raise("Attack");
+                   // cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
                 }
 
@@ -91,12 +92,13 @@ namespace MercenariesProject
         //Cancel attack.
         private void ResetAttackMode()
         {
-            var focusedCharacter = inRangeCharacters[focusedCharIndex];
-
-            focusedCharacter.SetTargeted(false);
-
+            if (inRangeCharacters?.Any() == true)
+            {
+                var focusedCharacter = inRangeCharacters[focusedCharIndex];
+                focusedCharacter.SetTargeted(false);
+                inRangeCharacters.Clear();
+            }
             cancelActionEvent.Raise("Attack");
-            inRangeCharacters.Clear();
             InAttackMode = false;
         }
 

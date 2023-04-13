@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
   m_Name: Test 2
   m_EditorClassIdentifier: 
-  Name: Test 1
+  Name: Test 2
   Desc: Its a test
   abilityShape: {fileID: 4900000, guid: acd0ea0ba6b909744906dea0398001e9, type: 3}
   effects:

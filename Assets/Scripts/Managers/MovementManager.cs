@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MercenariesProject
 {
@@ -102,6 +103,9 @@ namespace MercenariesProject
 
             activeHero.transform.position = Vector3.MoveTowards(activeHero.transform.position,
                 path[0].transform.position, speed * Time.deltaTime);
+
+            Vector3 target = new Vector3 (path[0].transform.position.x, activeHero.transform.position.y, path[0].transform.position.z);
+            activeHero.transform.LookAt(target);
             activeHero.transform.position = new Vector3(activeHero.transform.position.x, 0.2f, activeHero.transform.position.z);
             //activeCharacter.transform.position = new Vector3(activeCharacter.transform.position.x, activeCharacter.transform.position.y, activeCharacter.transform.position.z);
 

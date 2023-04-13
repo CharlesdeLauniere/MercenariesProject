@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555c8a73a3505841b42f0501584dd87, type: 3}
+  m_Name: GragasClass
+  m_EditorClassIdentifier: 
+  ClassName: Gragas
+  Health:
+    baseStatValue: 150
+  Mana:
+    baseStatValue: 100
+  Strength:
+    baseStatValue: 10
+  Endurance:
+    baseStatValue: 10
+  Speed:
+    baseStatValue: 4
+  Intelligence:
+    baseStatValue: 50
+  MoveRange: 2
+  AttackRange: 2
+  abilities:
+  - {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
+  - {fileID: 11400000, guid: d86588a8c86b1734c97c56d876c9a3be, type: 2}
+  abilitiesPrefab: {fileID: 0}

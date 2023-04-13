@@ -27,7 +27,7 @@ public class DraftManager : MonoBehaviour
 
     public GameObject _teamBlue;
     public GameObject _teamRed;
-    public GameObject _abilitiesPrefabContainer;
+    //public GameObject _abilitiesPrefabContainer;
     public GameObject _archerSkills;
     //public GameObject _mageSkills;
 
@@ -40,15 +40,15 @@ public class DraftManager : MonoBehaviour
         ////_mageSkills.SetActive(false);
         //_teamBlue.SetActive(true);
 
-        foreach(var hero in spawnableHeroes)
-        {
-            var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector2(0f, 0f), Quaternion.identity);
-            prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(270f, 150f);
-            prefab.transform.SetParent(_abilitiesPrefabContainer.transform);
-            prefab.transform.localScale = Vector3.one;
-            prefab.SetActive(false);
-            abilityPrefabs.Add(prefab);
-        }
+        //foreach(var hero in spawnableHeroes)
+        //{
+        //    var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector2(0f, 0f), Quaternion.identity);
+        //    prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(270f, 150f);
+        //    prefab.transform.SetParent(_abilitiesPrefabContainer.transform);
+        //    prefab.transform.localScale = Vector3.one;
+        //    prefab.SetActive(false);
+        //    abilityPrefabs.Add(prefab);
+        //}
 
 
     }
