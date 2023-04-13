@@ -64,7 +64,57 @@ namespace MercenariesProject
             return (T)heroes.Find(x => x.heroClass.ClassName == heroName);
 
         }
-        //         
+        public void SpawnRedHeroes(List<string> spawnName)
+        {
+            for (int i = 0; i < heroes.Count; i += 1)
+            {
+                var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
+                var redSpawnedHero = Instantiate(redHeroPrefab);
+                redSpawnedHero.tag = "Player1";
+                redSpawnedHero.teamID = 1;
+                var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
+                redSpawnedHero.SetupHealthBar();
+                heroSpawned.Raise(redSpawnedHero.gameObject);
+
+              
+
+                //blueHeroPrefab.SetupHealthBar();
+                //redHeroPrefab.SetupHealthBar();
+
+                //heroes.Add(redSpawnedHero);
+                //heroes.Add(blueSpawnedHero);
+
+            }
+            startGame.Raise();
+
+        }
+        public void SpawnBlueHeroes(List<string> spawnName)
+        {
+            for (int i = 0; i < heroes.Count; i += 1)
+            {
+               
+                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
+                var blueSpawnedHero = Instantiate(blueHeroPrefab);
+                blueSpawnedHero.tag = "Player2";
+                blueSpawnedHero.teamID = 2;
+                var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
+                blueSpawnedHero.SetupHealthBar();
+                heroSpawned.Raise(blueSpawnedHero.gameObject);
+
+                blueRandomSpawnTile.SetUnit(blueSpawnedHero);
+                //         
+
+                //blueHeroPrefab.SetupHealthBar();
+                //redHeroPrefab.SetupHealthBar();
+
+                //heroes.Add(redSpawnedHero);
+                //heroes.Add(blueSpawnedHero);
+
+            }
+            startGame.Raise();
+
+        }
+      
         //        {
         //            var heroCount = 3;
         //            for (int i = 0; i < heroCount; i++)
