@@ -2050,7 +2050,6 @@ Transform:
   - {fileID: 1739611643}
   - {fileID: 2071543013}
   - {fileID: 1134235596}
-  - {fileID: 1229730574}
   m_Father: {fileID: 1267204888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2084,8 +2083,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroes:
-  - {fileID: 3861931176612251269, guid: fc630e0d98bf5784e80d0b9459e3baa3, type: 3}
+  - {fileID: 8369599174581407790, guid: 6cc1b84ad65761b41a66118b0d5d7b09, type: 3}
   - {fileID: 1628769270184781523, guid: 3a4d0c8e623ddbf4a89dd81a6c8697f6, type: 3}
+  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
+  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
+  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
   - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
   spawnHeroes: {fileID: 11400000, guid: 0f5b97280f309d14c9919b736ca08d39, type: 2}
   heroSpawned: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
@@ -2153,60 +2155,6 @@ Transform:
   m_Father: {fileID: 1267204888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1229730573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1229730574}
-  - component: {fileID: 1229730575}
-  m_Layer: 0
-  m_Name: EffectManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1229730574
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229730573}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1081594497}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1229730575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229730573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6716fd4bc03854e49a770cc1ad648718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Effect1: {fileID: 0}
-  _HealEffect: {fileID: 0}
-  _HealCircle: {fileID: 0}
-  _CastEffect: {fileID: 0}
-  _BuffEffect: {fileID: 0}
-  _BuffCircle: {fileID: 0}
-  _SwordSlash: {fileID: 0}
-  _SwordHit: {fileID: 0}
-  _target: {fileID: 0}
-  _player: {fileID: 0}
 --- !u!224 &1229848654 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
