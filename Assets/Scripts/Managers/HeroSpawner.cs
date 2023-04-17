@@ -27,7 +27,8 @@ namespace MercenariesProject
         }
         public void SpawnHeroes(List<string> spawnName)
         {
-            for (int i = 0; i < heroes.Count; i += 1)
+
+            for (int i = 0; i < heroes.Count; i += 2)
             {
                 var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
                 var redSpawnedHero = Instantiate(redHeroPrefab);
@@ -37,7 +38,7 @@ namespace MercenariesProject
                 redSpawnedHero.SetupHealthBar();
                 heroSpawned.Raise(redSpawnedHero.gameObject);
 
-                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnName[i]);
+                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnName[i+1]);
                 var blueSpawnedHero = Instantiate(blueHeroPrefab);
                 blueSpawnedHero.tag = "Player2";
                 blueSpawnedHero.teamID = 2;

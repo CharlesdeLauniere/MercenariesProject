@@ -93,7 +93,7 @@ namespace MercenariesProject
 
         public void TempSetHeroesToSpawnList()
         {
-            HeroesToSpawnList.heroesTospawn = new List<string> { "Knight", "Archer", "Mage" };
+            HeroesToSpawnList.heroesTospawn = new List<string> { "Knight", "Archer", "Mage", "Bard", "Vampire", "Gragas" };
             spawnHeroesByList.Raise(HeroesToSpawnList.heroesTospawn);
         }
 
