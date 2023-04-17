@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9555c8a73a3505841b42f0501584dd87, type: 3}
   m_Name: BardeClass
   m_EditorClassIdentifier: 
-  ClassName: Barde
+  ClassName: Bard
   Health:
     baseStatValue: 100
   Mana:
