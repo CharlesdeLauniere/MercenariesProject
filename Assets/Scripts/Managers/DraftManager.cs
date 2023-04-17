@@ -9,16 +9,7 @@ using System.Linq;
 [System.Serializable]
 public class DraftManager : MonoBehaviour
 {
-    //public Sprite characterSprite;
-    //public Image Abilete1;
-    //public Sprite Abilete2;
-    //public Sprite Abilete3;
-    //public Sprite Passif;
-
-    //private Vector3 Position;
-    //public GameObject _abilites;
-
-    public int i = 1;
+    public int i;
     public Canvas canvas;
     public List<Hero> spawnableHeroes;
 
@@ -27,30 +18,14 @@ public class DraftManager : MonoBehaviour
 
     public GameObject _teamBlue;
     public GameObject _teamRed;
-    //public GameObject _abilitiesPrefabContainer;
     public GameObject _archerSkills;
-    //public GameObject _mageSkills;
 
     [SerializeField] private List<GameObject> abilityPrefabs;
 
     void Start()
     {
-        //_knightSkill.SetActive(false);
-        //_archerSkills.SetActive(false);
-        ////_mageSkills.SetActive(false);
-        //_teamBlue.SetActive(true);
-
-        //foreach(var hero in spawnableHeroes)
-        //{
-        //    var prefab = Instantiate(hero.heroClass.abilitiesPrefab.gameObject, new Vector2(0f, 0f), Quaternion.identity);
-        //    prefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(270f, 150f);
-        //    prefab.transform.SetParent(_abilitiesPrefabContainer.transform);
-        //    prefab.transform.localScale = Vector3.one;
-        //    prefab.SetActive(false);
-        //    abilityPrefabs.Add(prefab);
-        //}
-
-
+        _teamBlue.SetActive(true);
+        _teamRed.SetActive(false);
     }
 
     void Update()
@@ -96,7 +71,6 @@ public class DraftManager : MonoBehaviour
     
     public void SelectionManager()
     {
-        Debug.Log(i);
         i++;
 
         if (i == 0 || i == 3 || i == 4)

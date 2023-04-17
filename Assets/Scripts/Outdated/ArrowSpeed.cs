@@ -22,9 +22,7 @@ public class ArrowSpeed : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, realSpeed);
         if(transform.position == targetPosition)
         {
-
             Destroy(gameObject);
-
         }
 
     }
