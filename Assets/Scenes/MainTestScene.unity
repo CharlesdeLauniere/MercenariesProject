@@ -2083,12 +2083,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroes:
-  - {fileID: 8369599174581407790, guid: 6cc1b84ad65761b41a66118b0d5d7b09, type: 3}
+  - {fileID: 3861931176612251269, guid: fc630e0d98bf5784e80d0b9459e3baa3, type: 3}
+  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
   - {fileID: 1628769270184781523, guid: 3a4d0c8e623ddbf4a89dd81a6c8697f6, type: 3}
-  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
-  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
-  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
-  - {fileID: 9024193065799292652, guid: 463d41fd9db0f4d4d88776109bf28f6c, type: 3}
   spawnHeroes: {fileID: 11400000, guid: 0f5b97280f309d14c9919b736ca08d39, type: 2}
   heroSpawned: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
   startGame: {fileID: 11400000, guid: 8bfab6599621ebe4fa5e817548652c69, type: 2}
