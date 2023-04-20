@@ -22,7 +22,7 @@ public class bowEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             if (anim != null)
             {
@@ -30,7 +30,7 @@ public class bowEvent : MonoBehaviour
                 anim.Play("Base Layer.drawArrow", 0, 0.05f);
 
             }
-        }
+        }*/
     }
 
     public void disappearArrow()
