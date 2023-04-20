@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using static MercenariesProject.Ability;
+using static MercenariesProject.EffectManager;
 
 namespace MercenariesProject
 {
@@ -14,6 +15,7 @@ namespace MercenariesProject
         [SerializeField] private Hero activeHero;
         [SerializeField] private List<Tile> abilityRangeTiles;
         [SerializeField] private List<Tile> abilityAffectedTiles;
+        public EffectManager effectManager;
         private ShapeParser shapeParser;
         [SerializeField] private Ability ability;
 
@@ -90,8 +92,8 @@ namespace MercenariesProject
                 }
                 
             }
-
-
+            //Brandon Here
+            effectManager.findAbility(ability.Name, new Vector3(0, 0, 0), new Vector3(0, 0, 0));
 
             //turnsSinceUsed = 0;
             activeHero.UpdateInitiative(Constants.AbilityCost);
@@ -101,10 +103,8 @@ namespace MercenariesProject
             ability = null;
             OverlayTileColorManager.Instance.ClearTiles(null);
 
-            //Brandon Here
-            //EffectManager particule = gameObject.GetComponent<EffectManager>();
-            //Instantiate(particule);
-            //particule.findAbility(ability.Name, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f));
+            
+            
 
         }
         

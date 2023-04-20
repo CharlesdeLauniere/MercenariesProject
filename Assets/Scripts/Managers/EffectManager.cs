@@ -25,6 +25,9 @@ namespace MercenariesProject
 
         public void findAbility(string animName, Vector3 playerPos, Vector3 targetPos)
         {
+            //Vector3 playerPos = new Vector3(0,0,0);
+            //Vector3 targetPos = new Vector3(0,0,0);
+            Debug.Log("Mammamia");
             switch (animName)
             {
                 case "ÉpéeTranchante":
@@ -100,10 +103,7 @@ namespace MercenariesProject
         {
             yield return new WaitForSeconds(seconds);
         }
-        public void Start()
-        {
-            SwordSlash(_player.transform.position,_target.transform.position);
-        }
+       
 
 
     }
