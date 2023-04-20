@@ -18,9 +18,9 @@ public class ManaBar : MonoBehaviour
 		slider.value = currentMana;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-	public void SetMaxHealth(float maxMana)
+	public void SetMaxMana(float maxMana)
 	{
-        Debug.Log("maxsethealthbar");
+        Debug.Log("maxsetmanabar");
         slider.maxValue = maxMana;
 		slider.value = maxMana;
         fill.color = gradient.Evaluate(1f);
