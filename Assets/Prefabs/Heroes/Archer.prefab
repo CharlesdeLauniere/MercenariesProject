@@ -1554,6 +1554,10 @@ PrefabInstance:
       value: Archer
       objectReference: {fileID: 0}
     - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: ManaBar
+      value: 
+      objectReference: {fileID: 4443527123607694742}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: portrait
       value: 
       objectReference: {fileID: 3542127132570728493, guid: cc8cb170ff11da442bedd0e9e3be0e9a, type: 3}
@@ -1575,6 +1579,17 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+--- !u!114 &4443527123607694742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4855963667375835172, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+  m_PrefabInstance: {fileID: 9135918369991615922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf63cf90f0dad646bd0da338d06e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7884532261162854009 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1414747157116273611, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}

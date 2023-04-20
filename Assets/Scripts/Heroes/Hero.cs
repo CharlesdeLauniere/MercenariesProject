@@ -30,6 +30,7 @@ namespace MercenariesProject
         public bool isActive;
         public GameEvent endTurn;
         public HealthBar HealthBar;
+        public ManaBar ManaBar;
         [HideInInspector]
         public int previousTurnCost = -1;
 
@@ -104,6 +105,7 @@ namespace MercenariesProject
         public void SetupHealthBar()
         {
             HealthBar.SetMaxHealth((float)heroClass.Health.baseStatValue);
+            ManaBar.SetMaxMana((float)heroClass.Mana.baseStatValue);
         }
 
         //Scale up attributes based on a weighted random. 
@@ -289,10 +291,11 @@ namespace MercenariesProject
         }
 
         //Updates the characters healthbar. 
-        private void UpdateCharacterUI()
+        public void UpdateCharacterUI()
         {
-            Debug.Log(statsContainer.CurrentHealth.statValue);
+            Debug.Log(statsContainer.CurrentMana.statValue);
             this.HealthBar.SetHealth((float)statsContainer.CurrentHealth.statValue);
+            this.ManaBar.SetMana((float)statsContainer.CurrentMana.statValue);
         }
 
         //Change characters mana

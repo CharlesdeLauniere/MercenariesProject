@@ -88,6 +88,7 @@ namespace MercenariesProject
                     default:
                         break;
                 }
+                
             }
 
 
@@ -95,6 +96,7 @@ namespace MercenariesProject
             //turnsSinceUsed = 0;
             activeHero.UpdateInitiative(Constants.AbilityCost);
             activeHero.UpdateMana(ability.cost);
+            activeHero.UpdateCharacterUI();
             disableAbility.Raise(ability.Name);
             ability = null;
             OverlayTileColorManager.Instance.ClearTiles(null);

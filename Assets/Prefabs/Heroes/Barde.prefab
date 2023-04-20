@@ -145,6 +145,10 @@ PrefabInstance:
       value: Barde
       objectReference: {fileID: 0}
     - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: ManaBar
+      value: 
+      objectReference: {fileID: 2209099817289141696}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: portrait
       value: 
       objectReference: {fileID: -1960546628078278901, guid: cc8cb170ff11da442bedd0e9e3be0e9a, type: 3}
@@ -158,6 +162,17 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 08b735dbf4d191840883a97267016644, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+--- !u!114 &2209099817289141696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4855963667375835172, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+  m_PrefabInstance: {fileID: 6758660242080630244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf63cf90f0dad646bd0da338d06e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5536212139736067802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1233711649788652350, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
