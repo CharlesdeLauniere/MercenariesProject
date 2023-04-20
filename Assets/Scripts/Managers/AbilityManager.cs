@@ -103,6 +103,7 @@ namespace MercenariesProject
 
             //Brandon Here
             //EffectManager particule = gameObject.GetComponent<EffectManager>();
+            //Instantiate(particule);
             //particule.findAbility(ability.Name, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f));
 
         }

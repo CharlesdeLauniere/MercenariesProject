@@ -26,7 +26,7 @@ namespace MercenariesProject
         {
             switch (animName)
             {
-                case "SwordSlash":
+                case "ÉpéeTranchante":
                     SwordSlash(playerPos, targetPos);
                     break;
                 case "Heal":
@@ -37,6 +37,8 @@ namespace MercenariesProject
                     break;
                 case "Buff":
                     BuffEffect(playerPos, targetPos);
+                    break;
+                default: 
                     break;
             }
         }
@@ -64,7 +66,7 @@ namespace MercenariesProject
         {
             Vector3 PlayerToTarget = targetPos - playerPos;
             double insideTan = (targetPos.z - playerPos.z) / (targetPos.x - playerPos.x);
-            double vectorAngle = (Mathf.Atan((float)insideTan) * (180 / Math.PI));
+            double vectorAngle = (Mathf.Tan((float)insideTan) * (180 / Math.PI));
 
             Instantiate(_SwordHit, targetPos, Quaternion.identity);
 
@@ -97,12 +99,7 @@ namespace MercenariesProject
         {
             yield return new WaitForSeconds(seconds);
         }
-        public void Start()
-        {
-
-            SwordSlash(_player.transform.position, _target.transform.position);
-
-        }
+       
 
 
     }
