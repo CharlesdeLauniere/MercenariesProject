@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6124865998758282341}
   - component: {fileID: 158478366609665091}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AbilityButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,4 +240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e818639d5d848d3488ff2de5d36d194a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castAbility: {fileID: 11400000, guid: cfe74f41ca7a4c147aa0d51ad229be45, type: 2}
+  castAbility: {fileID: 11400000, guid: 9bc34e42986c2dd4894cef82fc7502dc, type: 2}

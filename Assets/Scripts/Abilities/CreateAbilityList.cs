@@ -18,6 +18,14 @@ namespace MercenariesProject
             buttons = new List<GameObject>();
         }
 
+        private void Update()
+        {
+            if(activeHero != null && buttons.Any() == true && Input.GetKeyDown(KeyCode.Escape))
+            {
+                ClearAbilityButtons();
+            }
+        }
+
         public void SetActiveCharacter(GameObject activeHero)
         {
             this.activeHero = activeHero.GetComponent<Hero>();

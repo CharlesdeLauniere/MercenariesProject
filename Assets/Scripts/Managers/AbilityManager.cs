@@ -8,6 +8,7 @@ namespace MercenariesProject
     public class AbilityManager : MonoBehaviour
     {
         public GameEventString disableAbility;
+        public GameEvent cancelAbilityMode;
         public RangeFinder eventRangeController;
 
         [SerializeField] private Hero activeHero;
@@ -28,12 +29,15 @@ namespace MercenariesProject
         private void Update()
         {
             if (activeHero != null) { 
-            if (Input.GetKeyDown(KeyCode.A) && activeHero.heroClass.abilities != null )
+            if (Input.GetKeyDown(KeyCode.Return) && activeHero.heroClass.abilities != null )
             {
                 Debug.Log("cast");
                 CastAbility();
             }
-
+            if (Input.GetKeyDown(KeyCode.Escape) &&  ability != null)
+                {
+                    CancelEventMode();
+                }
             }
         }
 
@@ -96,8 +100,8 @@ namespace MercenariesProject
             OverlayTileColorManager.Instance.ClearTiles(null);
 
             //Brandon Here
-            EffectManager particule = gameObject.GetComponent<EffectManager>();
-            particule.findAbility(ability.Name, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f));
+            //EffectManager particule = gameObject.GetComponent<EffectManager>();
+            //particule.findAbility(ability.Name, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f));
 
         }
         
