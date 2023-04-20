@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
-  m_Name: KnightSlash
+  m_Name: CoeurDeLion
   m_EditorClassIdentifier: 
-  Name: KnightSlash
+  Name: Coeur De Lion
   Desc: Its a test
-  abilityShape: {fileID: 4900000, guid: 596b5884ebc9e6946a9a6105be7e5cbd, type: 3}
+  abilityShape: {fileID: 4900000, guid: 1d1ceda8f0e4e0c4d92d8f241b527e46, type: 3}
   effects:
-  - {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
-  range: 3
+  - {fileID: 0}
+  range: 0
   cooldown: 2
   cost: 10
-  value: 0
-  abilityType: 1
+  value: 20
+  abilityType: 0
   includeOrigin: 1
