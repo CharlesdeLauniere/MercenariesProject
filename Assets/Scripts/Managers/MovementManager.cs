@@ -100,7 +100,12 @@ namespace MercenariesProject
         //Move along a set path.
         private void MoveAlongPath()
         {
+            Animator anim = activeHero.GetComponentInChildren<Animator>();
+            if (anim != null)
+            {
+                anim.Play("Base Layer.walking");
 
+            }
             activeHero.transform.position = Vector3.MoveTowards(activeHero.transform.position,
                 path[0].transform.position, speed * Time.deltaTime);
 
@@ -130,6 +135,13 @@ namespace MercenariesProject
                     else
                         SetActiveCharacter(activeHero.gameObject);
                 }
+            }
+            if (anim != null)
+            {
+                // play Bounce but start at a quarter of the way though
+                anim.enabled = false;
+
+
             }
         }
 
