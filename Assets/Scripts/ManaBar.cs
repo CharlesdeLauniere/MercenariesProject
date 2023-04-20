@@ -5,24 +5,24 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 
-public class HealthBar : MonoBehaviour
+public class ManaBar : MonoBehaviour
 {
 
 	public Slider slider;
 	public Gradient gradient;
 	public Image fill;
 
-	public void SetHealth(float currentHealth)
+	public void SetMana(float currentMana)
     {
-		Debug.Log("sethealthbar");
-		slider.value = currentHealth;
+		Debug.Log("setmanabar");
+		slider.value = currentMana;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-	public void SetMaxHealth(float maxHealth)
+	public void SetMaxHealth(float maxMana)
 	{
         Debug.Log("maxsethealthbar");
-        slider.maxValue = maxHealth;
-		slider.value = maxHealth;
+        slider.maxValue = maxMana;
+		slider.value = maxMana;
         fill.color = gradient.Evaluate(1f);
 		
 	}

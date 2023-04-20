@@ -68,7 +68,7 @@ namespace MercenariesProject
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
                 {
                     Debug.Log("SPACE");
                     AttackUnit();
