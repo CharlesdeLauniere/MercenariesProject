@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
-  m_Name: GrosseFleche
+  m_Name: TripleFleche
   m_EditorClassIdentifier: 
-  Name: GrosseFleche
+  Name: TripleFleche
   Desc: Its a test
-  abilityShape: {fileID: 4900000, guid: acd0ea0ba6b909744906dea0398001e9, type: 3}
+  abilityShape: {fileID: 4900000, guid: f9f4bbc98e8c5224f871bce59640fbe1, type: 3}
   effects:
   - {fileID: 11400000, guid: 39070345338accb4ca770b42c22aa39d, type: 2}
   range: 1
   cooldown: 2
-  cost: 50
-  value: 100
+  cost: 10
+  value: 50
   abilityType: 1
   includeOrigin: 0
