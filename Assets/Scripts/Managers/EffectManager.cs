@@ -17,6 +17,7 @@ namespace MercenariesProject
         [SerializeField] GameObject _BuffCircle;
         [SerializeField] GameObject _SwordSlash;
         [SerializeField] GameObject _SwordHit;
+        [SerializeField] GameObject _LASERBEAMMM;
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
 
@@ -99,7 +100,10 @@ namespace MercenariesProject
         {
             yield return new WaitForSeconds(seconds);
         }
-       
+        public void Start()
+        {
+            SwordSlash(_player.transform.position,_target.transform.position);
+        }
 
 
     }
