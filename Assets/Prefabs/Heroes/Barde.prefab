@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1596616889589441915, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4867476258773314095, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: m_Name
       value: Barde
