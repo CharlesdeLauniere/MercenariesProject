@@ -1182,6 +1182,63 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1001 &459106500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3068647078425296594, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_Name
+      value: Ocean
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9751a31e2ddd034399644de4501644d, type: 3}
 --- !u!1 &469407418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,6 +2411,8 @@ MonoBehaviour:
   spawnHeroes: {fileID: 11400000, guid: 0f5b97280f309d14c9919b736ca08d39, type: 2}
   heroSpawned: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
   startGame: {fileID: 11400000, guid: 8bfab6599621ebe4fa5e817548652c69, type: 2}
+  _bluePrefab: {fileID: 0}
+  _redPrefab: {fileID: 0}
 --- !u!4 &1134235596
 Transform:
   m_ObjectHideFlags: 0
