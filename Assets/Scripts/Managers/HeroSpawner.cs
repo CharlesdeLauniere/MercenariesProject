@@ -49,6 +49,9 @@ namespace MercenariesProject
                 var blueRandomSpawnTile = GridManager.Instance.GetBlueHeroSpawnTile();
                 blueSpawnedHero.SetupHealthBar();
                 heroSpawned.Raise(blueSpawnedHero.gameObject);
+                var newBluePrefab = Instantiate(_bluePrefab, new Vector3(blueSpawnedHero.transform.position.x, blueSpawnedHero.transform.position.y, blueSpawnedHero.transform.position.z), Quaternion.identity);
+                newBluePrefab.transform.parent = blueSpawnedHero.transform;
+
 
                 redRandomSpawnTile.SetUnit(redSpawnedHero);
                 blueRandomSpawnTile.SetUnit(blueSpawnedHero);
