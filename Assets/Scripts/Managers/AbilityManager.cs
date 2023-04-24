@@ -101,12 +101,10 @@ namespace MercenariesProject
                 
             }
             //Brandon Here
-            if (inRangeCharacters.Count != 0) //inRangeCharacters[0].transform.position activeHero.transform.position
-            {
-                effectManager.findAbility(ability.Name, inRangeCharacters[0].transform.position, activeHero.transform.position);
-            }
-                //turnsSinceUsed = 0;
-                activeHero.UpdateInitiative(Constants.AbilityCost);
+            effectManager.findAbility(ability.Name, new Vector3(0, 0, 0), new Vector3(0, 0, 0));
+
+            //turnsSinceUsed = 0;
+            activeHero.UpdateInitiative(Constants.AbilityCost);
             activeHero.UpdateMana(ability.cost);
             activeHero.UpdateCharacterUI();
             disableAbility.Raise(ability.Name);
