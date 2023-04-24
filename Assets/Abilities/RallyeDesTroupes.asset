@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
-  m_Name: FlecheMagique
+  m_Name: RallyeDesTroupes
   m_EditorClassIdentifier: 
-  Name: FlecheMagique
+  Name: RallyeDesTroupes
   Desc: Its a test
-  abilityShape: {fileID: 4900000, guid: f30cbe7258a912d48a84b0dca1125752, type: 3}
+  abilityShape: {fileID: 4900000, guid: aa9b722dcc168f345b689f1235d8a9d8, type: 3}
   effects:
-  - {fileID: 11400000, guid: 39070345338accb4ca770b42c22aa39d, type: 2}
-  range: 10
+  - {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
+  range: 1
   cooldown: 2
   cost: 10
-  value: 50
-  abilityType: 1
+  value: 30
+  abilityType: 0
   includeOrigin: 1

@@ -28,5 +28,7 @@ MonoBehaviour:
   MoveRange: 3
   AttackRange: 2
   abilities:
-  - {fileID: 11400000, guid: 6af3b0b9f1a15d14ab851e0789054878, type: 2}
+  - {fileID: 11400000, guid: 95540cf2429b80243b5e4610d4cf0306, type: 2}
+  - {fileID: 11400000, guid: b4c904ffab06bca41afcaf7116996a2f, type: 2}
+  - {fileID: 11400000, guid: 87ea1882a71586241b6e181c0b3722f4, type: 2}
   abilitiesPrefab: {fileID: 0}
