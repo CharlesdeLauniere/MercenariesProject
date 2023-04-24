@@ -7,11 +7,12 @@ TagManager:
   - Enemy
   - Player1
   - Player2
+  - Water
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - SansLumiere
   - Water
   - UI
   - Ground
@@ -32,7 +33,7 @@ TagManager:
   - 
   - 
   - 
-  - HealthBar
+  - 
   - 
   - 
   - 
