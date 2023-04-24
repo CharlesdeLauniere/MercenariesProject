@@ -2411,8 +2411,8 @@ MonoBehaviour:
   spawnHeroes: {fileID: 11400000, guid: 0f5b97280f309d14c9919b736ca08d39, type: 2}
   heroSpawned: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
   startGame: {fileID: 11400000, guid: 8bfab6599621ebe4fa5e817548652c69, type: 2}
-  _bluePrefab: {fileID: 0}
-  _redPrefab: {fileID: 0}
+  _bluePrefab: {fileID: 2360688080824553373, guid: 6dc9c645c2d89214aa5b112a70496539, type: 3}
+  _redPrefab: {fileID: 2360688080824553373, guid: 8a8c5249fff0f7843b14ae2fcc130dc3, type: 3}
 --- !u!4 &1134235596
 Transform:
   m_ObjectHideFlags: 0
