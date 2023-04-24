@@ -13,7 +13,8 @@ namespace MercenariesProject
         public GameEventStringList spawnHeroes;
         public GameEventGameObject heroSpawned;
         public GameEvent startGame;
-
+        public GameObject _bluePrefab;
+        [SerializeField] GameObject _redPrefab;
         //public bool globalSpawn;
 
         private SpriteRenderer CharacterPreview;
@@ -37,6 +38,9 @@ namespace MercenariesProject
                 var redRandomSpawnTile = GridManager.Instance.GetRedHeroSpawnTile();
                 redSpawnedHero.SetupHealthBar();
                 heroSpawned.Raise(redSpawnedHero.gameObject);
+                var newRedPrefab=Instantiate(_redPrefab,new Vector3(redSpawnedHero.transform.position.x, redSpawnedHero.transform.position.y, redSpawnedHero.transform.position.z),Quaternion.identity);
+                newRedPrefab.transform.parent = redSpawnedHero.transform;
+
 
                 var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnName[i+1]);
                 var blueSpawnedHero = Instantiate(blueHeroPrefab);

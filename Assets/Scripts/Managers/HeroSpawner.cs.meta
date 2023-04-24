@@ -3,7 +3,12 @@ guid: e55929ff560ec9b48b9f8dae608ad0a7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spawnHeroes: {instanceID: 0}
+  - heroSpawned: {instanceID: 0}
+  - startGame: {instanceID: 0}
+  - _bluePrefab: {instanceID: 0}
+  - _redPrefab: {fileID: 2360688080824553373, guid: 8a8c5249fff0f7843b14ae2fcc130dc3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
