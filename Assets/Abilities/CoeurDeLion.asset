@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
   m_Name: CoeurDeLion
   m_EditorClassIdentifier: 
-  Name: Coeur De Lion
+  Name: CoeurDeLion
   Desc: Its a test
   abilityShape: {fileID: 4900000, guid: 1d1ceda8f0e4e0c4d92d8f241b527e46, type: 3}
   effects:
