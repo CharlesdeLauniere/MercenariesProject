@@ -12,18 +12,18 @@ public class ArrowSpeed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetPosition = GameObject.FindWithTag("Enemy").transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*targetPosition = GameObject.FindWithTag("Enemy").transform.position;
         realSpeed = _speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, realSpeed);
         if(transform.position == targetPosition)
         {
             Destroy(gameObject);
-        }
+        }*/
 
     }
 }
