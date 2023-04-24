@@ -775,6 +775,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.039215676
       objectReference: {fileID: 0}
+    - target: {fileID: 1599286833349162891, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833349162891, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.2076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833349162891, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833349162891, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016640, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Name
       value: TurnOrderDisplay
@@ -809,11 +825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 130
+      value: 163.3399
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 26.1304
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_LocalScale.x
@@ -857,11 +873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -282.9682
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 187.5
+      value: 201.71884
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -874,6 +890,38 @@ PrefabInstance:
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00057363
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286834104757747, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00011837
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
@@ -2108,6 +2156,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938557451}
   m_CullTransparentMesh: 1
+--- !u!114 &996166785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 663217391459710123, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+  m_PrefabInstance: {fileID: 307927794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e430d1c27c097498025f8bab6525c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1013269917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,7 +3545,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 996166785}
         m_TargetAssemblyTypeName: MercenariesProject.TurnOrderDisplay, Assembly-CSharp
         m_MethodName: SetTurnOrderDisplay
         m_Mode: 0
