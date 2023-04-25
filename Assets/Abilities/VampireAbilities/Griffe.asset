@@ -22,4 +22,4 @@ MonoBehaviour:
   cost: 30
   value: 50
   abilityType: 1
-  includeOrigin: 0
+  includeOrigin: 1
