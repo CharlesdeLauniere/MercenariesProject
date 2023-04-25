@@ -41,6 +41,10 @@ namespace MercenariesProject
                     CancelEventMode();
                 }
             }
+
+            
+
+            
         }
 
         //Cast an ability
