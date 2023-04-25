@@ -764,16 +764,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1293152432}
     m_Modifications:
     - target: {fileID: 1599286833349162889, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_Color.a
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833349162889, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Color.b
-      value: 0.32941177
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833349162889, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Color.g
-      value: 0.21553217
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833349162889, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Color.r
-      value: 0.039215676
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833349162891, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_SizeDelta.x
@@ -794,6 +798,22 @@ PrefabInstance:
     - target: {fileID: 1599286833896016640, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Name
       value: TurnOrderDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833896016654, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833896016654, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833896016654, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599286833896016654, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_Pivot.x
@@ -873,11 +893,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000061035
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 201.71884
+      value: 203.8
       objectReference: {fileID: 0}
     - target: {fileID: 1599286833896016655, guid: 0cbb1985ecec4014cb4edc15767c5333, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1199,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1207,7 +1227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.83
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2411,8 +2431,8 @@ MonoBehaviour:
   spawnHeroes: {fileID: 11400000, guid: 0f5b97280f309d14c9919b736ca08d39, type: 2}
   heroSpawned: {fileID: 11400000, guid: 034be34c1c078c546b1d023267de69b2, type: 2}
   startGame: {fileID: 11400000, guid: 8bfab6599621ebe4fa5e817548652c69, type: 2}
-  _bluePrefab: {fileID: 2360688080824553373, guid: 6dc9c645c2d89214aa5b112a70496539, type: 3}
-  _redPrefab: {fileID: 2360688080824553373, guid: 8a8c5249fff0f7843b14ae2fcc130dc3, type: 3}
+  _bluePrefab: {fileID: 2360688080824553373, guid: c6154d99273f04141a7b5536919a65c8, type: 3}
+  _redPrefab: {fileID: 2360688080824553373, guid: 14d3a24d4f004704cabd5025fa6d55ad, type: 3}
 --- !u!4 &1134235596
 Transform:
   m_ObjectHideFlags: 0

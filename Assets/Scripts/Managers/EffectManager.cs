@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace MercenariesProject
 {
+   
     public class EffectManager : MonoBehaviour
     {
         [SerializeField] GameObject _Effect1;
@@ -17,30 +18,95 @@ namespace MercenariesProject
         [SerializeField] GameObject _BuffCircle;
         [SerializeField] GameObject _SwordSlash;
         [SerializeField] GameObject _SwordHit;
-        [SerializeField] GameObject _LASERBEAMMM;
+
+
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
 
-
-
+        public List<AudioClip> _clips;
+        public bool _soundOn=true;
         public void findAbility(string animName, Vector3 playerPos, Vector3 targetPos)
         {
             //Vector3 playerPos = new Vector3(0,0,0);
             //Vector3 targetPos = new Vector3(0,0,0);
-            Debug.Log("Mammamia");
+ 
             switch (animName)
             {
-                case "ÉpéeTranchante":
+                //Knight-----------------------------
+                case "EpeeTranchante":
                     SwordSlash(playerPos, targetPos);
+                    if(_soundOn==true) { }
                     break;
+                case "CoupEscrime":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "CoeurDeLion":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                //Gragas-----------------------------
+                case "GrosCoupEpee":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "Rage":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "CoupEtourdissant":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                //Vampire-----------------------------
+                case "Griffe":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "Morsure":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                //Bard-------------------------------
+                case "CoupDeGuitare":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "VoixDAnge":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "RallyEDesTroupes":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                //Wizzard----------------------------
+
+                //Archer-----------------------------
+                case "GrosseFleche":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "TripleFleche":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                case "FlecheMagique":
+                    SwordSlash(playerPos, targetPos);
+                    if (_soundOn == true) { }
+                    break;
+                //Basic------------------------------
                 case "Heal":
                     HealEffect(playerPos, targetPos);
+                    if (_soundOn == true) { }
                     break;
                 case "DefaultMagicAttack":
                     Cast_basicMagicAttack(playerPos, targetPos);
+                    if (_soundOn == true) { }
                     break;
                 case "Buff":
                     BuffEffect(playerPos, targetPos);
+                    if (_soundOn == true) { }
                     break;
                 default: 
                     break;
@@ -68,15 +134,16 @@ namespace MercenariesProject
         }
         public void SwordSlash(Vector3 playerPos, Vector3 targetPos)
         {
-            Vector3 PlayerToTarget = targetPos - playerPos;
+           
             double insideTan = (targetPos.z - playerPos.z) / (targetPos.x - playerPos.x);
-            double vectorAngle = (Mathf.Tan((float)insideTan) * (180 / Math.PI));
-
+            float vectorAngle = -1*(float)(Mathf.Atan((float)insideTan) * (180 / Math.PI));
+            
             Instantiate(_SwordHit, targetPos, Quaternion.identity);
 
             Instantiate(_SwordSlash, playerPos, Quaternion.identity);
 
-            GameObject.FindGameObjectWithTag("StoneSlash").transform.Rotate(0f, (float)vectorAngle, 0f, Space.World);
+            GameObject.FindGameObjectWithTag("StoneSlash").transform.Rotate(0f,vectorAngle, 0f, Space.World);
+
             Debug.Log(vectorAngle);
 
 
@@ -103,7 +170,10 @@ namespace MercenariesProject
         {
             yield return new WaitForSeconds(seconds);
         }
-       
+        public void Start()
+        {
+           // findAbility("Heal", _player.transform.position, _target.transform.position);
+        }
 
 
     }
