@@ -23,6 +23,7 @@ namespace MercenariesProject
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
 
+        public AudioSource _source;
         public List<AudioClip> _clips;
         public bool _soundOn=true;
         public void findAbility(string animName, Vector3 playerPos, Vector3 targetPos)
@@ -35,66 +36,67 @@ namespace MercenariesProject
                 //Knight-----------------------------
                 case "EpeeTranchante":
                     SwordSlash(playerPos, targetPos);
-                    if(_soundOn==true) { }
+                    if(_soundOn==true) { _source.PlayOneShot(_clips[0]); }
                     break;
                 case "CoupEscrime":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[1]); }
                     break;
                 case "CoeurDeLion":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[2]); }
                     break;
                 //Gragas-----------------------------
                 case "GrosCoupEpee":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
                 case "Rage":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
                 case "CoupEtourdissant":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 //Vampire-----------------------------
                 case "Griffe":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[6]); }
                     break;
                 case "Morsure":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
                 //Bard-------------------------------
                 case "CoupDeGuitare":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
                     break;
                 case "VoixDAnge":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[9]); }
                     break;
                 case "RallyEDesTroupes":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
-                    break;
-                //Wizzard----------------------------
-
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[10]); }
+                    break; 
                 //Archer-----------------------------
                 case "GrosseFleche":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[11]); }
                     break;
                 case "TripleFleche":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[12]); }
                     break;
                 case "FlecheMagique":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[13]); }
                     break;
+                //Wizzard----------------------------
+
+
                 //Basic------------------------------
                 case "Heal":
                     HealEffect(playerPos, targetPos);
@@ -172,7 +174,8 @@ namespace MercenariesProject
         }
         public void Start()
         {
-           // findAbility("Heal", _player.transform.position, _target.transform.position);
+           //Only for test
+           //findAbility("EpeeTranchante", _player.transform.position, _target.transform.position);
         }
 
 
