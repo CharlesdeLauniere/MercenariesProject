@@ -33,36 +33,31 @@ namespace MercenariesProject
         
         private void Update()
         {
-            if (activeHero != null) { 
-            if (Input.GetKeyDown(KeyCode.Return) && activeHero.heroClass.abilities != null )
-            {
-                Debug.Log("cast");
-                CastAbility();
-            }
-            if (Input.GetKeyDown(KeyCode.Escape) &&  ability != null)
+            if (activeHero != null)
+            { 
+                if (Input.GetKeyDown(KeyCode.Return) && activeHero.heroClass.abilities != null && ability != null)
+                {
+                    Debug.Log("cast");
+                    CastAbility();
+                }
+                if (Input.GetKeyDown(KeyCode.Escape) &&  ability != null)
                 {
                     CancelEventMode();
                 }
             }
 
-            //Brandon Here, since I didn't know how to get the active hero from another script, I wrote this piece of code here because its easy to get 
-            //This is used for changing the color of a squarre on the icon at the bottom of the UI to indicate which team has to play
-            if(activeHero!= null) 
-            {
-                if (activeHero.teamID == 1)
-                {
-                    _TeamToPlayIndicator.GetComponent<Image>().color = Color.red;
-                }
-                else if (activeHero.teamID == 2)
-                {
-                    _TeamToPlayIndicator.GetComponent<Image>().color = Color.blue;
-                }
-            }
-
-
-
         }
-
+        public void ChangeTeamIndicatorColor(GameObject hero)
+        {
+            if (activeHero.teamID == 1)
+            {
+                _TeamToPlayIndicator.GetComponent<Image>().color = Color.red;
+            }
+            else if (activeHero.teamID == 2)
+            {
+                _TeamToPlayIndicator.GetComponent<Image>().color = Color.blue;
+            }
+        }
         //Cast an ability
         private void CastAbility()
         {
