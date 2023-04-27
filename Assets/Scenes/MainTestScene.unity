@@ -1213,9 +1213,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ocean
       objectReference: {fileID: 0}
+    - target: {fileID: 3068647078425296594, guid: e9751a31e2ddd034399644de4501644d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3068647078425296606, guid: e9751a31e2ddd034399644de4501644d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2358,7 +2362,7 @@ Transform:
   m_Children:
   - {fileID: 1876701087}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!4 &1033376945 stripped
 Transform:
@@ -2657,7 +2661,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: eb53d9c563d011d4c9f0d8256621d213, type: 3}
     - target: {fileID: 2674549386662343953, guid: 716b12e1238c58b42951f0034c12bc7c, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2674549386662343953, guid: 716b12e1238c58b42951f0034c12bc7c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2893,7 +2897,7 @@ Transform:
   - {fileID: 1033376945}
   - {fileID: 838464251}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1357054002
 GameObject:
@@ -3410,7 +3414,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1723122996
 GameObject:

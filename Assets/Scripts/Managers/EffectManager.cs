@@ -128,12 +128,14 @@ namespace MercenariesProject
         }
         public void GenerateEffect1(Vector3 playerPos, List<Vector3> targetPos)
         {
+
             StartCoroutine(wait(2));
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
             _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
             _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
             Destroy(GameObject.FindGameObjectWithTag("Particule1"));
 
+            
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
             _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
             _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
@@ -233,7 +235,10 @@ namespace MercenariesProject
         public void Start()
         {
            //Only for test
-           //findAbility("EpeeTranchante", _player.transform.position, _target.transform.position);
+           //List<Vector3> list = new List<Vector3>();
+           //list.Add(_target.transform.position);
+
+           //Eclaire(_player.transform.position,list);
         }
 
 

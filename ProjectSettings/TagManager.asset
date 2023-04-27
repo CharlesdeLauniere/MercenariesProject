@@ -12,6 +12,7 @@ TagManager:
   - BloodSlash
   - TargetEffect
   - PlayerEffect
+  - Particule1
   layers:
   - Default
   - TransparentFX

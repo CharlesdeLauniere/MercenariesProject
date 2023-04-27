@@ -56,6 +56,7 @@ MonoBehaviour:
   _BloodHit: {fileID: 8378334949688492640, guid: 32facae20962313409a5892aca6f669b, type: 3}
   _BuffCircleR3: {fileID: 7986504087968017091, guid: c45f7047433164a4481415ccc921b807, type: 3}
   _ManaBuff: {fileID: 7155335147208632822, guid: fa232df14decd6242bd998384d1e5f44, type: 3}
+  _Rage: {fileID: 0}
   _target: {fileID: 0}
   _player: {fileID: 0}
   _source: {fileID: 0}
