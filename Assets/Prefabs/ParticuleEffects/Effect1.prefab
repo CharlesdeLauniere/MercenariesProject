@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 198096990248493050}
   m_Layer: 0
   m_Name: Effect1
-  m_TagString: Untagged
+  m_TagString: Particule1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4841,7 +4840,7 @@ GameObject:
   - component: {fileID: 114063111365274996}
   m_Layer: 0
   m_Name: Particle attractor
-  m_TagString: Untagged
+  m_TagString: PlayerEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5015,7 +5014,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.066176474, g: 1, b: 0.11125769, a: 1}
+      maxColor: {r: 0.9012822, g: 0.9056604, b: 0.004271993, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.14473684, b: 0, a: 1}
@@ -9581,7 +9580,7 @@ GameObject:
   - component: {fileID: 23092915806317424}
   m_Layer: 0
   m_Name: target Sphere
-  m_TagString: Untagged
+  m_TagString: TargetEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

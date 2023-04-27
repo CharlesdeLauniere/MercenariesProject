@@ -9,6 +9,9 @@ TagManager:
   - Player2
   - Water
   - StoneSlash
+  - BloodSlash
+  - TargetEffect
+  - PlayerEffect
   layers:
   - Default
   - TransparentFX

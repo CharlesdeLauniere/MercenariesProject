@@ -1729,6 +1729,10 @@ PrefabInstance:
       value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: ManaBar
+      value: 
+      objectReference: {fileID: 2209099817289141696}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: portrait
       value: 
       objectReference: {fileID: 21300000, guid: 069e261902e10e44a9d6eac94b354595, type: 3}
@@ -1744,6 +1748,17 @@ PrefabInstance:
     - {fileID: -7327846143422902698, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
     - {fileID: 5872887147714810461, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+--- !u!114 &2209099817289141696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4855963667375835172, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+  m_PrefabInstance: {fileID: 6758660242080630244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf63cf90f0dad646bd0da338d06e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5536212139736067802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1233711649788652350, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}

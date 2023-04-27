@@ -20,6 +20,9 @@ namespace MercenariesProject
         [SerializeField] GameObject _SwordHit;
         [SerializeField] GameObject _BloodSlash;
         [SerializeField] GameObject _BloodHit;
+        [SerializeField] GameObject _BuffCircleR3;
+        [SerializeField] GameObject _ManaBuff;
+        [SerializeField] GameObject _Rage;
 
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
@@ -50,8 +53,8 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[1]); }
                     break;
                 case "CoeurDeLion":
-                    SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[2]); }
+                    CoeurDeLion(playerPos, targetPos);
+                    if (_soundOn == true) { /*mettre un son de mana*/ }
                     break;
                 //Gragas-----------------------------
                 case "GrosCoupEpee":
@@ -59,7 +62,7 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
                 case "Rage":
-                    PlayerBuffEffect(playerPos);
+                    Rage(playerPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
                 case "CoupEtourdissant":
@@ -75,9 +78,12 @@ namespace MercenariesProject
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
+                case "ChauveSouris":
+
+                    break;
                 //Bard-------------------------------
                 case "CoupDeGuitare":
-                    SwordSlash(playerPos, targetPos);
+                    
                     if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
                     break;
                 case "VoixDAnge":
@@ -102,17 +108,16 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[13]); }
                     break;
                 //Wizzard----------------------------
-
+                case "Eclaire":
+                    Eclaire(playerPos, targetPos);
+                    break;
 
                 //Basic------------------------------
                 case "Heal":
                     HealEffect(playerPos, targetPos);
                     if (_soundOn == true) { }
                     break;
-                case "DefaultMagicAttack":
-                    Cast_basicMagicAttack(playerPos, targetPos);
-                    if (_soundOn == true) { }
-                    break;
+           
                 case "Buff":
                     BuffEffect(playerPos, targetPos);
                     if (_soundOn == true) { }
@@ -144,6 +149,16 @@ namespace MercenariesProject
                 Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
             }
            
+        }
+        public void CoeurDeLion(Vector3 playerPos, List<Vector3> targetPos)
+        {
+            Instantiate(_BuffCircleR3, playerPos, Quaternion.identity);
+            StartCoroutine(wait(4));
+            for (int i = 0; i < targetPos.Count; i++)
+            {
+                Instantiate(_ManaBuff, targetPos[i], Quaternion.identity);
+            }
+
         }
         public void SwordSlash(Vector3 playerPos, List<Vector3> targetPos)
         {
@@ -195,9 +210,9 @@ namespace MercenariesProject
             
 
         }
-        public void PlayerBuffEffect(Vector3 playerPos)
+        public void Rage(Vector3 playerPos)
         {
-            Instantiate(_BuffCircle, playerPos, Quaternion.identity);
+            Instantiate(_BuffEffect, playerPos, Quaternion.identity);
         }
 
         public void Cast_SpellEffect(Vector3 playerPos)
@@ -205,7 +220,7 @@ namespace MercenariesProject
             Instantiate(_CastEffect, new Vector3(playerPos.x, 0.2f, playerPos.z), Quaternion.identity);
         }
      
-        public void Cast_basicMagicAttack(Vector3 playerPos, List<Vector3> targetPos)
+        public void Eclaire(Vector3 playerPos, List<Vector3> targetPos)
         {
 
             Cast_SpellEffect(playerPos);
