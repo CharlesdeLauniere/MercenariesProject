@@ -52,8 +52,11 @@ MonoBehaviour:
   _BuffCircle: {fileID: 7986504087968017091, guid: 3d1892ec0ed36d646a2ee0dd4e9556d3, type: 3}
   _SwordSlash: {fileID: 3153472991145048103, guid: 3407e378c048bb5438424b28c7740b48, type: 3}
   _SwordHit: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8, type: 3}
+  _BloodSlash: {fileID: 3153472991145048103, guid: 9c3128319db26a14b925c8847dda00d3, type: 3}
+  _BloodHit: {fileID: 8378334949688492640, guid: 32facae20962313409a5892aca6f669b, type: 3}
   _target: {fileID: 0}
   _player: {fileID: 0}
+  _source: {fileID: 0}
   _clips:
   - {fileID: 8300000, guid: f289db80f470b62499b12d4194287747, type: 3}
   - {fileID: 8300000, guid: f289db80f470b62499b12d4194287747, type: 3}

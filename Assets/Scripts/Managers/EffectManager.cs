@@ -18,7 +18,8 @@ namespace MercenariesProject
         [SerializeField] GameObject _BuffCircle;
         [SerializeField] GameObject _SwordSlash;
         [SerializeField] GameObject _SwordHit;
-
+        [SerializeField] GameObject _BloodSlash;
+        [SerializeField] GameObject _BloodHit;
 
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
@@ -26,10 +27,16 @@ namespace MercenariesProject
         public AudioSource _source;
         public List<AudioClip> _clips;
         public bool _soundOn=true;
-        public void findAbility(string animName, Vector3 playerPos, Vector3 targetPos)
+
+        public void findAbility(string animName, Vector3 playerPos, List<Hero> target)
         {
-            //Vector3 playerPos = new Vector3(0,0,0);
-            //Vector3 targetPos = new Vector3(0,0,0);
+           
+            List<Vector3> targetPos =new List<Vector3>();
+
+            for(int i=0; i<target.Count; i++)
+            {
+                targetPos.Add(target[i].transform.position);
+            }
  
             switch (animName)
             {
@@ -52,7 +59,7 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
                 case "Rage":
-                    SwordSlash(playerPos, targetPos);
+                    PlayerBuffEffect(playerPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
                 case "CoupEtourdissant":
@@ -61,7 +68,7 @@ namespace MercenariesProject
                     break;
                 //Vampire-----------------------------
                 case "Griffe":
-                    SwordSlash(playerPos, targetPos);
+                    BloodSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[6]); }
                     break;
                 case "Morsure":
@@ -114,35 +121,42 @@ namespace MercenariesProject
                     break;
             }
         }
-        public void GenerateEffect1(Vector3 playerPos, Vector3 targetPos)
+        public void GenerateEffect1(Vector3 playerPos, List<Vector3> targetPos)
         {
             StartCoroutine(wait(2));
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            _Effect1.transform.Find("TargetEffect").transform.position = targetPos;
+            _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
             _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
             Destroy(GameObject.FindGameObjectWithTag("Particule1"));
 
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            _Effect1.transform.Find("TargetEffect").transform.position = targetPos;
+            _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
             _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
 
 
         }
-        public void HealEffect(Vector3 playerPos, Vector3 targetPos)
+        public void HealEffect(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_HealCircle, playerPos, Quaternion.identity);
             StartCoroutine(wait(4));
-            Instantiate(_HealEffect, targetPos, Quaternion.identity);
+            for(int i=0; i<targetPos.Count; i++) 
+            {
+                Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
+            }
+           
         }
-        public void SwordSlash(Vector3 playerPos, Vector3 targetPos)
+        public void SwordSlash(Vector3 playerPos, List<Vector3> targetPos)
         {
            
-            double insideTan = (targetPos.z - playerPos.z) / (targetPos.x - playerPos.x);
+            double insideTan = (targetPos[0].z - playerPos.z) / (targetPos[0].x - playerPos.x);
             float vectorAngle = -1*(float)(Mathf.Atan((float)insideTan) * (180 / Math.PI));
             
-            Instantiate(_SwordHit, targetPos, Quaternion.identity);
-
-            Instantiate(_SwordSlash, playerPos, Quaternion.identity);
+            for(int i = 0; i < targetPos.Count; i++)
+            {
+                Instantiate(_SwordHit,new Vector3(targetPos[i].x, 0.84f , targetPos[i].z), Quaternion.identity);
+            }
+            
+            Instantiate(_SwordSlash, new Vector3(playerPos.x, 0.6f ,playerPos.z), Quaternion.identity);
 
             GameObject.FindGameObjectWithTag("StoneSlash").transform.Rotate(0f,vectorAngle, 0f, Space.World);
 
@@ -150,19 +164,48 @@ namespace MercenariesProject
 
 
         }
-        public void BuffEffect(Vector3 playerPos, Vector3 targetPos)
+        public void BloodSlash(Vector3 playerPos, List<Vector3> targetPos)
+        {
+
+            double insideTan = (targetPos[0].z - playerPos.z) / (targetPos[0].x - playerPos.x);
+            float vectorAngle = -1 * (float)(Mathf.Atan((float)insideTan) * (180 / Math.PI));
+
+            for (int i = 0; i < targetPos.Count; i++)
+            {
+                Instantiate(_BloodHit, new Vector3(targetPos[i].x, 0.84f, targetPos[i].z), Quaternion.identity);
+            }
+
+            Instantiate(_BloodSlash, new Vector3(playerPos.x, 0.6f, playerPos.z), Quaternion.identity);
+
+            GameObject.FindGameObjectWithTag("BloodSlash").transform.Rotate(0f, vectorAngle, 0f, Space.World);
+
+            Debug.Log(vectorAngle);
+
+
+        }
+        public void BuffEffect(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_BuffCircle, playerPos, Quaternion.identity);
             StartCoroutine(wait(2));
-            Instantiate(_BuffEffect, targetPos, Quaternion.identity);
+
+            for(int i=0; i < targetPos.Count;i++) 
+            {
+                Instantiate(_BuffEffect, targetPos[i], Quaternion.identity);
+            }
+            
 
         }
+        public void PlayerBuffEffect(Vector3 playerPos)
+        {
+            Instantiate(_BuffCircle, playerPos, Quaternion.identity);
+        }
+
         public void Cast_SpellEffect(Vector3 playerPos)
         {
             Instantiate(_CastEffect, new Vector3(playerPos.x, 0.2f, playerPos.z), Quaternion.identity);
         }
      
-        public void Cast_basicMagicAttack(Vector3 playerPos, Vector3 targetPos)
+        public void Cast_basicMagicAttack(Vector3 playerPos, List<Vector3> targetPos)
         {
 
             Cast_SpellEffect(playerPos);

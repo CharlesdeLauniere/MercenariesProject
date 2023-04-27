@@ -116,7 +116,11 @@ namespace MercenariesProject
                 
             }
             //Brandon Here
-            //effectManager.findAbility(ability.Name, new Vector3(0, 0, 0), new Vector3(0, 0, 0));
+            if (inRangeCharacters.Count != 0)
+            {
+                effectManager.findAbility(ability.Name,activeHero.transform.position,inRangeCharacters);
+            }
+           
 
             //turnsSinceUsed = 0;
             activeHero.UpdateInitiative(Constants.AbilityCost);
