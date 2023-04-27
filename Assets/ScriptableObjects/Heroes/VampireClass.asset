@@ -25,9 +25,10 @@ MonoBehaviour:
     baseStatValue: 10
   Intelligence:
     baseStatValue: 100
-  MoveRange: 5
+  MoveRange: 6
   AttackRange: 2
   abilities:
   - {fileID: 11400000, guid: 9003925f051a94848af0a5ab2a28c535, type: 2}
   - {fileID: 11400000, guid: 7574f75147aa4aa498026fc5b607f24b, type: 2}
+  - {fileID: 11400000, guid: bc47c8e580b4f3249bf5d8061ca73086, type: 2}
   abilitiesPrefab: {fileID: 0}

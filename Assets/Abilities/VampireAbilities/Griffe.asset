@@ -16,7 +16,7 @@ MonoBehaviour:
   Desc: Its a test
   abilityShape: {fileID: 4900000, guid: 1a9043fb9e7f3224082170fe4d03ea37, type: 3}
   effects:
-  - {fileID: 11400000, guid: 05aa505e26d1fd444a53fd737e8ddbcc, type: 2}
+  - {fileID: 11400000, guid: 9755e96eaad6d594885e238f4d504957, type: 2}
   range: 1
   cooldown: 2
   cost: 30

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HealthBoost 1
   m_EditorClassIdentifier: 
   statKey: 0
-  Operator: 4
+  Operator: 0
   Duration: 1
   Value: 15

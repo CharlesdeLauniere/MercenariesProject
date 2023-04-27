@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2557ca6923ed994bbfa2a3fbdff3615, type: 3}
-  m_Name: LavaEffect
+  m_Name: HealthMinusByPour
   m_EditorClassIdentifier: 
   statKey: 0
   Operator: 5

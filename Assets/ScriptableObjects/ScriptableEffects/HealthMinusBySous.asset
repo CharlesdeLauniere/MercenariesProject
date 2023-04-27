@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2557ca6923ed994bbfa2a3fbdff3615, type: 3}
-  m_Name: ManaBoost
+  m_Name: HealthMinusBySous
   m_EditorClassIdentifier: 
-  statKey: 1
-  Operator: 0
-  Duration: 2
-  Value: 15
+  statKey: 0
+  Operator: 1
+  Duration: 1
+  Value: 50
