@@ -2006,6 +2006,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &826070343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2674549386662343952, guid: 716b12e1238c58b42951f0034c12bc7c, type: 3}
+  m_PrefabInstance: {fileID: 1269116282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431821775229bc647913a3a11c9cb7f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &838464251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4894849518924494139, guid: dc53baa962b6d244cb9e81ec33c0865a, type: 3}
@@ -3881,8 +3892,9 @@ MonoBehaviour:
   activeHero: {fileID: 0}
   abilityRangeTiles: []
   abilityAffectedTiles: []
-  effectManager: {fileID: 0}
+  effectManager: {fileID: 826070343}
   ability: {fileID: 0}
+  _TeamToPlayIndicator: {fileID: 0}
 --- !u!1 &1906792162
 GameObject:
   m_ObjectHideFlags: 0
