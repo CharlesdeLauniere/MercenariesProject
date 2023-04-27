@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using static MercenariesProject.Ability;
 using static MercenariesProject.EffectManager;
+using UnityEngine.UI;
 
 namespace MercenariesProject
 {
@@ -19,6 +20,8 @@ namespace MercenariesProject
         private ShapeParser shapeParser;
         [SerializeField] private Ability ability;
 
+        [SerializeField] GameObject _TeamToPlayIndicator;
+       
         // Start is called before the first frame update
         void Start()
         {
@@ -42,9 +45,22 @@ namespace MercenariesProject
                 }
             }
 
-            
+            //Brandon Here, since I didn't know how to get the active hero from another script, I wrote this piece of code here because its easy to get 
+            //This is used for changing the color of a squarre on the icon at the bottom of the UI to indicate which team has to play
+            if(activeHero!= null) 
+            {
+                if (activeHero.teamID == 1)
+                {
+                    _TeamToPlayIndicator.GetComponent<Image>().color = Color.red;
+                }
+                else if (activeHero.teamID == 2)
+                {
+                    _TeamToPlayIndicator.GetComponent<Image>().color = Color.blue;
+                }
+            }
 
-            
+
+
         }
 
         //Cast an ability
