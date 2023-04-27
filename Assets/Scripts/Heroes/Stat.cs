@@ -42,12 +42,27 @@ namespace MercenariesProject
                     switch (statMod.Operator)
                     {
                         case Operation.Add:
-                            statValue = Mathf.CeilToInt(statValue + statMod.value);
+                            if (statKey == Stats.CurrentHealth)
+                            {
+                                hero.HealEntity(Mathf.CeilToInt(statMod.value));
+                            }
+                            if (statKey == Stats.CurrentMana)
+                            {
+                                hero.ChangeMana(Mathf.CeilToInt(statMod.value));
+                            }
+                            else
+                            {
+                                statValue = Mathf.CeilToInt(statValue + statMod.value);
+                            }
                             break;
                         case Operation.Minus:
                             if (statKey == Stats.CurrentHealth)
                             {
                                 hero.TakeDamage(Mathf.CeilToInt(statMod.value));
+                            }
+                            else if (statKey == Stats.CurrentMana)
+                            {
+                                hero.ChangeMana(Mathf.CeilToInt(-statMod.value));
                             }
                             else
                             {

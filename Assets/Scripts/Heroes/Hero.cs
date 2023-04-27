@@ -219,7 +219,16 @@ namespace MercenariesProject
                 }
             }
         }
+     
+        public void ChangeMana(int mana)
+        {
 
+            statsContainer.CurrentMana.statValue += mana;
+            UpdateCharacterUI();
+            //if (statsContainer.CurrentMana.statValue < 0) statsContainer.CurrentMana.statValue = 0;
+            //if(statsContainer.CurrentMana.statValue > statsContainer.Mana.statValue) statsContainer.CurrentMana.statValue = statsContainer.Mana.statValue;
+
+        }
         public void HealEntity(int value)
         {
             statsContainer.CurrentHealth.statValue += value;

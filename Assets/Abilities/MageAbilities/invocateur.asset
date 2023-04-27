@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: invocateur
   Desc: Its a test
-  abilityShape: {fileID: 4900000, guid: f30cbe7258a912d48a84b0dca1125752, type: 3}
+  abilityShape: {fileID: 4900000, guid: 907b191a91c2bde4b8f7fb87631a48b3, type: 3}
   effects:
   - {fileID: 11400000, guid: 9755e96eaad6d594885e238f4d504957, type: 2}
   range: 1
   cooldown: 2
   cost: 30
   value: 50
-  abilityType: 0
+  abilityType: 1
   includeOrigin: 1

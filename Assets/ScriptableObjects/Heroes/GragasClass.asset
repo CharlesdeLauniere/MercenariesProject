@@ -22,10 +22,10 @@ MonoBehaviour:
   Endurance:
     baseStatValue: 10
   Speed:
-    baseStatValue: 4
+    baseStatValue: 10
   Intelligence:
     baseStatValue: 50
-  MoveRange: 2
+  MoveRange: 3
   AttackRange: 2
   abilities:
   - {fileID: 11400000, guid: db2402c999f468f4bb6cf441e7d70de4, type: 2}
