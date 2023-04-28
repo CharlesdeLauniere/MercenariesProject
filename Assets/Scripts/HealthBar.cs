@@ -15,9 +15,17 @@ public class HealthBar : MonoBehaviour
 	public void SetHealth(float currentHealth)
     {
 		Debug.Log("sethealthbar");
-		slider.value = currentHealth;
-		fill.color = gradient.Evaluate(slider.normalizedValue);
+		
+		StartCoroutine(waitToRemoveHealth(slider,currentHealth));
+		
 	}
+
+	IEnumerator waitToRemoveHealth(Slider slider, float currentHealth)
+	{
+		yield return new WaitForSeconds(4f);
+        slider.value = currentHealth;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
 	public void SetMaxHealth(float maxHealth)
 	{
         Debug.Log("maxsethealthbar");

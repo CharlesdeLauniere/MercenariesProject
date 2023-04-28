@@ -23,17 +23,19 @@ namespace MercenariesProject
         [SerializeField] GameObject _BuffCircleR3;
         [SerializeField] GameObject _ManaBuff;
         [SerializeField] GameObject _Rage;
+        [SerializeField] GameObject _MagicArrow;
+        [SerializeField] GameObject _Music;
 
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
 
         public AudioSource _source;
         public List<AudioClip> _clips;
-        public bool _soundOn=true;
+        public bool _soundOn{ get; set; }
 
         public void findAbility(string animName, Vector3 playerPos, List<Hero> target)
         {
-           
+            _soundOn = true;
             List<Vector3> targetPos =new List<Vector3>();
 
             for(int i=0; i<target.Count; i++)
@@ -53,7 +55,7 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[1]); }
                     break;
                 case "CoeurDeLion":
-                    CoeurDeLion(playerPos, targetPos);
+                    StartCoroutine(CoeurDeLion(playerPos, targetPos));
                     if (_soundOn == true) { /*mettre un son de mana*/ }
                     break;
                 //Gragas-----------------------------
@@ -75,7 +77,7 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[6]); }
                     break;
                 case "Morsure":
-                    SwordSlash(playerPos, targetPos);
+                    BloodSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
                 case "ChauveSouris":
@@ -87,12 +89,11 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
                     break;
                 case "VoixDAnge":
-                    SwordSlash(playerPos, targetPos);
+                    StartCoroutine(VoixAnge(playerPos,targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[9]); }
                     break;
-                case "RallyEDesTroupes":
-                    SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[10]); }
+                case "RallyeDesTroupes":
+                    StartCoroutine(Troupe(playerPos,targetPos));
                     break; 
                 //Archer-----------------------------
                 case "GrosseFleche":
@@ -104,14 +105,17 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[12]); }
                     break;
                 case "FlecheMagique":
-                    SwordSlash(playerPos, targetPos);
+                    StartCoroutine(MagicArrow(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[13]); }
                     break;
                 //Wizzard----------------------------
                 case "Eclaire":
-                    Eclaire(playerPos, targetPos);
+                    StartCoroutine(Eclaire(playerPos, targetPos));
                     break;
-
+                case "SoinDuCiel":
+                    break;
+                case "invocateur":
+                    break;
                 //Basic------------------------------
                 case "Heal":
                     HealEffect(playerPos, targetPos);
@@ -126,39 +130,57 @@ namespace MercenariesProject
                     break;
             }
         }
-        public void GenerateEffect1(Vector3 playerPos, List<Vector3> targetPos)
+        IEnumerator GenerateEffect1(Vector3 playerPos, List<Vector3> targetPos)
         {
-
-            StartCoroutine(wait(2));
+           
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
-            _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
+            _Effect1.transform.Find("TargetEffect").transform.position = new Vector3(targetPos[0].x, 2f, targetPos[0].z);
+            _Effect1.transform.Find("PlayerEffect").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
+            Destroy(GameObject.FindGameObjectWithTag("Particule1"));
+              
+            Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            _Effect1.transform.Find("TargetEffect").transform.position =new Vector3(targetPos[0].x,2f,targetPos[0].z);
+            _Effect1.transform.Find("PlayerEffect").transform.position = new Vector3(playerPos.x,1f, playerPos.z);
+
+            yield return new WaitForSeconds(7f);
+            Destroy(GameObject.FindGameObjectWithTag("Particule1"));
+        }
+        IEnumerator MagicArrow(Vector3 playerPos, List<Vector3> targetPos)
+        {
+            yield return new WaitForSeconds(2f);
+            Instantiate(_MagicArrow, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            _MagicArrow.transform.Find("TargetEffect").transform.position = new Vector3(targetPos[0].x, 1f, targetPos[0].z);
+            _MagicArrow.transform.Find("PlayerEffect").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
             Destroy(GameObject.FindGameObjectWithTag("Particule1"));
 
-            
-            Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            _Effect1.transform.Find("TargetEffect").transform.position = targetPos[0];
-            _Effect1.transform.Find("PlayerEffect").transform.position = playerPos;
+            Instantiate(_MagicArrow, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            _MagicArrow.transform.Find("TargetEffect").transform.position = new Vector3(targetPos[0].x, 1f, targetPos[0].z);
+            _MagicArrow.transform.Find("PlayerEffect").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
 
-
+            yield return new WaitForSeconds(7f);
+            Destroy(GameObject.FindGameObjectWithTag("Particule1"));
         }
         public void HealEffect(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_HealCircle, playerPos, Quaternion.identity);
-            StartCoroutine(wait(4));
+         
             for(int i=0; i<targetPos.Count; i++) 
             {
                 Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
             }
            
         }
-        public void CoeurDeLion(Vector3 playerPos, List<Vector3> targetPos)
+        IEnumerator CoeurDeLion(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_BuffCircleR3, playerPos, Quaternion.identity);
-            StartCoroutine(wait(4));
+            yield return new WaitForSeconds(4f);
+
             for (int i = 0; i < targetPos.Count; i++)
             {
-                Instantiate(_ManaBuff, targetPos[i], Quaternion.identity);
+                if (targetPos[i] != playerPos)
+                {
+                    Instantiate(_ManaBuff, targetPos[i], Quaternion.identity);
+                }
             }
 
         }
@@ -203,7 +225,7 @@ namespace MercenariesProject
         public void BuffEffect(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_BuffCircle, playerPos, Quaternion.identity);
-            StartCoroutine(wait(2));
+        
 
             for(int i=0; i < targetPos.Count;i++) 
             {
@@ -214,7 +236,7 @@ namespace MercenariesProject
         }
         public void Rage(Vector3 playerPos)
         {
-            Instantiate(_BuffEffect, playerPos, Quaternion.identity);
+            Instantiate(_Rage, playerPos, Quaternion.identity);
         }
 
         public void Cast_SpellEffect(Vector3 playerPos)
@@ -222,23 +244,56 @@ namespace MercenariesProject
             Instantiate(_CastEffect, new Vector3(playerPos.x, 0.2f, playerPos.z), Quaternion.identity);
         }
      
-        public void Eclaire(Vector3 playerPos, List<Vector3> targetPos)
+        IEnumerator Eclaire(Vector3 playerPos, List<Vector3> targetPos)
         {
 
             Cast_SpellEffect(playerPos);
-            GenerateEffect1(playerPos, targetPos);
+            yield return new WaitForSeconds(2f);
+         
+            StartCoroutine(GenerateEffect1(playerPos, targetPos));
         }
-        public IEnumerator wait(float seconds)
+        IEnumerator VoixAnge(Vector3 playerPos, List<Vector3> targetPos)
         {
-            yield return new WaitForSeconds(seconds);
+
+            Instantiate(_Music,new Vector3(playerPos.x,2f,playerPos.z), Quaternion.identity);
+            Instantiate(_HealCircle, playerPos, Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+
+            for(int i=0; i<targetPos.Count;i++)
+            {
+                Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
+            }
         }
+        IEnumerator Troupe(Vector3 playerPos, List<Vector3> targetPos)
+        {
+            Instantiate(_Music, new Vector3(playerPos.x, 2f, playerPos.z), Quaternion.identity);
+            if (_soundOn == true) { _source.PlayOneShot(_clips[11]); }
+            yield return new WaitForSeconds(6f);
+            for(int i = 0; i < targetPos.Count; i++)
+            {
+                if(targetPos[i]!=playerPos)
+                {
+                    Instantiate(_Rage, targetPos[i], Quaternion.identity);
+                }
+               
+            }
+            for (int i = 0; i < targetPos.Count-1; i++)
+            {
+                if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
+                yield return new WaitForSeconds(1f);
+            }
+
+        }
+
         public void Start()
         {
-           //Only for test
-           //List<Vector3> list = new List<Vector3>();
-           //list.Add(_target.transform.position);
+            //Only for test
+            //List<Vector3> list = new List<Vector3>();
+            //list.Add(_target.transform.position);
 
-           //Eclaire(_player.transform.position,list);
+
+
+            //StartCoroutine(MagicArrow(_player.transform.position, list));
         }
 
 

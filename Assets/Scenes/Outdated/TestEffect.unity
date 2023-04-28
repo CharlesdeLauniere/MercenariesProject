@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 609755733}
+    - target: {fileID: 2674549386662343952, guid: 716b12e1238c58b42951f0034c12bc7c, type: 3}
+      propertyPath: _MagicArrow
+      value: 
+      objectReference: {fileID: 1381578670569680, guid: 03d1c1ac77126194c80aa452328865e1, type: 3}
     - target: {fileID: 2674549386662343953, guid: 716b12e1238c58b42951f0034c12bc7c, type: 3}
       propertyPath: m_RootOrder
       value: 4

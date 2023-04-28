@@ -47,7 +47,7 @@ MonoBehaviour:
   _Effect1: {fileID: 1381578670569680, guid: bac8a02a8034dd041a67dd89de9fb2fd, type: 3}
   _HealEffect: {fileID: 9017484664307500583, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}
   _HealCircle: {fileID: 7986504087968017091, guid: 12a56ee4630040c4eb17ae9707ed4cef, type: 3}
-  _CastEffect: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+  _CastEffect: {fileID: 3744133877081091469, guid: 01217b8b5f406a34491e917a0e364d52, type: 3}
   _BuffEffect: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
   _BuffCircle: {fileID: 7986504087968017091, guid: 3d1892ec0ed36d646a2ee0dd4e9556d3, type: 3}
   _SwordSlash: {fileID: 3153472991145048103, guid: 3407e378c048bb5438424b28c7740b48, type: 3}
@@ -56,7 +56,9 @@ MonoBehaviour:
   _BloodHit: {fileID: 8378334949688492640, guid: 32facae20962313409a5892aca6f669b, type: 3}
   _BuffCircleR3: {fileID: 7986504087968017091, guid: c45f7047433164a4481415ccc921b807, type: 3}
   _ManaBuff: {fileID: 7155335147208632822, guid: fa232df14decd6242bd998384d1e5f44, type: 3}
-  _Rage: {fileID: 0}
+  _Rage: {fileID: 7155335147208632822, guid: 8e6d1059894f3c448890db1e24ea5486, type: 3}
+  _MagicArrow: {fileID: 1381578670569680, guid: 03d1c1ac77126194c80aa452328865e1, type: 3}
+  _Music: {fileID: 1077217994118638, guid: fa72bb4991c38481eb7e4743c43b8bae, type: 3}
   _target: {fileID: 0}
   _player: {fileID: 0}
   _source: {fileID: 0}
@@ -72,4 +74,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 06fb9350aca77ff4abae294ed35d2696, type: 3}
   - {fileID: 8300000, guid: 013a148bf42e4df499818253da8713fb, type: 3}
   - {fileID: 8300000, guid: 2b6c4c3d02c79a94a8d01f6d985af7a9, type: 3}
-  _soundOn: 1
+  - {fileID: 8300000, guid: 7505893eb83fca6408108317ab634b9f, type: 3}
