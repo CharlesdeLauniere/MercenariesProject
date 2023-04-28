@@ -52,7 +52,7 @@ namespace MercenariesProject
                     break;
                 case "CoupEscrime":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[1]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[0]); }
                     break;
                 case "CoeurDeLion":
                     StartCoroutine(CoeurDeLion(playerPos, targetPos));
@@ -61,24 +61,24 @@ namespace MercenariesProject
                 //Gragas-----------------------------
                 case "GrosCoupEpee":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[2]); }
                     break;
                 case "Rage":
                     Rage(playerPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
                 case "CoupEtourdissant":
                     SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
                 //Vampire-----------------------------
                 case "Griffe":
                     BloodSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[6]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 case "Morsure":
                     BloodSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 case "ChauveSouris":
 
@@ -86,11 +86,11 @@ namespace MercenariesProject
                 //Bard-------------------------------
                 case "CoupDeGuitare":
                     
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
                 case "VoixDAnge":
                     StartCoroutine(VoixAnge(playerPos,targetPos));
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[9]); }
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
                     break;
                 case "RallyeDesTroupes":
                     StartCoroutine(Troupe(playerPos,targetPos));
@@ -116,16 +116,7 @@ namespace MercenariesProject
                     break;
                 case "invocateur":
                     break;
-                //Basic------------------------------
-                case "Heal":
-                    HealEffect(playerPos, targetPos);
-                    if (_soundOn == true) { }
-                    break;
-           
-                case "Buff":
-                    BuffEffect(playerPos, targetPos);
-                    if (_soundOn == true) { }
-                    break;
+               
                 default: 
                     break;
             }
@@ -267,7 +258,7 @@ namespace MercenariesProject
         IEnumerator Troupe(Vector3 playerPos, List<Vector3> targetPos)
         {
             Instantiate(_Music, new Vector3(playerPos.x, 2f, playerPos.z), Quaternion.identity);
-            if (_soundOn == true) { _source.PlayOneShot(_clips[11]); }
+            if (_soundOn == true) { _source.PlayOneShot(_clips[9]); }
             yield return new WaitForSeconds(6f);
             for(int i = 0; i < targetPos.Count; i++)
             {
@@ -279,7 +270,7 @@ namespace MercenariesProject
             }
             for (int i = 0; i < targetPos.Count-1; i++)
             {
-                if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
+                if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                 yield return new WaitForSeconds(1f);
             }
 
