@@ -109,53 +109,6 @@ namespace MercenariesProject
             ManaBar.SetMaxMana((float)heroClass.Mana.baseStatValue);
         }
 
-        //Scale up attributes based on a weighted random. 
-        //public void LevelUpStats()
-        //{
-        //    float v = Random.Range(0f, 1f);
-        //    statsContainer.Health.ChangeStatValue(statsContainer.Health.statValue + Mathf.RoundToInt(characterClass.Health.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Mana.ChangeStatValue(statsContainer.Mana.statValue + Mathf.RoundToInt(characterClass.Mana.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Strenght.ChangeStatValue(statsContainer.Strenght.statValue + Mathf.RoundToInt(characterClass.Strenght.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Endurance.ChangeStatValue(statsContainer.Endurance.statValue + Mathf.RoundToInt(characterClass.Endurance.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Speed.ChangeStatValue(statsContainer.Speed.statValue + Mathf.RoundToInt(characterClass.Speed.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Intelligence.ChangeStatValue(statsContainer.Intelligence.statValue + Mathf.RoundToInt(characterClass.Intelligence.baseStatModifier.Evaluate(v) * 10));
-
-        //    statsContainer.CurrentHealth.ChangeStatValue(statsContainer.Health.statValue);
-        //    statsContainer.CurrentMana.ChangeStatValue(statsContainer.Mana.statValue);
-        //}
-
-        //Scale down attributes based on a weighted random. 
-        //public void LevelDownStats()
-        //{
-        //    float v = Random.Range(0f, 1f);
-        //    statsContainer.Health.ChangeStatValue(statsContainer.Health.statValue - Mathf.RoundToInt(characterClass.Health.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Mana.ChangeStatValue(statsContainer.Mana.statValue - Mathf.RoundToInt(characterClass.Mana.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Strenght.ChangeStatValue(statsContainer.Strenght.statValue - Mathf.RoundToInt(characterClass.Strenght.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Endurance.ChangeStatValue(statsContainer.Endurance.statValue - Mathf.RoundToInt(characterClass.Endurance.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Speed.ChangeStatValue(statsContainer.Speed.statValue - Mathf.RoundToInt(characterClass.Speed.baseStatModifier.Evaluate(v) * 10));
-        //    v = Random.Range(0f, 1f);
-        //    statsContainer.Intelligence.ChangeStatValue(statsContainer.Intelligence.statValue - Mathf.RoundToInt(characterClass.Intelligence.baseStatModifier.Evaluate(v) * 10));
-
-        //    statsContainer.CurrentHealth.ChangeStatValue(statsContainer.Health.statValue);
-        //    statsContainer.CurrentMana.ChangeStatValue(statsContainer.Mana.statValue);
-        //}
-
-        //Level up stats and get the new required experience for the next level. 
-        //public void LevelUpCharacter()
-        //{
-        //    level++;
-        //    LevelUpStats();
-        //    requiredExperience = gameConfig.GetRequiredExp(level);
-        //}
 
         //public void IncreaseExp(int value)
         //{
@@ -326,6 +279,7 @@ namespace MercenariesProject
                 else
                     statToEffect.statMods.Add(new StatModifier(scriptableEffect.statKey, scriptableEffect.Value, scriptableEffect.Duration, scriptableEffect.Operator, scriptableEffect.name));
             }
+            UpdateCharacterUI();
         }
 
         //Effects that don't have a duration can just be applied straight away. 

@@ -133,7 +133,11 @@ namespace MercenariesProject
                 var tileEffect = heroEndingTurn.activeTile.tileData.effect;
 
                 if (tileEffect != null)
+                {
                     heroEndingTurn.AttachEffect(tileEffect);
+                    Debug.Log("gyat");
+                }
+                   
             }
 
             combinedList.First().UpdateInitiative(Constants.BaseCost);
