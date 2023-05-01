@@ -46,10 +46,6 @@ namespace MercenariesProject
                             {
                                 hero.HealEntity(Mathf.CeilToInt(statMod.value));
                             }
-                            if (statKey == Stats.CurrentMana)
-                            {
-                                hero.ChangeMana(Mathf.CeilToInt(statMod.value));
-                            }
                             else
                             {
                                 statValue = Mathf.CeilToInt(statValue + statMod.value);
@@ -59,10 +55,6 @@ namespace MercenariesProject
                             if (statKey == Stats.CurrentHealth)
                             {
                                 hero.TakeDamage(Mathf.CeilToInt(statMod.value));
-                            }
-                            else if (statKey == Stats.CurrentMana)
-                            {
-                                hero.ChangeMana(Mathf.CeilToInt(-statMod.value));
                             }
                             else
                             {
@@ -89,6 +81,13 @@ namespace MercenariesProject
                                 statValue = Mathf.CeilToInt(statValue * (1 - statMod.value / 100));
                             }
                             break;
+                        case Operation.AddMana:
+                            if (statKey == Stats.CurrentMana)
+                            {
+                                hero.ChangeMana(Mathf.CeilToInt(statMod.value));
+                            }
+                            break;
+
                     }
 
                     statMod.duration--;

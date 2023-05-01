@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ManaBoostByAdd
   m_EditorClassIdentifier: 
   statKey: 9
-  Operator: 0
+  Operator: 6
   Duration: 1
   Value: 15

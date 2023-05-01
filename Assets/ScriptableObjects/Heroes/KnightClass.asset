@@ -16,7 +16,7 @@ MonoBehaviour:
   Health:
     baseStatValue: 100
   Mana:
-    baseStatValue: 20
+    baseStatValue: 100
   Strength:
     baseStatValue: 50
   Endurance:

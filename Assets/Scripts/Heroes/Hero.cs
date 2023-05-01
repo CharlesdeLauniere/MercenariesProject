@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace MercenariesProject
 {
@@ -173,10 +174,10 @@ namespace MercenariesProject
             }
         }
      
-        public void ChangeMana(int mana)
+        public void ChangeMana(int value)
         {
-
-            statsContainer.CurrentMana.statValue += mana;
+            Debug.Log("ManaBoost");
+            statsContainer.CurrentMana.statValue += value;
             UpdateCharacterUI();
             //if (statsContainer.CurrentMana.statValue < 0) statsContainer.CurrentMana.statValue = 0;
             //if(statsContainer.CurrentMana.statValue > statsContainer.Mana.statValue) statsContainer.CurrentMana.statValue = statsContainer.Mana.statValue;
