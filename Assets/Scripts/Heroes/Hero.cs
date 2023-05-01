@@ -232,24 +232,22 @@ namespace MercenariesProject
         //What happens when a character dies. 
         public IEnumerator Die()
         {
-            float DegreesPerSecond = 360f;
-            Vector3 currentRot, targetRot = new Vector3();
-            currentRot = transform.eulerAngles;
-            targetRot.z = currentRot.z + 90; // calculate the new angle
+            //Laurent was here
+            Animator anim = GetComponentInChildren<Animator>();
+            if (anim != null)
+            {
+                anim.Play("Base Layer.Death");
+
+            }
+            yield return new WaitForSecondsRealtime(5f);
+
 
             foreach (Transform child in transform)
             {
                 child.gameObject.SetActive(false);
             }
 
-            while (currentRot.z < targetRot.z)
-            {
-                currentRot.z = Mathf.MoveTowardsAngle(currentRot.z, targetRot.z, DegreesPerSecond * Time.deltaTime);
-                transform.eulerAngles = currentRot;
-                yield return null;
-            }
-
-           // GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f, 1);
+            // GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f, 1);
         }
 
         //Updates the characters healthbar. 
