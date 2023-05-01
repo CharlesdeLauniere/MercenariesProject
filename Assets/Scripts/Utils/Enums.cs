@@ -22,7 +22,8 @@ namespace MercenariesProject
         Multiply,
         Divide,
         AddByPercentage,
-        MinusByPercentage
+        MinusByPercentage,
+        AddMana
     }
 
     public enum TileTypes
