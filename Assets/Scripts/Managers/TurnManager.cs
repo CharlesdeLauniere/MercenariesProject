@@ -17,7 +17,7 @@ namespace MercenariesProject
         public GameEventGameObjectList turnOrderSet;
 
         public List<Hero> combinedList = new();
-
+         public List<Hero> tempList = new();
         public enum TurnSorting
         {
             ConstantAttribute,
@@ -64,8 +64,12 @@ namespace MercenariesProject
                 default:
                     break;
             }
-
-            turnOrderSet.Raise(combinedList.Select(x => x.gameObject).ToList());
+            tempList = combinedList.Where(x => x.isAlive).ToList();
+            //foreach (Hero hero in tempList)
+            //{
+            //    if (hero.isAlive == false) tempList.Remove(hero);
+            //}
+            turnOrderSet.Raise(tempList.Select(x => x.gameObject).ToList());
         }
 
         public void StartLevel()
