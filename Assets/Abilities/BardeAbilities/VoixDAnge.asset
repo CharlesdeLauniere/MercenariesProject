@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98bf57dad8dfc854e83888a92ed157a3, type: 2}
   range: 2
   cooldown: 2
-  cost: 10
+  cost: 30
   value: 30
   abilityType: 0
   includeOrigin: 1

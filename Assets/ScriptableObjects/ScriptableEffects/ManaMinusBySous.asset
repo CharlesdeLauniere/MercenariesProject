@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ManaMinusBySous
   m_EditorClassIdentifier: 
   statKey: 9
-  Operator: 1
+  Operator: 7
   Duration: 1
-  Value: 15
+  Value: 25

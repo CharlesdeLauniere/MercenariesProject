@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassName: Mage
   Health:
-    baseStatValue: 50
+    baseStatValue: 90
   Mana:
     baseStatValue: 100
   Strength:
@@ -22,7 +22,7 @@ MonoBehaviour:
   Endurance:
     baseStatValue: 10
   Speed:
-    baseStatValue: 4
+    baseStatValue: 32
   Intelligence:
     baseStatValue: 100
   MoveRange: 2

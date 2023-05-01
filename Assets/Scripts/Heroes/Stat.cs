@@ -87,6 +87,13 @@ namespace MercenariesProject
                                 hero.ChangeMana(Mathf.CeilToInt(statMod.value));
                             }
                             break;
+                        case Operation.MinusMana:
+                            if (statKey == Stats.CurrentMana)
+                            {
+                                Debug.Log("ManaMinus");
+                                statValue = Mathf.CeilToInt(statValue - statMod.value);
+                            }
+                            break;
 
                     }
 

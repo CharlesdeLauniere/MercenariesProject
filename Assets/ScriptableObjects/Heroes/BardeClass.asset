@@ -16,13 +16,13 @@ MonoBehaviour:
   Health:
     baseStatValue: 100
   Mana:
-    baseStatValue: 120
+    baseStatValue: 100
   Strength:
     baseStatValue: 10
   Endurance:
-    baseStatValue: 10
+    baseStatValue: 5
   Speed:
-    baseStatValue: 10
+    baseStatValue: 35
   Intelligence:
     baseStatValue: 120
   MoveRange: 3

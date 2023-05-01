@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassName: Archer
   Health:
-    baseStatValue: 70
+    baseStatValue: 80
   Mana:
-    baseStatValue: 50
+    baseStatValue: 100
   Strength:
     baseStatValue: 35
   Endurance:
-    baseStatValue: 30
+    baseStatValue: 7
   Speed:
     baseStatValue: 30
   Intelligence:

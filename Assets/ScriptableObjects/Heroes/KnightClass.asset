@@ -20,9 +20,9 @@ MonoBehaviour:
   Strength:
     baseStatValue: 50
   Endurance:
-    baseStatValue: 50
+    baseStatValue: 15
   Speed:
-    baseStatValue: 10
+    baseStatValue: 3
   Intelligence:
     baseStatValue: 10
   MoveRange: 4
