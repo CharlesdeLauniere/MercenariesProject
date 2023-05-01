@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
 
 	IEnumerator waitToRemoveHealth(Slider slider, float currentHealth)
 	{
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(2f);
         slider.value = currentHealth;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
