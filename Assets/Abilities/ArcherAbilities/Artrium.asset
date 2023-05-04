@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
-  m_Name: GrosCoupEpee
+  m_Name: Artrium
   m_EditorClassIdentifier: 
-  Name: GrosCoupEpee
+  Name: Artrium
   Desc: Its a test
-  abilityShape: {fileID: 4900000, guid: a4650578de29830449c6e318ff9197db, type: 3}
+  abilityShape: {fileID: 4900000, guid: f30cbe7258a912d48a84b0dca1125752, type: 3}
   effects:
-  - {fileID: 11400000, guid: 9755e96eaad6d594885e238f4d504957, type: 2}
-  range: 2
+  - {fileID: 11400000, guid: 4aa4bdc3f0cb8cb4cb8487e96aa9ec07, type: 2}
+  range: 10
   cooldown: 2
-  cost: 25
-  value: 50
+  cost: 30
+  value: 40
   abilityType: 1
   includeOrigin: 1

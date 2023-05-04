@@ -46,20 +46,20 @@ namespace MercenariesProject
             switch (animName)
             {
                 //Knight-----------------------------
-                case "EpeeTranchante":
+                case "Excalibure":
                     SwordSlash(playerPos, targetPos);
                     if(_soundOn==true) { _source.PlayOneShot(_clips[0]); }
                     break;
-                case "CoupEscrime":
+                case "Aiguille":
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[0]); }
                     break;
-                case "CoeurDeLion":
+                case "Courage":
                     StartCoroutine(CoeurDeLion(playerPos, targetPos));
                     if (_soundOn == true) { /*mettre un son de mana*/ }
                     break;
                 //Gragas-----------------------------
-                case "GrosCoupEpee":
+                case "Glaive":
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[2]); }
                     break;
@@ -67,7 +67,7 @@ namespace MercenariesProject
                     Rage(playerPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
-                case "CoupEtourdissant":
+                case "Bonk":
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
@@ -84,27 +84,27 @@ namespace MercenariesProject
 
                     break;
                 //Bard-------------------------------
-                case "CoupDeGuitare":
+                case "Fausser":
                     
                     if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
-                case "VoixDAnge":
+                case "Hymme":
                     StartCoroutine(VoixAnge(playerPos,targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[8]); }
                     break;
-                case "RallyeDesTroupes":
+                case "Ralliement":
                     StartCoroutine(Troupe(playerPos,targetPos));
                     break; 
                 //Archer-----------------------------
-                case "GrosseFleche":
+                case "Baliste":
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[11]); }
                     break;
-                case "TripleFleche":
+                case "Slave":
                     SwordSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[12]); }
                     break;
-                case "FlecheMagique":
+                case "Artrium":
                     StartCoroutine(MagicArrow(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[13]); }
                     break;
@@ -112,7 +112,7 @@ namespace MercenariesProject
                 case "Eclaire":
                     StartCoroutine(Eclaire(playerPos, targetPos));
                     break;
-                case "SoinDuCiel":
+                case "Soin":
                     break;
                 case "invocateur":
                     break;
