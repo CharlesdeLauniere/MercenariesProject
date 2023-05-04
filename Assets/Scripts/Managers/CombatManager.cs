@@ -37,55 +37,55 @@ namespace MercenariesProject
                 if (inRangeCharacters.Count > 0)
                 {
 
-                
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    inRangeCharacters[focusedCharIndex].SetTargeted(false);
-                    focusedCharIndex++;
 
-                    if (focusedCharIndex >= inRangeCharacters.Count)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        FocusNewCharacter(0);
+                        inRangeCharacters[focusedCharIndex].SetTargeted(false);
+                        focusedCharIndex++;
+
+                        if (focusedCharIndex >= inRangeCharacters.Count)
+                        {
+                            FocusNewCharacter(0);
+                        }
+                        else
+                        {
+                            FocusNewCharacter(focusedCharIndex);
+                        }
                     }
-                    else
+
+                    if (Input.GetKeyDown(KeyCode.Q))
                     {
-                        FocusNewCharacter(focusedCharIndex);
+                        inRangeCharacters[focusedCharIndex].SetTargeted(false);
+                        focusedCharIndex--;
+
+                        if (focusedCharIndex < 0)
+                        {
+                            FocusNewCharacter(inRangeCharacters.Count - 1);
+                        }
+                        else
+                        {
+                            FocusNewCharacter(focusedCharIndex);
+                        }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+                    {
+                        Debug.Log("SPACE");
+                        AttackUnit();
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        //cancelActionEvent.Raise("Attack");
+                        ResetAttackMode();
                     }
                 }
-
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    inRangeCharacters[focusedCharIndex].SetTargeted(false);
-                    focusedCharIndex--;
-
-                    if (focusedCharIndex < 0)
-                    {
-                        FocusNewCharacter(inRangeCharacters.Count - 1);
-                    }
-                    else
-                    {
-                        FocusNewCharacter(focusedCharIndex);
-                    }
-                }
-
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-                {
-                    Debug.Log("SPACE");
-                    AttackUnit();
-                }
-                
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    //cancelActionEvent.Raise("Attack");
+                    // cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
                 }
-                }
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                   // cancelActionEvent.Raise("Attack");
-                    ResetAttackMode();
-                }
-
+                
             }
         }
 

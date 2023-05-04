@@ -68,7 +68,7 @@ public class DraftManager : MonoBehaviour
 
     public void Affichage(GameObject abilitiesPrefab) 
     {
-        Debug.Log("eeeeeeeeee");
+        
         abilitiesPrefab.SetActive(true);
     }
     public void DesAffichage(GameObject abilitiesPrefab)

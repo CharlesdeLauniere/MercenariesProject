@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static MercenariesProject.WinnerManager;
 namespace MercenariesProject
 {
     public class TurnManager : MonoBehaviour
     {
         [SerializeField] private List<Hero> teamA = new();
         [SerializeField] private List<Hero> teamB = new();
+        [SerializeField] Canvas _canvas_blueTeamWon;
+        [SerializeField] Canvas _canvas_redTeamWon;
+        [SerializeField] Canvas _MainCanvas;
 
         public TurnSorting turnSorting;
 
@@ -23,7 +27,23 @@ namespace MercenariesProject
             ConstantAttribute,
             CTB
         };
+       
+        //Brandon did this
+        //Détruit l'affichage de canvas de base du jeu pour ensuite mettre un canvas qui affiche l'équipe gagante
+        public void BlueWon()
+        {
+            Destroy(_MainCanvas);
+            Instantiate(_canvas_blueTeamWon);
 
+        }
+        //Brandon did this
+        //Détruit l'affichage de canvas de base du jeu pour ensuite mettre un canvas qui affiche l'équipe gagante
+        public void RedWon()
+        {
+            Destroy(_MainCanvas);
+            Instantiate(_canvas_redTeamWon);
+
+        }
         //public void HeroesHaveBeenSpawned()
         //{
         //    teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
@@ -123,6 +143,17 @@ namespace MercenariesProject
                         EndTurn();
                     }
                 }
+            }
+            //Brandon Here
+            //Vérifie s'il y a une équipe gagnante, si c'est le cas, on instancie un canvas qui indique l'équipe gagnante
+            if (teamA[0].isAlive == false && teamA[1].isAlive == false && teamA[2].isAlive == false)
+            {
+                BlueWon();
+            }
+            else if (teamB[0].isAlive == false && teamB[1].isAlive == false && teamB[2].isAlive == false)
+            {
+                RedWon();
+
             }
         }
 
