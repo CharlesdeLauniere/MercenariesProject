@@ -13,6 +13,14 @@ TagManager:
   - TargetEffect
   - PlayerEffect
   - Particule1
+  - Archer
+  - Gragas
+  - Barde
+  - Mage
+  - Vampire
+  - Knight
+  - New tag
+  - GameCanvas
   layers:
   - Default
   - TransparentFX
