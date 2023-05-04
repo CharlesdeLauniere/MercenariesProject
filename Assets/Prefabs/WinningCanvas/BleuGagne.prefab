@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5866204521491270466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3294875151631451984, guid: a871868238731c34e8a036e4c00dd46e, type: 3}
+        m_TargetAssemblyTypeName: MercenariesProject.GestionScene, Assembly-CSharp
+        m_MethodName: QuitterJeu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5866204521595634338
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5866204521595634337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3294875151631451984, guid: a871868238731c34e8a036e4c00dd46e, type: 3}
+        m_TargetAssemblyTypeName: MercenariesProject.GestionScene, Assembly-CSharp
+        m_MethodName: AllerSceneDepart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5866204521864468030
 GameObject:
   m_ObjectHideFlags: 0
