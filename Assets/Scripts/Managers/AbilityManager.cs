@@ -61,13 +61,6 @@ namespace MercenariesProject
         //Cast an ability
         private void CastAbility()
         {
-            //Laurent was here
-            Animator anim = activeHero.GetComponentInChildren<Animator>();
-            if (anim != null)
-            {
-                anim.Play("Base Layer.1");
-
-            }
 
             var inRangeCharacters = new List<Hero>();
 
@@ -113,6 +106,7 @@ namespace MercenariesProject
                     default:
                         break;
                 }
+                //disable
                 
             }
             //Brandon Here
@@ -166,6 +160,7 @@ namespace MercenariesProject
         public void SetActiveCharacter(GameObject activeChar)
         {
             activeHero = activeChar.GetComponent<Hero>();
+            //enable
         }
 
         //Set the position the abilities origin.
