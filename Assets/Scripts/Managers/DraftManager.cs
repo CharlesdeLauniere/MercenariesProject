@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using MercenariesProject;
 using System.Linq;
-
+using TMPro;
 [System.Serializable]
 public class DraftManager : MonoBehaviour
 {
@@ -16,16 +16,17 @@ public class DraftManager : MonoBehaviour
     public List<string> redHeroesTospawn;
     public List<string> blueHeroesTospawn;
 
-    public GameObject _teamBlue;
-    public GameObject _teamRed;
+  
     public GameObject _archerSkills;
 
+    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] GameObject X;
     [SerializeField] private List<GameObject> abilityPrefabs;
 
-    void Start()
+    private void Start()
     {
-        _teamBlue.SetActive(true);
-        _teamRed.SetActive(false);
+        _text.text = "C'est aux bleus de choisir !";
+        _text.color = Color.blue;
     }
 
     void Update()
@@ -43,7 +44,13 @@ public class DraftManager : MonoBehaviour
         var abilityPrefab = abilityPrefabs.Where(x => x.GetComponentInChildren<CarteManager>().hero.heroClass.ClassName == heroName).First();
         abilityPrefab.SetActive(false);
     }
-
+    public void HeroIsSelected(GameObject image)
+    {
+        Vector2 pos;
+        pos = image.transform.position;
+        Instantiate(X, pos, Quaternion.identity);
+        Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    }
     public void Selection(string className)
     {
         
@@ -75,20 +82,21 @@ public class DraftManager : MonoBehaviour
 
         if (i == 0 || i == 3 || i == 4)
         {
-            _teamRed.SetActive(false);
-            _teamBlue.SetActive(true);
+            _text.text = "C'est aux bleus de choisir !";
+            _text.color = Color.blue;
+            
         }
 
         else if (i == 1 || i == 2 || i == 5)
         {
-            _teamRed.SetActive(true);
-            _teamBlue.SetActive(false);
+            _text.text = "C'est aux rouges de choisir !";
+            _text.color = Color.red;
         }
 
         else
         {
-            _teamRed.SetActive(false);
-            _teamBlue.SetActive(false);
+            _text.text = "La sélection et terminé !";
+            _text.color = Color.white;
             Debug.Log("Fin de la sélection");
         }
         
