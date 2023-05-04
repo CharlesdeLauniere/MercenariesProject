@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1723,6 +1723,50 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455120, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455120, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_Spacing
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildScaleWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildScaleHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797099455127, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5804511797243218966, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.06555939
@@ -1790,6 +1834,10 @@ PrefabInstance:
     - target: {fileID: 5804511797549198427, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804511797640770051, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5804511797640770173, guid: 1d44687041276e7488d4436aa6154ee6, type: 3}
       propertyPath: m_Pivot.x
@@ -2882,6 +2930,7 @@ MonoBehaviour:
   startNewCharacterTurn: {fileID: 11400000, guid: 6aff89c13e9cc114e9f68c7cb4e203fa, type: 2}
   turnOrderSet: {fileID: 11400000, guid: 03408cd43f94d924ca3894e0b5503f83, type: 2}
   combinedList: []
+  tempList: []
 --- !u!1 &1349162758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,6 +3603,7 @@ MonoBehaviour:
   startNewCharacterTurn: {fileID: 11400000, guid: 6aff89c13e9cc114e9f68c7cb4e203fa, type: 2}
   turnOrderSet: {fileID: 11400000, guid: 03408cd43f94d924ca3894e0b5503f83, type: 2}
   combinedList: []
+  tempList: []
 --- !u!1 &1776879055
 GameObject:
   m_ObjectHideFlags: 0
