@@ -58,7 +58,8 @@ MonoBehaviour:
   _ManaBuff: {fileID: 7155335147208632822, guid: fa232df14decd6242bd998384d1e5f44, type: 3}
   _Rage: {fileID: 7155335147208632822, guid: 8e6d1059894f3c448890db1e24ea5486, type: 3}
   _MagicArrow: {fileID: 1381578670569680, guid: 03d1c1ac77126194c80aa452328865e1, type: 3}
-  _Music: {fileID: 1077217994118638, guid: fa72bb4991c38481eb7e4743c43b8bae, type: 3}
+  _MusicEffect: {fileID: 1077217994118638, guid: fa72bb4991c38481eb7e4743c43b8bae, type: 3}
+  _veninEffect: {fileID: 1381578670569680, guid: abe68ea09b945b346ae9c8b610dd1eec, type: 3}
   _target: {fileID: 0}
   _player: {fileID: 0}
   _source: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb2ef7b045823a46b6023c36e48e22f, type: 3}
   m_Name: Venin
   m_EditorClassIdentifier: 
-  Name: ChaveSouris
+  Name: Venin
   Desc: Its a test
   abilityShape: {fileID: 4900000, guid: 4cccb2f6028350741b2728f2c9971c7a, type: 3}
   effects:

@@ -24,7 +24,10 @@ namespace MercenariesProject
         [SerializeField] GameObject _ManaBuff;
         [SerializeField] GameObject _Rage;
         [SerializeField] GameObject _MagicArrow;
-        [SerializeField] GameObject _Music;
+        [SerializeField] GameObject _MusicEffect;
+        [SerializeField] GameObject _veninEffect;
+
+
 
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
@@ -80,12 +83,11 @@ namespace MercenariesProject
                     BloodSlash(playerPos, targetPos);
                     if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
-                case "ChauveSouris":
-
+                case "Venin":
+                    StartCoroutine(Venin(playerPos, targetPos));
                     break;
                 //Bard-------------------------------
                 case "Fausser":
-                    
                     if (_soundOn == true) { _source.PlayOneShot(_clips[7]); }
                     break;
                 case "Hymme":
@@ -97,12 +99,12 @@ namespace MercenariesProject
                     break; 
                 //Archer-----------------------------
                 case "Baliste":
-                    SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[11]); }
+                    
+                    
                     break;
                 case "Slave":
-                    SwordSlash(playerPos, targetPos);
-                    if (_soundOn == true) { _source.PlayOneShot(_clips[12]); }
+                    
+                    
                     break;
                 case "Artrium":
                     StartCoroutine(MagicArrow(playerPos, targetPos));
@@ -113,6 +115,7 @@ namespace MercenariesProject
                     StartCoroutine(Eclaire(playerPos, targetPos));
                     break;
                 case "Soin":
+                    HealEffect(playerPos, targetPos);
                     break;
                 case "invocateur":
                     break;
@@ -150,6 +153,21 @@ namespace MercenariesProject
 
             yield return new WaitForSeconds(7f);
             Destroy(GameObject.FindGameObjectWithTag("Particule1"));
+        }
+        IEnumerator Venin(Vector3 playerPos, List<Vector3> targetPos)
+        {
+            yield return new WaitForSeconds(2f);
+            Instantiate(_veninEffect, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            _veninEffect.transform.Find("TargetEffect_Ven").transform.position = new Vector3(targetPos[0].x, 1f, targetPos[0].z);
+            _veninEffect.transform.Find("PlayerEffect_Ven").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
+            Destroy(GameObject.FindGameObjectWithTag("Venin"));
+
+            Instantiate(_veninEffect, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            _veninEffect.transform.Find("TargetEffect_Ven").transform.position = new Vector3(targetPos[0].x, 1f, targetPos[0].z);
+            _veninEffect.transform.Find("PlayerEffect_Ven").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
+
+            yield return new WaitForSeconds(7f);
+            Destroy(GameObject.FindGameObjectWithTag("Venin"));
         }
         public void HealEffect(Vector3 playerPos, List<Vector3> targetPos)
         {
@@ -230,7 +248,7 @@ namespace MercenariesProject
             Instantiate(_Rage, playerPos, Quaternion.identity);
         }
 
-        public void Cast_SpellEffect(Vector3 playerPos)
+        public void Cast_MagicCircle(Vector3 playerPos)
         {
             Instantiate(_CastEffect, new Vector3(playerPos.x, 0.2f, playerPos.z), Quaternion.identity);
         }
@@ -238,7 +256,7 @@ namespace MercenariesProject
         IEnumerator Eclaire(Vector3 playerPos, List<Vector3> targetPos)
         {
 
-            Cast_SpellEffect(playerPos);
+            Cast_MagicCircle(playerPos);
             yield return new WaitForSeconds(2f);
          
             StartCoroutine(GenerateEffect1(playerPos, targetPos));
@@ -246,18 +264,22 @@ namespace MercenariesProject
         IEnumerator VoixAnge(Vector3 playerPos, List<Vector3> targetPos)
         {
 
-            Instantiate(_Music,new Vector3(playerPos.x,2f,playerPos.z), Quaternion.identity);
+            Instantiate(_MusicEffect,new Vector3(playerPos.x,2f,playerPos.z), Quaternion.identity);
             Instantiate(_HealCircle, playerPos, Quaternion.identity);
             yield return new WaitForSeconds(3f);
 
             for(int i=0; i<targetPos.Count;i++)
             {
-                Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
+                if (!(targetPos[i] == playerPos)) 
+                { 
+                    Instantiate(_HealEffect, targetPos[i], Quaternion.identity);
+                }
+                
             }
         }
         IEnumerator Troupe(Vector3 playerPos, List<Vector3> targetPos)
         {
-            Instantiate(_Music, new Vector3(playerPos.x, 2f, playerPos.z), Quaternion.identity);
+            Instantiate(_MusicEffect, new Vector3(playerPos.x, 2f, playerPos.z), Quaternion.identity);
             if (_soundOn == true) { _source.PlayOneShot(_clips[9]); }
             yield return new WaitForSeconds(6f);
             for(int i = 0; i < targetPos.Count; i++)
