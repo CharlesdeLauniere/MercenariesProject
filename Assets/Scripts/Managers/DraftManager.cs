@@ -17,9 +17,9 @@ public class DraftManager : MonoBehaviour
     public List<string> redHeroesTospawn;
     public List<string> blueHeroesTospawn;
 
-  
-    public GameObject _archerSkills;
-    public Button nextScene;
+
+    //public GameObject _archerSkills;
+    [SerializeField] GameObject nextScene;
     [SerializeField] TextMeshProUGUI _text;
     [SerializeField] GameObject X;
     [SerializeField] private List<GameObject> abilityPrefabs;
@@ -30,30 +30,31 @@ public class DraftManager : MonoBehaviour
         _text.color = Color.blue;
         nextScene.SetActive(false);
     }
+    
 
     void Update()
     {
         
     }
 
-    public void ShowHeroAbility(string heroName)
-    {
-        var abilityPrefab = abilityPrefabs.Where(x => x.GetComponent<GameObject>().name == heroName).First();
-        abilityPrefab.SetActive(true);
-    }
-    public void HideHeroAbility(string heroName)
-    {
-        var abilityPrefab = abilityPrefabs.Where(x => x.GetComponentInChildren<CarteManager>().hero.heroClass.ClassName == heroName).First();
-        abilityPrefab.SetActive(false);
-    }
+    //public void ShowHeroAbility(string heroName)
+    //{
+    //    var abilityPrefab = abilityPrefabs.Where(x => x.GetComponent<GameObject>().name == heroName).First();
+    //    abilityPrefab.SetActive(true);
+    //}
+    //public void HideHeroAbility(string heroName)
+    //{
+    //    var abilityPrefab = abilityPrefabs.Where(x => x.GetComponentInChildren<CarteManager>().hero.heroClass.ClassName == heroName).First();
+    //    abilityPrefab.SetActive(false);
+    //}
     public void HeroIsSelected(GameObject image)
     {
-        Vector2 pos;
+        Vector3 pos;
         pos = image.transform.position;
         pos.x -= 1f;
         pos.y += 3f;
+        pos.z -= 8f;
         Instantiate(X, pos, Quaternion.identity);
-        Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     }
     public void Selection(string className)
     {
