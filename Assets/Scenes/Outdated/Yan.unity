@@ -1555,6 +1555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookMasterAsset
       objectReference: {fileID: 0}
+    - target: {fileID: 1013208887011049763, guid: dee5119d7c953164abc2cd6975ee5867, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5647714378075203385, guid: dee5119d7c953164abc2cd6975ee5867, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7315,7 +7319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1013208887011049763, guid: 63be57555a641d441b8cd8c0ef5454b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5647714378075203385, guid: 63be57555a641d441b8cd8c0ef5454b2, type: 3}
       propertyPath: m_Pivot.x

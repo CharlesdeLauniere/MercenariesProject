@@ -515,9 +515,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Slave : Tir trois fl\xE8ches. Deux fl\xE8ches sur les c\xF4t\xE9s et une
-    dans le centre avec port\xE9e limit\xE9e. D\xE9g\xE2t mod\xE9r\xE9 et utilise
-    20 de mana.  "
+  m_text: "Aiguille : Donne un coup d'\xE9p\xE9 vers l'avant sur une petite distance.
+    D\xE9g\xE2t \xE9lev\xE9 et co\xFBte 30 de mana"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -551,7 +550,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -922,8 +921,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Artrium : Tir une fl\xE8che sur un ennemi sur presque toute la carte.
-    D\xE9g\xE2t \xE9lev\xE9 et co\xFBte 30 de mana."
+  m_text: "Courage : Donne 20 de mana \xE0 lui-m\xEAme et tous ses alli\xE9s dans
+    une zone autour de lui. Co\xFBte 30 de mana."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
