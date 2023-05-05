@@ -6,6 +6,7 @@ using TMPro;
 using MercenariesProject;
 using System.Linq;
 using TMPro;
+
 [System.Serializable]
 public class DraftManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DraftManager : MonoBehaviour
 
   
     public GameObject _archerSkills;
-
+    public Button nextScene;
     [SerializeField] TextMeshProUGUI _text;
     [SerializeField] GameObject X;
     [SerializeField] private List<GameObject> abilityPrefabs;
@@ -27,6 +28,7 @@ public class DraftManager : MonoBehaviour
     {
         _text.text = "C'est aux bleus de choisir !";
         _text.color = Color.blue;
+        nextScene.SetActive(false);
     }
 
     void Update()
@@ -48,6 +50,8 @@ public class DraftManager : MonoBehaviour
     {
         Vector2 pos;
         pos = image.transform.position;
+        pos.x -= 1f;
+        pos.y += 3f;
         Instantiate(X, pos, Quaternion.identity);
         Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     }
@@ -97,6 +101,7 @@ public class DraftManager : MonoBehaviour
         {
             _text.text = "La sélection et terminé !";
             _text.color = Color.white;
+            nextScene.SetActive(true);
             Debug.Log("Fin de la sélection");
         }
         
