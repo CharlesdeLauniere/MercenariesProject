@@ -12,11 +12,16 @@ namespace MercenariesProject
         }
         public void AllerSceneDepart()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         public void AllerScenePrincipale()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
+        }
+        public void nextScene()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
 }
