@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MercenariesProject
 {
@@ -15,23 +17,42 @@ namespace MercenariesProject
         public GameEvent startGame;
         public GameObject _bluePrefab;
         [SerializeField] GameObject _redPrefab;
+        public GameObject draftManager;
         //public bool globalSpawn;
 
         private SpriteRenderer CharacterPreview;
         private List<string> heroesToSpawn;
+        [SerializeField] private List<string> blueToSpawn;
+        [SerializeField] private List<string> redToSpawn;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            CharacterPreview = GetComponent<SpriteRenderer>(); 
+            CharacterPreview = GetComponent<SpriteRenderer>();
+            //blueToSpawn = draftManager.GetComponent<DraftManager>().blueHeroesTospawn;
+            //redToSpawn = draftManager.GetComponent<DraftManager>().redHeroesTospawn;
+            //blueToSpawn = GetComponent<DraftManager>().blueHeroesTospawn;
+            //redToSpawn = GetComponent<DraftManager>().redHeroesTospawn;
         }
-        public void SpawnHeroes(List<string> spawnName)
+        public void listPerso()
         {
 
-            for (int i = 0; i < heroes.Count; i += 2)
+        }
+        public void SpawnHeroes(List<string> redToSpawn)
+        {
+             draftManager = GameObject.Find("DraftManager");
+            //draftManager = Objects[0]; 
+            //blueToSpawn = GetComponent<DraftManager>().blueHeroesTospawn;
+            //redToSpawn = GetComponent<DraftManager>().redHeroesTospawn;
+            blueToSpawn = draftManager.GetComponent<DraftManager>().blueHeroesTospawn;
+            redToSpawn = draftManager.GetComponent<DraftManager>().redHeroesTospawn;
+            List<string> spawnNameRed = redToSpawn;
+            List<string> spawnNameBlue = blueToSpawn;
+
+            for (int i = 0; i < 3; i += 1)
             {
-                var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
+                var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnNameRed[i]);
                 var redSpawnedHero = Instantiate(redHeroPrefab);
                 redSpawnedHero.tag = "Player1";
                 redSpawnedHero.teamID = 1;
@@ -42,7 +63,7 @@ namespace MercenariesProject
                 newRedPrefab.transform.parent = redSpawnedHero.transform;
 
 
-                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnName[i+1]);
+                var blueHeroPrefab = GetSpecificHeroToSpawn<Hero>( spawnNameBlue[i]);
                 var blueSpawnedHero = Instantiate(blueHeroPrefab);
                 blueSpawnedHero.tag = "Player2";
                 blueSpawnedHero.teamID = 2;
@@ -72,8 +93,10 @@ namespace MercenariesProject
             return (T)heroes.Find(x => x.heroClass.ClassName == heroName);
 
         }
-        public void SpawnRedHeroes(List<string> spawnName)
+        public void SpawnRedHeroes()
         {
+            List<string> spawnName = redToSpawn;
+
             for (int i = 0; i < heroes.Count; i += 1)
             {
                 var redHeroPrefab = GetSpecificHeroToSpawn<Hero>(spawnName[i]);
@@ -96,8 +119,10 @@ namespace MercenariesProject
             startGame.Raise();
 
         }
-        public void SpawnBlueHeroes(List<string> spawnName)
+        public void SpawnBlueHeroes()
         {
+            List<string> spawnName = blueToSpawn;
+
             for (int i = 0; i < heroes.Count; i += 1)
             {
                

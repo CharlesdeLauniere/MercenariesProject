@@ -15,6 +15,13 @@ TagManager:
   - Particule1
   - GameCanvas
   - Venin
+  - Vampire
+  - Knight
+  - Archer
+  - Barde
+  - Mage
+  - Gragas
+  - Draft
   layers:
   - Default
   - TransparentFX

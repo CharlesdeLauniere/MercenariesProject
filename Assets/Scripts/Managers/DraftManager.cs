@@ -17,7 +17,6 @@ public class DraftManager : MonoBehaviour
     public List<string> redHeroesTospawn;
     public List<string> blueHeroesTospawn;
 
-
     //public GameObject _archerSkills;
     [SerializeField] GameObject nextScene;
     [SerializeField] TextMeshProUGUI _text;
@@ -29,6 +28,7 @@ public class DraftManager : MonoBehaviour
         _text.text = "C'est aux bleus de choisir !";
         _text.color = Color.blue;
         nextScene.SetActive(false);
+        DontDestroyOnLoad(this.gameObject);
     }
     
 

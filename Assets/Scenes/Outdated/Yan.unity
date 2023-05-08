@@ -4291,7 +4291,7 @@ GameObject:
   - component: {fileID: 974749420}
   m_Layer: 0
   m_Name: DraftManager
-  m_TagString: Untagged
+  m_TagString: Draft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
