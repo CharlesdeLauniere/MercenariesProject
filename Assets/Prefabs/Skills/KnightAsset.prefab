@@ -379,7 +379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Excalibure : Donne un coup d'\xE9p\xE9 devant lui. D\xE9gat mod\xE9r\xE9
+  m_text: "Excalibure : Donne un coup d'\xE9p\xE9e devant lui. D\xE9gat mod\xE9r\xE9
     et co\xFBte 25 de mana."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aiguille : Donne un coup d'\xE9p\xE9 vers l'avant sur une petite distance.
+  m_text: "Aiguille : Donne un coup d'\xE9p\xE9e vers l'avant sur une petite distance.
     D\xE9g\xE2t \xE9lev\xE9 et co\xFBte 30 de mana"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
