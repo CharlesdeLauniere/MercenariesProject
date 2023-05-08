@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7327846143422902698, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49e5c28bfc453e1488cef76a8d1e17b5, type: 2}
     - target: {fileID: 1233711649788652350, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -60,8 +64,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8248543377919322394, guid: cc8cb170ff11da442bedd0e9e3be0e9a, type: 3}
     - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 490239881832109638}
+    - target: {fileID: 7517563721531474785, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
       propertyPath: heroClass
       value: 
       objectReference: {fileID: 11400000, guid: e576ceffdedfd984190fc43ff1514770, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+--- !u!114 &490239881832109638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1414747157116273611, guid: 2beb8f7995b496a4bb1494d59d44c8ea, type: 3}
+  m_PrefabInstance: {fileID: 1544628672558650765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19baff3143628e4b816c0b1f887eeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

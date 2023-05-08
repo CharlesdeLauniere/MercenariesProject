@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileVariants:
-  - {fileID: 3123026275325838348, guid: 5eacc4b5f5931cb4e9298eaef9273519, type: 3}
   - {fileID: 3123026275325838348, guid: eb924a605eea3d640b93cccf44e6abce, type: 3}
-  Weights: 0100000001000000
+  Weights: 01000000
   MapTileWeight: 1
