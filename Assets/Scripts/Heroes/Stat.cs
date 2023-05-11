@@ -89,8 +89,7 @@ namespace MercenariesProject
                             break;
                         case Operation.MinusMana:
                             if (statKey == Stats.CurrentMana)
-                            {
-                                Debug.Log("ManaMinus");
+                            {  
                                 statValue = Mathf.CeilToInt(statValue - statMod.value);
                             }
                             break;

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using MercenariesProject;
 using System.Linq;
-using TMPro;
 
 [System.Serializable]
 public class DraftManager : MonoBehaviour
@@ -31,22 +30,6 @@ public class DraftManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     
-
-    void Update()
-    {
-        
-    }
-
-    //public void ShowHeroAbility(string heroName)
-    //{
-    //    var abilityPrefab = abilityPrefabs.Where(x => x.GetComponent<GameObject>().name == heroName).First();
-    //    abilityPrefab.SetActive(true);
-    //}
-    //public void HideHeroAbility(string heroName)
-    //{
-    //    var abilityPrefab = abilityPrefabs.Where(x => x.GetComponentInChildren<CarteManager>().hero.heroClass.ClassName == heroName).First();
-    //    abilityPrefab.SetActive(false);
-    //}
     public void HeroIsSelected(GameObject image)
     {
         Vector3 pos;
@@ -57,8 +40,7 @@ public class DraftManager : MonoBehaviour
         Instantiate(X, pos, Quaternion.identity);
     }
     public void Selection(string className)
-    {
-        
+    {  
         if (i == 0 || i == 3 || i == 4)
         {
             blueHeroesTospawn.Add(className);
@@ -68,12 +50,10 @@ public class DraftManager : MonoBehaviour
             redHeroesTospawn.Add(className);
         }
         SelectionManager();
-        Debug.Log("WTEWRR G");
     }
 
     public void Affichage(GameObject abilitiesPrefab) 
     {
-        
         abilitiesPrefab.SetActive(true);
     }
     public void DesAffichage(GameObject abilitiesPrefab)
@@ -89,8 +69,7 @@ public class DraftManager : MonoBehaviour
         {
             _text.text = "C'est aux bleus de choisir !";
             _text.color = Color.blue;
-            
-        }
+        }            
 
         else if (i == 1 || i == 2 || i == 5)
         {
@@ -103,7 +82,6 @@ public class DraftManager : MonoBehaviour
             _text.text = "La sélection et terminé !";
             _text.color = Color.white;
             nextScene.SetActive(true);
-            Debug.Log("Fin de la sélection");
         }
         
     }

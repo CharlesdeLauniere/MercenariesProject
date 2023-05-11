@@ -176,7 +176,6 @@ namespace MercenariesProject
      
         public void ChangeMana(int value)
         {
-            Debug.Log("ManaBoost");
             statsContainer.CurrentMana.statValue += value;
             UpdateCharacterUI();
             //if (statsContainer.CurrentMana.statValue < 0) statsContainer.CurrentMana.statValue = 0;
