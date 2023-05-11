@@ -50,11 +50,11 @@ namespace MercenariesProject
             {
                 //Knight-----------------------------
                 case "Excalibure":
-                    SwordSlash(playerPos, targetPos);
-                    if(_soundOn==true) { _source.PlayOneShot(_clips[0]); }
+                    StartCoroutine(SwordSlash(playerPos, targetPos));
+                    if (_soundOn==true) { _source.PlayOneShot(_clips[0]); }
                     break;
                 case "Aiguille":
-                    SwordSlash(playerPos, targetPos);
+                    StartCoroutine(SwordSlash(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[0]); }
                     break;
                 case "Courage":
@@ -63,7 +63,7 @@ namespace MercenariesProject
                     break;
                 //Gragas-----------------------------
                 case "Glaive":
-                    SwordSlash(playerPos, targetPos);
+                    StartCoroutine(SwordSlash(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[2]); }
                     break;
                 case "Rage":
@@ -71,16 +71,16 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[3]); }
                     break;
                 case "Bonk":
-                    SwordSlash(playerPos, targetPos);
+                    StartCoroutine(SwordSlash(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[4]); }
                     break;
                 //Vampire-----------------------------
                 case "Griffe":
-                    BloodSlash(playerPos, targetPos);
+                    StartCoroutine(BloodSlash(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 case "Morsure":
-                    BloodSlash(playerPos, targetPos);
+                    StartCoroutine(BloodSlash(playerPos, targetPos));
                     if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 case "Venin":
@@ -126,7 +126,7 @@ namespace MercenariesProject
         }
         IEnumerator GenerateEffect1(Vector3 playerPos, List<Vector3> targetPos)
         {
-           
+            //Très important de l'instancié, de le détruire et de le réinstancier, car cela règle un bug dont j'ignore la cause
             Instantiate(_Effect1, new Vector3(0f, 0f, 0f), Quaternion.identity);
             _Effect1.transform.Find("TargetEffect").transform.position = new Vector3(targetPos[0].x, 2f, targetPos[0].z);
             _Effect1.transform.Find("PlayerEffect").transform.position = new Vector3(playerPos.x, 1f, playerPos.z);
@@ -193,7 +193,7 @@ namespace MercenariesProject
             }
 
         }
-        public void SwordSlash(Vector3 playerPos, List<Vector3> targetPos)
+        IEnumerator SwordSlash(Vector3 playerPos, List<Vector3> targetPos)
         {
            
             double insideTan = (targetPos[0].z - playerPos.z) / (targetPos[0].x - playerPos.x);
@@ -209,10 +209,11 @@ namespace MercenariesProject
             GameObject.FindGameObjectWithTag("StoneSlash").transform.Rotate(0f,vectorAngle, 0f, Space.World);
 
             Debug.Log(vectorAngle);
-
+            yield return new WaitForSeconds(5f);
+            Destroy(GameObject.FindGameObjectWithTag("StoneSlash"));
 
         }
-        public void BloodSlash(Vector3 playerPos, List<Vector3> targetPos)
+        IEnumerator BloodSlash(Vector3 playerPos, List<Vector3> targetPos)
         {
 
             double insideTan = (targetPos[0].z - playerPos.z) / (targetPos[0].x - playerPos.x);
@@ -226,9 +227,9 @@ namespace MercenariesProject
             Instantiate(_BloodSlash, new Vector3(playerPos.x, 0.6f, playerPos.z), Quaternion.identity);
 
             GameObject.FindGameObjectWithTag("BloodSlash").transform.Rotate(0f, vectorAngle, 0f, Space.World);
-
-            Debug.Log(vectorAngle);
-
+         
+            yield return new WaitForSeconds(5f);
+            Destroy(GameObject.FindGameObjectWithTag("BloodSlash"));
 
         }
         public void BuffEffect(Vector3 playerPos, List<Vector3> targetPos)
