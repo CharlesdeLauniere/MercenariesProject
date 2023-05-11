@@ -6,6 +6,7 @@ namespace MercenariesProject
 {
     public class GestionScene : MonoBehaviour
     {
+        
         public void QuitterJeu()
         {
             Application.Quit();
