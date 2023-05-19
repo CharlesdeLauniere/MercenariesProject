@@ -111,7 +111,7 @@ namespace MercenariesProject
                     if (_soundOn == true) { _source.PlayOneShot(_clips[13]); }
                     break;
                 //Wizzard----------------------------
-                case "Eclaire":
+                case "Eclair":
                     StartCoroutine(Eclaire(playerPos, targetPos));
                     break;
                 case "Soin":
