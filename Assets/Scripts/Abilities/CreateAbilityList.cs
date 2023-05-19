@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace MercenariesProject
 {
-    //A container that creates all the buttons needed for a characters abilities.
     public class CreateAbilityList : MonoBehaviour
     {
         public GameObject ButtonPrefab;
@@ -32,7 +31,7 @@ namespace MercenariesProject
         }
 
 
-        //When the ability button is clicked, create a new button for every ability the activeCharacter has
+        //Crée un bouton pour chacun des habilités d'un personnage
         public void CreateCharacterAbilityButtons()
         {
             if (!buttons.Any(x => x.activeInHierarchy))
@@ -60,14 +59,12 @@ namespace MercenariesProject
 
                     buttonToActivate.transform.GetComponentInChildren<Text>().text = ability.name;
 
-                    if (activeHero.GetStat(Stats.CurrentMana).statValue >= ability.cost) //abilityContainer.turnsSinceUsed > abilityContainer.ability.cooldown
+                    if (activeHero.GetStat(Stats.CurrentMana).statValue >= ability.cost)
                     {
-                        Debug.Log("Yay");
                         buttonToActivate.GetComponent<Button>().interactable = true;
                     }
                     else
                     {
-                        Debug.Log("Nay");
                         buttonToActivate.GetComponent<Button>().interactable = false;
                     }
                 }
@@ -87,19 +84,16 @@ namespace MercenariesProject
             }
         }
 
-        public void DisableAbilityList() //string abilityName
+        public void DisableAbilityList() 
         {
             foreach (var item in buttons)
             {
                 item.SetActive(false);
             }
         }
-        public void DisableAbilityByName() //string abilityName
+        public void DisableAbilityByName() 
         {
-            //foreach (var item in buttons)
-            //{
-            //    item.SetActive(false);
-            //}
+            
         }
     }
 }

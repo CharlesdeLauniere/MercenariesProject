@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //Generate character stats with the character class and levels.
+
     [CreateAssetMenu(fileName = "HeroStats", menuName = "ScriptableObjects/HeroStats", order = 1)]
     public class HeroStats : ScriptableObject
     {

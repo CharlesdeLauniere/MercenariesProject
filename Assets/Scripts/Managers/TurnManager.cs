@@ -28,7 +28,6 @@ namespace MercenariesProject
             CTB
         };
        
-        //Brandon did this
         //Détruit l'affichage de canvas de base du jeu pour ensuite mettre un canvas qui affiche l'équipe gagante
         public void BlueWon()
         {
@@ -36,7 +35,6 @@ namespace MercenariesProject
             Instantiate(_canvas_blueTeamWon);
 
         }
-        //Brandon did this
         //Détruit l'affichage de canvas de base du jeu pour ensuite mettre un canvas qui affiche l'équipe gagante
         public void RedWon()
         {
@@ -44,18 +42,8 @@ namespace MercenariesProject
             Instantiate(_canvas_redTeamWon);
 
         }
-        //public void HeroesHaveBeenSpawned()
-        //{
-        //    teamA = GameObject.FindGameObjectsWithTag("Player1").Select(x => x.GetComponent<Hero>()).ToList();
 
-        //    teamB = GameObject.FindGameObjectsWithTag("Player2").Select(x => x.GetComponent<Hero>()).ToList();
-
-        //    combinedList = new List<Hero>();
-
-        //    SortTeamOrder(true);
-        //}
-
-        //Sort the team turn order based on TurnSorting.
+        //Trie la liste des personnages
         private void SortTeamOrder(bool updateListSize = false)
         {
             switch (turnSorting)
@@ -85,10 +73,6 @@ namespace MercenariesProject
                     break;
             }
             tempList = combinedList.Where(x => x.isAlive).ToList();
-            //foreach (Hero hero in tempList)
-            //{
-            //    if (hero.isAlive == false) tempList.Remove(hero);
-            //}
             turnOrderSet.Raise(tempList.Select(x => x.gameObject).ToList());
         }
 
@@ -103,7 +87,7 @@ namespace MercenariesProject
             }
         }
 
-        //On end turn, update the turnorder and start a new characters turn.
+        //Lorque le tour complet, on met à jour l'ordre et on commence le prochain tour
         public void EndTurn()
         {
             if (combinedList.Count > 0)
@@ -132,11 +116,6 @@ namespace MercenariesProject
                         else
                             EndTurn();
 
-
-                        //foreach (var ability in firstCharacter.abilitiesForUse)
-                        //{
-                        //    ability.turnsSinceUsed++;
-                        //}
                     }
                     else
                     {
@@ -144,7 +123,6 @@ namespace MercenariesProject
                     }
                 }
             }
-            //Brandon Here
             //Vérifie s'il y a une équipe gagnante, si c'est le cas, on instancie un canvas qui indique l'équipe gagnante
             if (teamA[0].isAlive == false && teamA[1].isAlive == false && teamA[2].isAlive == false)
             {
@@ -170,7 +148,6 @@ namespace MercenariesProject
                 if (tileEffect != null)
                 {
                     heroEndingTurn.AttachEffect(tileEffect);
-                    Debug.Log("gyat");
                 }
                    
             }
@@ -179,7 +156,6 @@ namespace MercenariesProject
         }
 
 
-        //Wait until next loop to avoid possible race condition. 
         IEnumerator DelayedSetActiveCharacter(Hero firstHero)
         {
             yield return new WaitForFixedUpdate();

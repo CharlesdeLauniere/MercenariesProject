@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //On start up, link a character to the closest tile.
+
     public class PositionOnGrid : MonoBehaviour
     {
         void Start()
@@ -12,7 +12,7 @@ namespace MercenariesProject
             {
                 transform.position = closestTile.transform.position;
 
-                //this should be more generic
+
                 Hero hero = GetComponent<Hero>();
 
                 if (hero != null)

@@ -7,20 +7,14 @@ using static UnityEngine.Rendering.DebugUI;
 
 namespace MercenariesProject
 {
-    //Parent Class for Characters and Enemys
     public class Hero : MonoBehaviour
     {
-        [Header("Character Specific")]
-        //public List<Ability> abilities;
-
-
         [Header("General")]
         public int teamID = 0;
         public Sprite portrait;
         [HideInInspector]
         public Tile activeTile;
         public HeroClass heroClass;
-       // [HideInInspector]
         public HeroStats statsContainer;
         [HideInInspector]
         public int initiativeValue;
@@ -39,8 +33,6 @@ namespace MercenariesProject
         [HideInInspector]
         public SpriteRenderer myRenderer;
 
-        //public GameConfig gameConfig;
-
         private int initiativeBase = 1000;
 
         private void Awake()
@@ -50,15 +42,12 @@ namespace MercenariesProject
 
         public void SpawnCharacter()
         {
-            //SetAbilityList();
             SetStats();
-            //requiredExperience = gameConfig.GetRequiredExp(level);
 
             myRenderer = gameObject.GetComponent<SpriteRenderer>();
             initiativeValue = Mathf.RoundToInt(initiativeBase / GetStat(Stats.Speed).statValue);
         }
 
-        //Setup the statsContainer and scale up the stats based on level. 
         public void SetStats()
         {
             if (statsContainer == null)
@@ -76,82 +65,26 @@ namespace MercenariesProject
                 statsContainer.CurrentMana = new Stat(Stats.CurrentMana, heroClass.Mana.baseStatValue, this);
             }
 
-            //for (int i = 0; i < level; i++)
-            //{
-            //    LevelUpStats();
-            //}
         }
 
-        // Update is called once per frame
-        //public void Update()
-        //{
-        //    if (isTargetted)
-        //    {
-        //        //Just a Color Lerp for when a character is targetted for an attack. 
-        //        i += Time.deltaTime * 0.5f;
-        //        myRenderer.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 0.5f, 0, 1), Mathf.PingPong(i * 2, 1));
-        //    }
-        //}
-
-        //Get's all the available abilities from the characters class. 
-        //public void SetAbilityList()
-        //{
-        //    abilities = new List<Ability>();
-        //    foreach (var ability in heroClass.abilities)
-        //    {
-        //        //if (level >= ability.requiredLevel)
-        //            abilities.Add(new Ability(ability));
-        //    }
-        //}
         public void SetupHealthBar()
         {
             HealthBar.SetMaxHealth((float)heroClass.Health.baseStatValue);
             ManaBar.SetMaxMana((float)heroClass.Mana.baseStatValue);
         }
 
-
-        //public void IncreaseExp(int value)
-        //{
-        //    experience += value;
-
-        //    while (experience >= requiredExperience)
-        //    {
-        //        experience -= requiredExperience;
-        //        LevelUpCharacter();
-        //    }
-        //}
-
-        ////Level down stats and get the new required experience for the next level. 
-        //public void LevelDownCharacter()
-        //{
-        //    level--;
-        //    LevelDownStats();
-        //    requiredExperience = gameConfig.GetRequiredExp(level);
-        //}
-
-        //Update the characters initiative after the perform an action. This is used for Dynamic Turn Order. 
         public void UpdateInitiative(int turnValue)
         {
             initiativeValue += Mathf.RoundToInt(turnValue / GetStat(Stats.Speed).statValue + 1);
             previousTurnCost = turnValue;
         }
 
-        //Entity is being targets for an attack. 
         public void SetTargeted(bool focused = false)
         {
             isTargetted = focused;
 
-            //if (isTargetted)
-            //{
-            //    myRenderer.color = new Color(1, 0, 0, 1);
-            //}
-            //else
-            //{
-            //    myRenderer.color = new Color(1, 1, 1, 1);
-            //}
         }
 
-        //Take damage from an attack or ability. 
         public void TakeDamage(int damage, bool ignoreDefence = false)
         {
             int damageToTake = ignoreDefence ? damage : CalculateDamage(damage);
@@ -159,7 +92,6 @@ namespace MercenariesProject
             if (damageToTake > 0)
             {
                 statsContainer.CurrentHealth.statValue -= damageToTake;
-                //CameraShake.Shake(0.125f, 0.1f);
                 UpdateCharacterUI();
 
                 if (GetStat(Stats.CurrentHealth).statValue <= 0)
@@ -178,8 +110,6 @@ namespace MercenariesProject
         {
             statsContainer.CurrentMana.statValue += value;
             UpdateCharacterUI();
-            //if (statsContainer.CurrentMana.statValue < 0) statsContainer.CurrentMana.statValue = 0;
-            //if(statsContainer.CurrentMana.statValue > statsContainer.Mana.statValue) statsContainer.CurrentMana.statValue = statsContainer.Mana.statValue;
 
         }
         public void HealEntity(int value)
@@ -188,7 +118,6 @@ namespace MercenariesProject
             UpdateCharacterUI();
         }
 
-        //basic example if using a defensive stat
         private int CalculateDamage(int damage)
         {
             float percentage = (((float)GetStat(Stats.Endurance).statValue / (float)damage) * 100) / 2;
@@ -199,7 +128,6 @@ namespace MercenariesProject
             return damageToTake;
         }
 
-        //Get a perticular stat object. 
         public Stat GetStat(Stats statName)
         {
             switch (statName)
@@ -229,10 +157,8 @@ namespace MercenariesProject
             }
         }
 
-        //What happens when a character dies. 
         public IEnumerator Die()
         {
-            //Laurent was here
             Animator anim = GetComponentInChildren<Animator>();
             if (anim != null)
             {
@@ -247,21 +173,19 @@ namespace MercenariesProject
                 child.gameObject.SetActive(false);
             }
 
-            // GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f, 1);
         }
 
-        //Updates the characters healthbar. 
+        //Mettre à jour la barre de vie
         public void UpdateCharacterUI()
         {
-            Debug.Log(statsContainer.CurrentMana.statValue);
             this.HealthBar.SetHealth((float)statsContainer.CurrentHealth.statValue);
             this.ManaBar.SetMana((float)statsContainer.CurrentMana.statValue);
         }
 
-        //Change characters mana
+        //Mettre à jour la mana après une habilité
         public void UpdateMana(int value) => statsContainer.CurrentMana.statValue -= value;
 
-        //Attach an effect to the Entity from a tile or ability. 
+        //Attacher un effet sur un personnage
         public void AttachEffect(ScriptableEffect scriptableEffect)
         {
             if (scriptableEffect)
@@ -279,7 +203,7 @@ namespace MercenariesProject
             UpdateCharacterUI();
         }
 
-        //Effects that don't have a duration can just be applied straight away. 
+        //Applique le résultat de l'effet immédiatement
         public void ApplySingleEffects(Stats selectedStat)
         {
             Stat value = statsContainer.getStat(selectedStat);
@@ -287,7 +211,7 @@ namespace MercenariesProject
             UpdateCharacterUI();
         }
 
-        //Apply all the currently attached effects. Happens when a new turn begins. 
+        //Applique tous les effets sur un personnage
         public void ApplyEffects()
         {
             var fields = typeof(HeroStats).GetFields();
@@ -303,7 +227,6 @@ namespace MercenariesProject
             UpdateCharacterUI();
         }
 
-        //Gets Entities ability. 
         public Ability GetAbilityByName(string abilityName)
         {
             return heroClass.abilities.Find(x => x.Name == abilityName);
@@ -316,7 +239,6 @@ namespace MercenariesProject
         {
         }
 
-        //When an Entity moves, link it to the tiles it's standing on. 
         public void LinkCharacterToTile(Tile tile)
         {
             UnlinkCharacterToTile();
@@ -325,7 +247,6 @@ namespace MercenariesProject
             activeTile = tile;
         }
 
-        //Unlink an entity from a previous tile it was standing on. 
         public void UnlinkCharacterToTile()
         {
             if (activeTile)

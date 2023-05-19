@@ -21,7 +21,7 @@ namespace MercenariesProject
 
 
         public List<Ability> abilities;
-        public GameObject abilitiesPrefab; //TODO make abilities into prefab with script later
+        public GameObject abilitiesPrefab; 
 
     }
 }

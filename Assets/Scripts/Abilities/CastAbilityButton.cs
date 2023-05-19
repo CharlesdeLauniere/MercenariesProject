@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace MercenariesProject
 {
-    //The button click event that tells the AbilityController what to cast
     public class CastAbilityButton : MonoBehaviour
     {
         public GameEventString castAbility;

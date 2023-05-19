@@ -14,13 +14,11 @@ public class ManaBar : MonoBehaviour
 
 	public void SetMana(float currentMana)
     {
-		Debug.Log("setmanabar");
 		slider.value = currentMana;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 	public void SetMaxMana(float maxMana)
 	{
-        Debug.Log("maxsetmanabar");
         slider.maxValue = maxMana;
 		slider.value = maxMana;
         fill.color = gradient.Evaluate(1f);

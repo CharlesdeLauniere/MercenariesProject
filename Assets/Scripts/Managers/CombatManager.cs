@@ -30,10 +30,8 @@ namespace MercenariesProject
 
         private void Update()
         {
-            //Some controls for targetting different characters in range and then attacking them. 
             if (InAttackMode)
             {
-                //Debug.Log("ATKMODE");
                 if (inRangeCharacters.Count > 0)
                 {
 
@@ -70,19 +68,16 @@ namespace MercenariesProject
 
                     if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
                     {
-                        Debug.Log("SPACE");
                         AttackUnit();
                     }
 
                     if (Input.GetKeyDown(KeyCode.Escape))
                     {
-                        //cancelActionEvent.Raise("Attack");
                         ResetAttackMode();
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    // cancelActionEvent.Raise("Attack");
                     ResetAttackMode();
                 }
                 
@@ -102,10 +97,9 @@ namespace MercenariesProject
             InAttackMode = false;
         }
 
-        //Attack targeted Hero.
+        //Attaque l'héro ciblé
         private void AttackUnit()
         {
-            Debug.Log("AtkUnit");
             var focusedCharacter = inRangeCharacters[focusedCharIndex];
             focusedCharacter.SetTargeted(false);
 
@@ -116,31 +110,23 @@ namespace MercenariesProject
             focusedCharIndex = 0;
         }
 
-        //Enter attack mode and get all in range characters.
+        //Entre dans le mode attaque et cherche les ennemies dans la portée
         public void EnterAttackMode()
         {
             InAttackMode = true;
             var inRangeTiles = rangeFinder.GetTilesInRange(activeHero.activeTile, activeHero.GetStat(Stats.AttackRange).statValue, true);
             inRangeCharacters = inRangeTiles.Where(x => x.activeHero && x.activeHero.teamID != activeHero.teamID && x.activeHero.isAlive).Select(x => x.activeHero).ToList();
 
-            //if (inRangeCharacters.Count > 0)
-            //    inRangeCharacters[focusedCharIndex].SetTargeted(true);
-            //else
-            //{
-            //    InAttackMode = false;
-            //    OverlayTileColorManager.Instance.ClearTiles(null);
-            //    cancelActionEvent.Raise("Attack");
-            //}
         }
 
-        //Focus on a character.
+        //Focus sur un personnage
         private void FocusNewCharacter(int newIndex)
         {
             focusedCharIndex = newIndex;
             inRangeCharacters[newIndex].SetTargeted(true);
         }
 
-        //Show all the tiles in attack range based on mouse position. 
+        //Montre le portée d'attaque
         public void DisplayAttackRange(GameObject focusedOnTile = null)
         {
             var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeHero.activeTile;
@@ -149,7 +135,7 @@ namespace MercenariesProject
             OverlayTileColorManager.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
 
-        //Show all the tiles in move range based on player position. 
+        //Montre la portée de mouvement
         public void DisplayMoveRange(GameObject focusedOnTile = null)
         {
             var tileToUse = focusedOnTile != null ? focusedOnTile.GetComponent<Tile>() : activeHero.activeTile;

@@ -11,12 +11,10 @@ namespace MercenariesProject
     public class GridManager : MonoBehaviour
     {
         public static GridManager Instance;
-        //public static GridManager Instance { get { return _instance; } }
 
         [SerializeField] Tile _overlayTile;
         [SerializeField] List<MapTile> MapTiles;
         public TileDataRuntimeSet tileTypeList;
-        //SerializeField] GameObject _TurnSystem;
         [SerializeField] private int XGridSize, ZGridSize;
         [SerializeField] private GameObject OverlayTilesContainer;
 
@@ -24,9 +22,9 @@ namespace MercenariesProject
 
         private Hero activeHero;
 
-         // Overlay tiles
+         // Tuiles overlay
         public Dictionary<Vector2Int, Tile> tileMap = new();
-         // Map cubes (uninteractable)
+         // Cubes de la map
         public Dictionary<Vector2Int, GameObject> grid = new();
 
         public GameEventStringList spawnHeroesByList;
@@ -42,14 +40,11 @@ namespace MercenariesProject
             {
                 Instance = this;
             }
-            //GenerateGrid();
-            //GenerateOverlayTiles();
         }
 
         public void GenerateGrid()
         {
 
-            //Dictionary<Vector2Int, GameObject> grid = new();
             GameObject CubeContainer = new GameObject("CubesTileContainer");
             for (int i = 0; i < XGridSize; i++)
             {
@@ -59,38 +54,20 @@ namespace MercenariesProject
                     MapTile randomTileType = GetRandomMapTile();
 
                     var randomTile = randomTileType.GetRandomVariant();
-                    //var tileLocation = new Vector2Int(i, j);
                     var spawnedTile = Instantiate(randomTile, new Vector3(i, -0.38f, j), Quaternion.identity);
-                    //grid[new Vector2Int(i, j)] = spawnedTile;
                     grid[new Vector2Int(i, j)] = spawnedTile;
                     spawnedTile.name = $"MapTile {i} {j}";
 
                     spawnedTile.transform.SetParent(CubeContainer.transform);
-                    //if (spawnedTile.isWalkable)
-                    //{
-                    //    var indicatorG = Instantiate(_acessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-                    //    indicatorG.name = $"IndicG {i} {j}";
-                    //    indicatorG.transform.SetParent(spawnedTile.transform);
-                    //}
 
-
-                    //_indicators[new Vector2Int(i, j)] = indicatorG;
-                    /*
-                    var indicatorR = Instantiate(_inacessibleTileIndicator, new Vector3(i, .125f, j), Quaternion.identity);
-                    indicatorR.name = $"IndicR {i} {j}";
-                    indicatorR.transform.SetParent(IndicContainer.transform);*/
-                    //spawnedTile.Init(i, j);
-                    //var isOffset = ((i + j) % 2 != 0);
-                    //spawnedTile.Init(isOffset);
-                    //spawnedTile.gridLocation = tileLocation;
-                    
                 }
 
             }
             GenerateOverlayTiles();
 
         }
-
+        
+        //Ancienne manière de déterminer les équipes avant le draft
         public void TempSetHeroesToSpawnList()
         {
             HeroesToSpawnList.heroesTospawn = new List<string> { "Knight", "Archer", "Mage", "Bard", "Vampire", "Gragas" };
@@ -99,7 +76,7 @@ namespace MercenariesProject
 
         public void GenerateOverlayTiles()
         {
-            //GameObject OverlayTilesContainer = new GameObject("OverlayTilesContainer");
+  
             if (tileTypeList)
             {
                 foreach (var tileData in tileTypeList.items)
@@ -111,13 +88,7 @@ namespace MercenariesProject
                 }
             }
 
-           // gridTilemap = gameObject.GetComponentInChildren<Tilemap>();
-            //tileMap = new Dictionary<Vector2Int, Tile>();
 
-
-
-
-            //loop through the tilemap and create all the overlay tiles
 
             for (int x = 0; x < XGridSize; x++)
             {
@@ -130,13 +101,11 @@ namespace MercenariesProject
 
                     overlayTile.transform.SetParent(OverlayTilesContainer.transform);
                     var tileKey = new Vector2Int(x, z);
-                    if (!tileMap.ContainsKey(tileKey))//gridTilemap.HasTile(tileKey) && 
+                    if (!tileMap.ContainsKey(tileKey)) 
                     {
 
                         var tileLocation = overlayTile.transform.position;
                         var baseTile = grid.GetValueOrDefault(tileKey);
-                        //overlayTile.transform.position = tileLocation;
-                        //overlayTile.GetComponent<SpriteRenderer>().sortingOrder = gridTilemap.GetComponent<TilemapRenderer>().sortingOrder;
                         overlayTile.gridLocation = new Vector2Int(x, z);
 
                         foreach (var tileData in tileTypeList.items)
@@ -190,7 +159,6 @@ namespace MercenariesProject
             {
                 
                     currentWeightIndex += Weights[counter];
-                // If we've hit or passed the weight we are after for this item then it's the one we want....
                 if (currentWeightIndex > itemWeightIndex)
                         return variant;
                 counter++;
@@ -298,7 +266,7 @@ namespace MercenariesProject
             return null;
         }
 
-        //Get list of overlay tiles by grid positions. 
+        //Cherche la liste de tuiles overlay par la position
         public List<Tile> GetOverlayTilesFromGridPositions(List<Vector2Int> positions)
         {
             List<Tile> overlayTiles = new List<Tile>();

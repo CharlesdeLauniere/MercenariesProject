@@ -26,7 +26,6 @@ namespace MercenariesProject
 
             turnOrder = new List<string>();
 
-            //the order should be consistent
             foreach (var item in characters)
             {
                 var spawnedObject = Instantiate(portraitPrefab, transform);

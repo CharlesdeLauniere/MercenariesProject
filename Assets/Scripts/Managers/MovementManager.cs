@@ -6,7 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace MercenariesProject
 {
-    //using static ArrowTranslator;
 
     public class MovementManager : MonoBehaviour
     {
@@ -22,7 +21,6 @@ namespace MercenariesProject
 
         private PathFinder pathFinder;
         private RangeFinder rangeFinder;
-        //private ArrowTranslator arrowTranslator;
         [SerializeField] private List<Tile> path = new List<Tile>();
         [SerializeField] private List<Tile> inRangeTiles = new List<Tile>();
         [SerializeField] private List<Tile> inAttackRangeTiles = new List<Tile>();
@@ -34,13 +32,10 @@ namespace MercenariesProject
         {
             pathFinder = new PathFinder();
             rangeFinder = new RangeFinder();
-            //arrowTranslator = new ArrowTranslator();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            //Is this the best way? Not sure
             if (activeHero && !activeHero.isAlive)
             {
                 ResetMovementManager();
@@ -52,18 +47,12 @@ namespace MercenariesProject
                 {
                     path = pathFinder.FindPath(activeHero.activeTile, focusedTile, inRangeTiles, false, moveThroughAllies);
 
-                    //foreach (var item in inRangeTiles)
-                    //{
-                    //    item.SetArrowSprite(ArrowDirection.None);
-                    //}
 
                     for (int i = 0; i < path.Count; i++)
                     {
                         var previousTile = i > 0 ? path[i - 1] : activeHero.activeTile;
                         var futureTile = i < path.Count - 1 ? path[i + 1] : null;
 
-                        //var arrowDir = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
-                        //path[i].SetArrowSprite(arrowDir);
                     }
                 }
             }
@@ -80,7 +69,7 @@ namespace MercenariesProject
                 MoveAlongPath();
             }
 
-            //Cancel movement
+            //Annule le mouvement
             if (Input.GetKeyDown(KeyCode.Escape) && movementModeEnabled)
             {
                 cancelActionEvent.Raise("Move");
@@ -88,7 +77,7 @@ namespace MercenariesProject
             }
         }
 
-        //Resets movement mode when movement has Finished or is Cancelled. 
+        //Réinitialise le manager lorsqu'il y a une annulation ou un nouveau tour
         public void ResetMovementManager()
         {
             movementModeEnabled = false;
@@ -97,27 +86,20 @@ namespace MercenariesProject
             activeHero.CharacterMoved();
         }
 
-        //Move along a set path.
+        //Fait le déplacement selon un trajet prédéfini
         private void MoveAlongPath()
         {
-            /*Animator anim = activeHero.GetComponentInChildren<Animator>();
-            if (anim != null)
-            {
-                anim.Play("Base Layer.walking");
-
-            }*/
             activeHero.transform.position = Vector3.MoveTowards(activeHero.transform.position,
                 path[0].transform.position, speed * Time.deltaTime);
 
             Vector3 target = new Vector3 (path[0].transform.position.x, activeHero.transform.position.y, path[0].transform.position.z);
             activeHero.transform.GetChild(1).LookAt(target);
             activeHero.transform.position = new Vector3(activeHero.transform.position.x, 0.2f, activeHero.transform.position.z);
-            //activeCharacter.transform.position = new Vector3(activeCharacter.transform.position.x, activeCharacter.transform.position.y, activeCharacter.transform.position.z);
 
             if ((Mathf.Abs(activeHero.transform.position.x - path[0].transform.position.x) +
                 Mathf.Abs(activeHero.transform.position.z - path[0].transform.position.z)) < 0.01f)
             {
-                //last tile
+                //dernier déplacement
                 if (path.Count == 1)
                     PositionCharacterOnTile(activeHero, path[0]);
 
@@ -140,19 +122,18 @@ namespace MercenariesProject
         }
 
 
-        //Get all tiles in movement range. 
+        //Cherche tous les tuiles dans la zone de déplacement
         private void GetInRangeTiles()
         {
             var moveColor = OverlayTileColorManager.Instance.MoveRangeColor;
             if (activeHero && activeHero.activeTile)
             {
-                Debug.Log(activeHero.GetStat(Stats.MoveRange).statValue);
                 inRangeTiles = rangeFinder.GetTilesInRange(activeHero.activeTile, activeHero.GetStat(Stats.MoveRange).statValue, false, moveThroughAllies);
                 OverlayTileColorManager.Instance.ColorTiles(moveColor, inRangeTiles);
             }
         }
 
-        //Link character to tile once movement has finished
+        //Lie le personnage à sa tuile finale
         public void PositionCharacterOnTile(Hero character, Tile tile)
         {
             if (tile != null)
@@ -162,20 +143,9 @@ namespace MercenariesProject
             }
         }
 
-        //Movement event receiver for the AI
-        public void MoveCharacterCommand(List<GameObject> pathToFollow)
-        {
-            if (activeHero)
-            {
-                isMoving = true;
-                activeHero.UpdateInitiative(Constants.MoveCost);
 
-                if (pathToFollow.Count > 0)
-                    path = pathToFollow.Select(x => x.GetComponent<Tile>()).ToList();
-            }
-        }
 
-        //Moused over new tile and display the attack range. 
+        //montre la portée de l'attaque de base lorsque le joueur met son curseur sur une tuile de déplacement
         public void FocusedOnNewTile(GameObject focusedOnTile)
         {
             if (!isMoving)
@@ -185,7 +155,7 @@ namespace MercenariesProject
                 displayAttackRange.Raise(focusedOnTile);
         }
 
-        //Show all the tiles in attack range based on mouse position. 
+        //Montre la portée de l'attaque du personnage en bleu
         public void ShowAttackRangeTiles(GameObject focusedOnTile)
         {
             var attackColor = OverlayTileColorManager.Instance.AttackRangeColor;
@@ -194,7 +164,7 @@ namespace MercenariesProject
             OverlayTileColorManager.Instance.ColorTiles(attackColor, inAttackRangeTiles);
         }
 
-        //Set new active character
+        //Met une nouveau personnage comme actif
         public void SetActiveCharacter(GameObject character)
         {
             activeHero = character.GetComponent<Hero>();
@@ -203,20 +173,20 @@ namespace MercenariesProject
                 StartCoroutine(DelayedMovementmode());
         }
 
-        //Wait until next loop to avoid possible race condition. 
+        //Attend pour éviter problèmes
         IEnumerator DelayedMovementmode()
         {
             yield return new WaitForFixedUpdate();
             EnterMovementMode();
         }
 
-        //Set a character to a tile when it spawns. 
+        //Lie un personnage à sa tuile d'initialisation
         public void SpawnCharacter(GameObject newCharacter)
         {
             PositionCharacterOnTile(newCharacter.GetComponent<Hero>(), focusedTile);
         }
 
-        //Enter movement mode on button click.
+        //Mode mouvement
         public void EnterMovementMode()
         {
             GetInRangeTiles();

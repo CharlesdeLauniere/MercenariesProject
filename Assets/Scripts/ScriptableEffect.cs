@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //ScriptableEffects can be attached to both tiles and abilities. 
+    //Effets qu'on peut mettre sur les tuiles ou les habilités
     [CreateAssetMenu(fileName = "ScriptableEffect", menuName = "ScriptableObjects/ScriptableEffect")]
     public class ScriptableEffect : ScriptableObject
     {
