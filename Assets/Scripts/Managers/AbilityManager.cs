@@ -95,13 +95,16 @@ namespace MercenariesProject
                 {
                     case AbilityTypes.Ally:
                         character.HealEntity(ability.value);
+                        disableAbility.Raise(ability.Name);
                         break;
                     case AbilityTypes.Enemy:
                         character.TakeDamage(ability.value);
+                        disableAbility.Raise(ability.Name);
                         Debug.Log("Ability used");
                         break;
                     case AbilityTypes.All:
                         character.TakeDamage(ability.value);
+                        disableAbility.Raise(ability.Name);
                         break;
                     default:
                         break;
@@ -120,7 +123,6 @@ namespace MercenariesProject
             activeHero.UpdateInitiative(Constants.AbilityCost);
             activeHero.UpdateMana(ability.cost);
             activeHero.UpdateCharacterUI();
-            disableAbility.Raise(ability.Name);
             ability = null;
             OverlayTileColorManager.Instance.ClearTiles(null);
 
