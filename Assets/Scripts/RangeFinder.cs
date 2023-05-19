@@ -8,7 +8,6 @@ namespace MercenariesProject
 
     public class RangeFinder
     {
-        //Gets all tiles within a range
         public List<Tile> GetTilesInRange(Tile startingTile, int range, bool ignoreObstacles = false, bool walkThroughAllies = true)
         {
             var inRangeTiles = new List<Tile>();

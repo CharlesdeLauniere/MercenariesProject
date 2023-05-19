@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //Handles the colouring of tiles. 
+    //Met la couleur des tuiles overlay
     public class OverlayTileColorManager : MonoBehaviour
     {
         private static OverlayTileColorManager _instance;
@@ -38,7 +38,7 @@ namespace MercenariesProject
            
         }
 
-        //Remove colours from all tiles. 
+        //Enlève la couleur des tuiles overlay
         public void ClearTiles(Color? color = null)
         {
             if (color.HasValue)
@@ -78,7 +78,7 @@ namespace MercenariesProject
             }
         }
 
-        //Color tiles to specific color
+        //Met une couleur spécifique aux tuiles overlay
         public void ColorTiles(Color color, List<Tile> Tiles)
         {
             ClearTiles(color);
@@ -93,7 +93,7 @@ namespace MercenariesProject
             coloredTiles.Add(color, Tiles);
         }
 
-        //Color only one tile. 
+        //Met une couleur à une tuile spécifique
         public void ColorSingleTile(Color color, Tile tile)
         {
             ClearTiles(color);

@@ -37,7 +37,6 @@ namespace MercenariesProject
             { 
                 if (Input.GetKeyDown(KeyCode.Return) && activeHero.heroClass.abilities != null && ability != null)
                 {
-                    Debug.Log("cast");
                     CastAbility();
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) &&  ability != null)
@@ -64,33 +63,28 @@ namespace MercenariesProject
 
             var inRangeCharacters = new List<Hero>();
 
-            //get in range characters
+            //cherche les personnages dans la portée
             foreach (var tile in abilityAffectedTiles)
             {
 
                 var targetCharacter = tile.activeHero;
                 if (targetCharacter != null && CheckAbilityTargets(ability.abilityType, targetCharacter) && targetCharacter.isAlive)
                 {
-                    Debug.Log("targetaquired");
                     inRangeCharacters.Add(targetCharacter);
                 }
             }
-            foreach (var Hero in inRangeCharacters)
-            {
-                Debug.Log(Hero.heroClass.ClassName);
-            }
-            //attach effects
+       
+            //met les effets
             foreach (var character in inRangeCharacters)
             {
                 foreach (var effect in ability.effects)
                 {
-                    Debug.Log("effecting");
                     character.AttachEffect(effect);
                     if (effect.Duration == 0)
                         character.ApplySingleEffects(effect.GetStatKey());
                 }
 
-                //apply value
+                //applique la valeur
                 switch (ability.abilityType)
                 {
                     case AbilityTypes.Ally:
@@ -100,7 +94,6 @@ namespace MercenariesProject
                     case AbilityTypes.Enemy:
                         character.TakeDamage(ability.value);
                         disableAbility.Raise(ability.Name);
-                        Debug.Log("Ability used");
                         break;
                     case AbilityTypes.All:
                         character.TakeDamage(ability.value);
@@ -109,17 +102,14 @@ namespace MercenariesProject
                     default:
                         break;
                 }
-                //disable
                 
             }
-            //Brandon Here
             if (inRangeCharacters.Count != 0)
             {
                 effectManager.findAbility(ability.Name,activeHero.transform.position,inRangeCharacters);
             }
            
 
-            //turnsSinceUsed = 0;
             activeHero.UpdateInitiative(Constants.AbilityCost);
             activeHero.UpdateMana(ability.cost);
             activeHero.UpdateCharacterUI();
@@ -130,21 +120,9 @@ namespace MercenariesProject
             
 
         }
-        
-        //The event receiver for Casting an Ability. 
-        public void CastAbilityCommand(EventCommand abilityCommand)
-        {
-            if (abilityCommand is CastAbilityCommand)
-            {
-                CastAbilityCommand command = (CastAbilityCommand)abilityCommand;
-                CastAbilityParams castAbilityParams = command.StronglyTypedCommandParam();
-                abilityAffectedTiles = castAbilityParams.affectedTiles;
-                ability = castAbilityParams.ability;
-                CastAbility();
-            }
-        }
 
-        //Check if Abilities are targeting the right entities.
+
+        //Détermine si les cibles sont des alliés ou des ennemies 
         private bool CheckAbilityTargets(AbilityTypes abilityType, Hero characterTarget)
         {
             if (abilityType == AbilityTypes.Enemy)
@@ -162,10 +140,9 @@ namespace MercenariesProject
         public void SetActiveCharacter(GameObject activeChar)
         {
             activeHero = activeChar.GetComponent<Hero>();
-            //enable
         }
 
-        //Set the position the abilities origin.
+        //Place l'origine de l'habilité
         public void SetAbilityPosition(GameObject focusedOnTile)
         {
             var map = GridManager.Instance.tileMap;
@@ -195,7 +172,7 @@ namespace MercenariesProject
             }
         }
 
-        //Set ability casting mode. 
+        //Mode lorsque le joueur pèse sur le bouton habilités
         public void AbilityModeEvent(string abilityName)
         {
             OverlayTileColorManager.Instance.ClearTiles(null);
@@ -211,7 +188,7 @@ namespace MercenariesProject
             }
         }
 
-        //Cancel ability casting mode. 
+        //Annule le mode habilité
         public void CancelEventMode()
         {
             OverlayTileColorManager.Instance.ClearTiles(null);

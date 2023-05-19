@@ -10,26 +10,12 @@ namespace MercenariesProject
     {
         private List<Button> actionButtons;
 
-        // Start is called before the first frame update
         void Start()
         {
             actionButtons = GetComponentsInChildren<Button>().ToList();
         }
 
-        //If it's a character, enable all the UI. If it's an Enemy, disable all the UI.
-        //public void StartNewCharacterTurn(GameObject activeCharacter)
-        //{
-        //    if (activeCharacter.GetComponent<Hero>().teamID == 1)
-        //    {
-        //        EnableUI();
-        //    }
-        //    else
-        //    {
-        //        DisableUI();
-        //    }
-        //}
-
-        //Enable all the buttons.
+        //Active les boutons
         public void EnableUI()
         {
             foreach (var item in actionButtons)
@@ -38,7 +24,7 @@ namespace MercenariesProject
             }
         }
 
-        //Disable all the buttons. 
+        //Désactive les boutons
         public void DisableUI()
         {
             foreach (var item in actionButtons)
@@ -47,7 +33,7 @@ namespace MercenariesProject
             }
         }
 
-        //Cancel an action and reenable the button. 
+        //Annule une action
         public void CancelActionState(string actionButton)
         {
             var button = actionButtons.Where(x => x.GetComponentInChildren<Text>().text == actionButton).First();

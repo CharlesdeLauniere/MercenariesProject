@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //The ability object
+   
     [CreateAssetMenu(fileName = "Ability", menuName = "ScriptableObjects/Ability", order = 1)]
     public class Ability : ScriptableObject
     {
@@ -37,6 +37,6 @@ namespace MercenariesProject
             All
         }
 
-        //TODO damage types
+       
     }
 }

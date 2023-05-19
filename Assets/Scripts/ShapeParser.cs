@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //Gets all the tiles based on the shape of an ability. Check the text files for examples. 
+    //Détermine la formede l'habilité en se fiant sur une matrice de 0, 1, 2 et 3
     public class ShapeParser
     {
 
@@ -36,7 +36,6 @@ namespace MercenariesProject
             return affectedTiles;
         }
 
-        //convert text file to a nested array. 
         private static int[,] mapAbility(TextAsset defaultAbility)
         {
             int i = 0;

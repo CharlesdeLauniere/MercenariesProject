@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MercenariesProject
 {
-    //Haven't found a great use for this yet. A list of scriptable objects. 
+    //Liste de scriptable objects
     public class RuntimeSet<T> : ScriptableObject
     {
         public List<T> items = new List<T>();

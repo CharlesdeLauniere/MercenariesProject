@@ -32,7 +32,6 @@ namespace MercenariesProject
             baseStatValue = newValue;
         }
 
-        //Apply a modifier to a stat. Change stat value. 
         public void ApplyStatMods()
         {
             foreach (var statMod in statMods)

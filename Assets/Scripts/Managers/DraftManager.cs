@@ -16,7 +16,6 @@ public class DraftManager : MonoBehaviour
     public List<string> redHeroesTospawn;
     public List<string> blueHeroesTospawn;
 
-    //public GameObject _archerSkills;
     [SerializeField] GameObject nextScene;
     [SerializeField] TextMeshProUGUI _text;
     [SerializeField] GameObject X;
