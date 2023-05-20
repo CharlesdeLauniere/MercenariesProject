@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -153}
-  m_SizeDelta: {x: 134.57, y: 47.8096}
+  m_AnchoredPosition: {x: -182.4, y: -148.82712}
+  m_SizeDelta: {x: 134.57, y: 68.4638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84897654
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lave
+  m_text: "Indique l'\xE9quipe \xE0 jouer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271, y: 43}
+  m_AnchoredPosition: {x: -82.1, y: 121.7}
   m_SizeDelta: {x: 134.57, y: 47.8096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386191203
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lave
+  m_text: Barre d'initiative
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -968,17 +968,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941582230}
-  m_LocalRotation: {x: -0.9493159, y: -0.28995496, z: 0.09625096, w: -0.073900215}
-  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_LocalRotation: {x: -0.92151046, y: -0.3844707, z: 0.030903121, w: -0.04523051}
+  m_LocalPosition: {x: 0, y: 0, z: 29.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 146878405}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 11.311, y: -171.798, z: 146.844}
+  m_LocalEulerAnglesHint: {x: 6.15, y: 181.278, z: 494.775}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260, y: 71}
+  m_AnchoredPosition: {x: -292.2, y: -98.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941582232
@@ -1198,7 +1198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 109.283}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: -96}
+  m_AnchoredPosition: {x: -125.3, y: 163.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184226096
@@ -1274,7 +1274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 11}
+  m_AnchoredPosition: {x: 0.000027657, y: 0}
   m_SizeDelta: {x: 246.0209, y: 143.9471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244536622
@@ -1297,9 +1297,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Marcher sur une case de type lave inflige des d\xE9gats au personnage
-    pendant 2 tours. Cependant, la travers\xE9 pendant un d\xE9placement aura aucun
-    effet."
+  m_text: "La barre d'initiative est utile pour voir l'ordre des tours. Par exemple,
+    on peut voir que Gragas vas jouer dans 2 tours. Utiliser la barre d'initiative
+    \xE0 votre avantage !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1629,8 +1629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285.64337, y: -143.91}
-  m_SizeDelta: {x: 349.645, y: 187.82}
+  m_AnchoredPosition: {x: 270.34393, y: -143.91}
+  m_SizeDelta: {x: 380.2439, y: 187.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069937873
 MonoBehaviour:

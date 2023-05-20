@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System;
 using static UnityEngine.GraphicsBuffer;
+using TMPro;
 
 namespace MercenariesProject
 {
@@ -28,24 +29,27 @@ namespace MercenariesProject
         [SerializeField] GameObject _veninEffect;
 
 
-
+        //Ces objets servent seulement pour des tests
         [SerializeField] GameObject _target;
         [SerializeField] GameObject _player;
 
         public AudioSource _source;
         public List<AudioClip> _clips;
-        public bool _soundOn{ get; set; }
+        public TextMeshProUGUI _text;
+        public bool _soundOn;
 
         public void findAbility(string animName, Vector3 playerPos, List<Hero> target)
         {
-            _soundOn = true;
+            
             List<Vector3> targetPos =new List<Vector3>();
 
+            //On transforme la liste de Hero en argument en liste de vecteur de ces Heros
             for(int i=0; i<target.Count; i++)
             {
                 targetPos.Add(target[i].transform.position);
             }
- 
+
+            //Ce switch permet d'appeler la fonction d'effet voulu en fonction du nom de l'habilité
             switch (animName)
             {
                 //Knight-----------------------------
@@ -85,6 +89,7 @@ namespace MercenariesProject
                     break;
                 case "Venin":
                     StartCoroutine(Venin(playerPos, targetPos));
+                    if (_soundOn == true) { _source.PlayOneShot(_clips[5]); }
                     break;
                 //Bard-------------------------------
                 case "Fausser":
@@ -99,12 +104,12 @@ namespace MercenariesProject
                     break; 
                 //Archer-----------------------------
                 case "Baliste":
-                    
+                    //Je ne savais pas vraiment quoi mettre, car les assets de particle effects de flèche sont tous payant. 
                     
                     break;
                 case "Slave":
-                    
-                    
+                    //Je ne savais pas vraiment quoi mettre, car les assets de particle effects de flèche sont tous payant. 
+
                     break;
                 case "Artrium":
                     StartCoroutine(MagicArrow(playerPos, targetPos));
@@ -118,8 +123,9 @@ namespace MercenariesProject
                     HealEffect(playerPos, targetPos);
                     break;
                 case "invocateur":
+                    //Je ne savais pas vraiment quoi mettre, car les assets de particle effects de laser sont tous payant. 
                     break;
-               
+    
                 default: 
                     break;
             }
@@ -298,15 +304,26 @@ namespace MercenariesProject
             }
 
         }
-
+        public void BouttonChangerSoundEffect()
+        {
+            if (_soundOn == true)
+            {
+                _soundOn = false;
+                _text.text = "Son attaque : Non";
+            }
+            else if (_soundOn == false)
+            {
+                _soundOn = true;
+                _text.text = "Son attaque : Oui";
+            }
+        }
         public void Start()
         {
-            //Only for test
+            _soundOn = true;
+
+            //Pour faire des tests
             //List<Vector3> list = new List<Vector3>();
             //list.Add(_target.transform.position);
-
-
-
             //StartCoroutine(MagicArrow(_player.transform.position, list));
         }
 

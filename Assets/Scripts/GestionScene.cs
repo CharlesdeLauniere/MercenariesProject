@@ -19,11 +19,16 @@ namespace MercenariesProject
         {
             SceneManager.LoadScene(1);
         }
+        public void AllerSceneTutoriel()
+        {
+            SceneManager.LoadScene(3);
+        }
         public void nextScene()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(currentSceneIndex + 1);
         }
+       
     }
 }
 
